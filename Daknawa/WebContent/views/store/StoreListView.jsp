@@ -172,7 +172,7 @@
     
     
     <div>
-      <link href="resources/css/category-filters5.css" rel="stylesheet" />
+      <link href="resources/css/category-filters5.css" rel="stylesheet"/>
       
 	  <form id="keywordList-form" action="<%= contextPath %>/list.st?currentPage=1" method="post" >
 	  
