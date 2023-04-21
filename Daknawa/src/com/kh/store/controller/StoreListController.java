@@ -10,15 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.common.model.vo.PageInfo;
-import com.kh.post.model.service.PostService;
-import com.kh.post.model.vo.Post;
 import com.kh.store.model.service.StoreService;
 import com.kh.store.model.vo.Store;
 
 /**
- * Servlet implementation class StoreListController
+ * Servlet implementation class StoreKeywordListController
  */
-@WebServlet("/ldssssist.st")
+@WebServlet("/list.st")
 public class StoreListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -36,8 +34,6 @@ public class StoreListController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
-		String brandName = request.getParameter("bname");
-		String keyword = request.getParameter("keyword");
 		
 		int listCount; // 총 게시글 수
 		int currentPage; // 사용자가 요청하는 현재 페이지
@@ -48,14 +44,27 @@ public class StoreListController extends HttpServlet {
 		int startPage; // 페이징바의 시작수
 		int endPage; // 페이징바의 끝수
 		
+		// 검색 전달값을 뽑아서 변수에 기록
+		
+		String brandName = request.getParameter("bname");
+		String keyword = request.getParameter("keyword");
+		if(brandName == null && keyword == null) {
+			brandName = "";
+			keyword = "";
+		}
+		System.out.println("브랜드값 받기 : " + brandName);
+		System.out.println("키워드값 받기 : " + keyword);
+		
 		// * listCount : 총 게시글 갯수 (삭제된 게시글은 제외하고 카운트)
 		listCount = new StoreService().selectKeywordListCount(brandName, keyword);
 		
+		System.out.println("브랜드 키워드 값 받기 : " + listCount);
+		
 		currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		
-		pageLimit = 4;
+		pageLimit = 10;
 		
-		postLimit = 10; 
+		postLimit = 8;
 		
 		maxPage = (int)Math.ceil((double)listCount /postLimit);
 		
@@ -90,7 +99,7 @@ public class StoreListController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		doGet(request, response);
 	}
 
