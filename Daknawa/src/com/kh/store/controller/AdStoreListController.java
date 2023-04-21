@@ -88,7 +88,7 @@ public class AdStoreListController extends HttpServlet {
 		sn.setTitle1("ADMIN PAGE");
 		sn.setTitle1Addr("admin.me");
 		sn.setTitle2("매장 관리");
-		sn.setTitle2Addr("adlist.st?currentPage=1");
+		sn.setTitle2Addr("adlist.st");
 		sn.setTitle3("전체 매장 조회");
 		sn.setActive1("1");
 		sn.setActive2("active");
