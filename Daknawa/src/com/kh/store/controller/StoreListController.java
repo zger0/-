@@ -64,7 +64,7 @@ public class StoreListController extends HttpServlet {
 		
 		pageLimit = 10;
 		
-		postLimit = 4;
+		postLimit = 8;
 		
 		maxPage = (int)Math.ceil((double)listCount /postLimit);
 		
