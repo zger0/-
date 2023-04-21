@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kh.common.model.vo.Attachment;
 import com.kh.common.model.vo.PageInfo;
+import com.kh.member.model.vo.Member;
 import com.kh.menu.model.service.MenuService;
 import com.kh.menu.model.vo.Menu;
 
@@ -170,6 +171,7 @@ public class MenuListController extends HttpServlet {
 
     ArrayList<Menu> list = new MenuService().selectPageList(pi);
 	ArrayList<Attachment> ilist = new MenuService().selectImgPageList(pi);
+	
 
     request.setAttribute("list", list);
     request.setAttribute("ilist", ilist);
