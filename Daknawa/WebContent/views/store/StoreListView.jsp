@@ -138,34 +138,12 @@
       <link href="resources/css/layout155.css" rel="stylesheet" />
       <div class="layout155-container">
         <div class="layout155-layout155">
-          <div id="map" style="width:1100px;height:700px;"></div>
-          <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2d566a338a02241ce115c4453b6b7ac5"></script>
-          <script>
-            var container = document.getElementById('map');
-            var options = {
-              center: new kakao.maps.LatLng(37.54699, 127.09598),
-              level: 3
-            };
-        
-            var map = new kakao.maps.Map(container, options);
-
-            var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png', // 마커이미지의 주소입니다    
-            imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
-            imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-              
-            // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-            var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-                markerPosition = new kakao.maps.LatLng(37.54699, 127.09598); // 마커가 표시될 위치입니다
-
-            // 마커를 생성합니다
-            var marker = new kakao.maps.Marker({
-                position: markerPosition, 
-                image: markerImage // 마커이미지 설정 
-            });
-
-            // 마커가 지도 위에 표시되도록 설정합니다
-            marker.setMap(map); 
-          </script>
+          <img
+            src="resources/css/public/playground_assets/placeholderimagei146-u1p7-700h.png"
+            alt="PlaceholderImageI146"
+            class="layout155-placeholder-image"
+            style="width: 90%; margin: 0 auto"
+          />
         </div>
       </div>
     </div>
@@ -223,7 +201,7 @@
 			</div>
 				<select name="bname" class="category-filters5-select2">
 					<option value="" selected>브랜드조회</option>
-					<option value="전체">전체</option>
+					<option value="">전체</option>
 	 				<option value="BHC">BHC</option>
 	 				<option value="바른치킨">바른치킨</option>
 	 				<option value="푸라닭">푸라닭</option>
