@@ -116,6 +116,8 @@
         color: var(--dl-color-gray-black);
         background-color: var(--dl-color-gray-white);
       }
+
+      a:hover { color:black !important; }
     </style>
     
     <link
@@ -138,33 +140,69 @@
       <link href="resources/css/layout155.css" rel="stylesheet" />
       <div class="layout155-container">
         <div class="layout155-layout155">
-           <div id="map" style="width:1100px;height:700px;"></div>
-          <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2d566a338a02241ce115c4453b6b7ac5"></script>
+           <div id="map" style="width:1400px;height:700px;"></div>
+          <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2d566a338a02241ce115c4453b6b7ac5&libraries=services"></script>
+          
           <script>
-            var container = document.getElementById('map');
-            var options = {
-              center: new kakao.maps.LatLng(37.54699, 127.09598),
-              level: 3
-            };
-        
-            var map = new kakao.maps.Map(container, options);
+            
+        // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+        var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
-            var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png', // 마커이미지의 주소입니다    
-            imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
-            imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-              
-            // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-            var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-                markerPosition = new kakao.maps.LatLng(37.54699, 127.09598); // 마커가 표시될 위치입니다
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = {
+                center: new kakao.maps.LatLng(37.533758199999944, 126.89699999999971), // 지도의 중심좌표
+                level: 5, // 지도의 확대 레벨
+                scrollwheel : false
+            };  
+            var map = new kakao.maps.Map(mapContainer, mapOption); 
 
-            // 마커를 생성합니다
+        // 주소-좌표 변환 객체를 생성합니다
+        var geocoder = new kakao.maps.services.Geocoder();
+
+          // 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+var mapTypeControl = new kakao.maps.MapTypeControl();
+
+// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+var zoomControl = new kakao.maps.ZoomControl();
+map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+
+        var coords = [];
+        <% for(Store s : list) {   %>
+        console.log(1);
+        // 주소로 좌표를 검색합니다
+        geocoder.addressSearch('<%= s.getStoreAddress() %>', function(result, status) {
+        console.log('<%= s.getStoreAddress() %>');
+                // 정상적으로 검색이 완료됐으면 
+        if (status === kakao.maps.services.Status.OK) {
+
+            coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+            // 결과값으로 받은 위치를 마커로 표시합니다
             var marker = new kakao.maps.Marker({
-                position: markerPosition, 
-                image: markerImage // 마커이미지 설정 
+                map: map,
+                position: coords
             });
 
-            // 마커가 지도 위에 표시되도록 설정합니다
-            marker.setMap(map); 
+            // 인포윈도우로 장소에 대한 설명을 표시합니다
+            var infowindow = new kakao.maps.InfoWindow({
+                content: '<div style="width:150px;text-align:center;padding:6px 0;"><%= s.getStoreName() %></div>'
+            });
+            infowindow.open(map, marker);
+
+            // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+            map.setCenter(coords);
+            kakao.maps.event.addListener(marker, 'click', function() {
+            // 마커 위에 인포윈도우를 표시합니다
+              document.location.href = '#<%= s.getStoreName() %>';
+          });
+        } 
+    });    
+    <%  } %>
+
           </script>
         </div>
       </div>
@@ -257,10 +295,11 @@
           <div class="career17-content1">
           
           <% for(Store s : list) { %>
+            <a href="#map" style="text-decoration: none;">
             <div class="career17-card">
               <div class="career17-job">
                 <span class="career17-text03 HeadingH5">
-                  <span><%= s.getStoreName() %></span>
+                  <span id="<%= s.getStoreName() %>"><%= s.getStoreName() %></span>
                 </span>
                 
                 <span class="career17-text05 TextRegularNormal">
@@ -300,6 +339,7 @@
                 </div>
               </div>
             </div>
+          </a>
             <% } %>
             
           </div>
