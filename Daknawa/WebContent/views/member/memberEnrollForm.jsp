@@ -194,6 +194,8 @@
 								checkArr[0] = true;
 								
 							} else { // 아이디 사용 X
+							
+								$userId.attr("readonly", false);
 								
 								$userId.focus();
 							
@@ -244,6 +246,8 @@
 								
 							} else { // 닉네임 사용 X
 								
+								$userNickname.attr("readonly", false);
+								
 								$userNickname.focus();
 							
 								checkArr[1] = false;
@@ -261,6 +265,9 @@
     		if(checkArr[0] && checkArr[1]) {
     			
     			$("#memberInsert-form button[type=submit]").removeAttr("disabled"); // 회원가입버튼 활성화
+    		} else {
+    			
+    			$("#memberInsert-form button[type=submit]").attr("disabled", true);	
     		}
     	}
     	

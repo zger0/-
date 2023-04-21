@@ -540,6 +540,10 @@
 							
 						} else { // 닉네임 사용 X
 							
+							$("#infoUpdate-form button[type=submit]").attr("disabled", true);
+							
+							$userNickname.attr("readonly", false);
+							
 							$userNickname.focus();
 
 						}
