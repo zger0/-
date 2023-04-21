@@ -138,7 +138,7 @@
       <link href="resources/css/layout155.css" rel="stylesheet" />
       <div class="layout155-container">
         <div class="layout155-layout155">
-          <div id="map" style="width:1100px;height:700px;"></div>
+           <div id="map" style="width:1100px;height:700px;"></div>
           <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2d566a338a02241ce115c4453b6b7ac5"></script>
           <script>
             var container = document.getElementById('map');
@@ -172,7 +172,7 @@
     
     
     <div>
-      <link href="resources/css/category-filters5.css" rel="stylesheet" />
+      <link href="resources/css/category-filters5.css" rel="stylesheet"/>
       
 	  <form id="keywordList-form" action="<%= contextPath %>/list.st?currentPage=1" method="post" >
 	  
@@ -223,7 +223,7 @@
 			</div>
 				<select name="bname" class="category-filters5-select2">
 					<option value="" selected>브랜드조회</option>
-					<option value="전체">전체</option>
+					<option value="">전체</option>
 	 				<option value="BHC">BHC</option>
 	 				<option value="바른치킨">바른치킨</option>
 	 				<option value="푸라닭">푸라닭</option>
