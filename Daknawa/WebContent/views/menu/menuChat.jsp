@@ -123,16 +123,16 @@ body {
         });
 
         // 메시지 수신 시 처리
-       socket.onmessage = function (event) {
-    const message = event.data;
-    const messageElement = document.createElement("div");
+        socket.onmessage = function (event) {
+			const message = event.data;
+			const messageElement = document.createElement("div");
 
-    // 보낸 사용자 정보와 함께 메시지 출력
-    messageElement.innerHTML = message;
+			// 보낸 사용자 정보와 함께 메시지 출력
+			messageElement.innerHTML = message;
 
-    chatBox.appendChild(messageElement);
-};
-        
+			chatBox.appendChild(messageElement);
+		};
+				
   
 
 

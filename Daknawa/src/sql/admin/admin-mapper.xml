@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<!-- 게시글 모든 정보 -->
+    <entry key="selectAdminPostList">
+     	SELECT POST_NO, POST_TITLE, POST_CONTENT, MEMBER_NICKNAME, POST_VIEW, POST_DATE
+					FROM POST P
+					JOIN POST_CATEGORY USING (POST_CAT_NO)
+					JOIN MEMBER USING (MEMBER_NO)
+				ORDER BY POST_NO DESC
+	</entry>
+
+</properties>

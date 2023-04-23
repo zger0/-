@@ -41,11 +41,11 @@ public class MenuDetailController extends HttpServlet {
 		    // 로그인하지 않은 사용자일 경우 처리할 내용 작성
 		    // 예를 들어, 로그인 화면으로 이동하는 등의 처리가 가능합니다.
 		} else {
-		    int mbno = loginUser.getUserNo();
-		    int heart = new MenuService().selectHeart(mbno, mno);
-		    if(heart > 0) {
-		    	request.setAttribute("heart", heart);
-		    }
+			int mbno = loginUser.getUserNo();
+			int heart = new MenuService().selectHeart(mbno, mno);
+			if(heart > 0) {
+				request.setAttribute("heart", heart);
+			}
 		}
 		  
 		int love = new MenuService().heartCount(mno);

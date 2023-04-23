@@ -91,8 +91,6 @@ public class StoreListController extends HttpServlet {
 		request.setAttribute("list", list);
 		
 		request.getRequestDispatcher("views/store/StoreListView.jsp").forward(request, response);
-		
-
 	}
 
 	/**
