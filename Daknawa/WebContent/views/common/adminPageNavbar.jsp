@@ -220,9 +220,9 @@
 	                    </ul>
 	                </li>
 	                <li class="<%= sn.getActive2() %>">
-	                    <a href="adlist.st?currentPage=1">매장 관리</a>
+	                    <a href="store.ad">매장 관리</a>
 	                    <ul>
-	                        <li><a href="adlist.st?currentPage=1">전체 매장 조회</a></li>
+	                        <li><a href="store.ad">전체 매장 조회</a></li>
 	                        <li><a href="adlist.st?currentPage=1">???</a></li>
 	                        <li><a href="adlist.st?currentPage=1">???</a></li>                   
 	                    </ul>

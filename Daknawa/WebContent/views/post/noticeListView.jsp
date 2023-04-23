@@ -9,7 +9,6 @@
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();
 	int maxPage = pi.getMaxPage();
-	
 %>    
 <!DOCTYPE html>
 <html>

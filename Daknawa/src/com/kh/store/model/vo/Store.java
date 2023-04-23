@@ -11,7 +11,7 @@ public class Store {
 	private String mapLng;  		//	MAP_LNG VARCHAR2(15)
 	private String brandNo;     	//	BRAND_NO VARCHAR(15) 
 	private String brandName;
-	private int startRow;
+	private int startRow;	
 	private int endRow;
 	
 	public Store( ) { }

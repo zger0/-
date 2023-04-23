@@ -16,5 +16,10 @@
   		 FROM QNA
 	</entry>
 
+	<entry key="selectStoreList">
+      SELECT STORE_NO, STORE_NAME, STORE_ADDRESS, STORE_PHONE ,STORE_TIME, STATUS, BRAND_NAME
+		FROM STORE
+		JOIN BRAND USING (BRAND_NO)
+	</entry>	
 
 </properties>
