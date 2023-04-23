@@ -3,7 +3,9 @@ package com.kh.member.model.service;
 import static com.kh.common.JDBCTemplate.*;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
+import com.kh.common.model.vo.PageInfo;
 import com.kh.member.model.dao.MemberDao;
 import com.kh.member.model.vo.Member;
 
@@ -163,6 +165,30 @@ public class MemberService {
 		close(conn);
 		
 		return gradeName;
+	}
+
+	// 총 회원 수(닉네임 검색 시 포함) 조회 서비스
+	public int selectListCount(String nickName) {
+		
+		Connection conn = getConnection();
+		
+		int listCount = new MemberDao().selectListCount(conn, nickName);
+		
+		close(conn);
+		
+		return listCount;
+	}
+
+	// 회원리스트 조회용 서비스
+	public ArrayList<Member> selectList(String nickName, PageInfo pi) {
+
+		Connection conn = getConnection();
+		
+		ArrayList<Member> list = new MemberDao().selectList(conn, nickName, pi);
+		
+		close(conn);
+		
+		return list;
 	}
 
 }

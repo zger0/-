@@ -1,15 +1,18 @@
 package com.kh.member.model.dao;
 
+import static com.kh.common.JDBCTemplate.close;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Properties;
 
+import com.kh.common.model.vo.PageInfo;
 import com.kh.member.model.vo.Member;
-import static com.kh.common.JDBCTemplate.*;
 
 public class MemberDao {
 	
@@ -364,6 +367,7 @@ public class MemberDao {
 		return email;
 	}
 
+	// 회원등급 조회
 	public String selectGradeName(Connection conn, int userPoint) {
 
 		String gradeName = null;
@@ -393,6 +397,85 @@ public class MemberDao {
 		
 		
 		return gradeName;
+	}
+
+	// 총 회원 수(닉네임 검색 시 포함) 조회 서비스
+	public int selectListCount(Connection conn, String nickName) {
+
+		int listCount = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectListCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, "%" + nickName + "%");
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				
+				listCount = rset.getInt("COUNT"); // 별칭으로도 데이터 뽑기 가능
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+		
+			close(rset);
+			close(pstmt);
+		}
+		
+		return listCount;
+	}
+
+	public ArrayList<Member> selectList(Connection conn, String nickName, PageInfo pi) {
+
+		ArrayList<Member> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			int startRow = (pi.getCurrentPage() - 1) * pi.getPageLimit() + 1;
+			int endRow = startRow + pi.getPageLimit() - 1;
+			
+			pstmt.setString(1, nickName);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				list.add(new Member(rset.getInt("MEMBER_NO")
+								  , rset.getString("MEMBER_ID")
+								  , rset.getString("MEMBER_PWD")
+								  , rset.getString("MEMBER_NICKNAME")
+								  , rset.getString("MEMBER_NAME")
+								  , rset.getString("EMAIL")
+								  , rset.getString("PHONE")
+								  , rset.getString("BIRTH")
+								  , rset.getString("GENDER")
+								  , rset.getString("ADDRESS1")
+								  , rset.getString("ADDRESS2")
+								  , rset.getString("BLACKLIST")
+								  , rset.getInt("USERPOINT")
+								  , rset.getString("STATUS")
+								  ));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return list;
 	}
 	
 	

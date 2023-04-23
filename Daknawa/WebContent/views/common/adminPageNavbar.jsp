@@ -213,9 +213,9 @@
 		    <div class="mnb_header">
 		        <ul id="mnb_sub">
 	            	<li class="<%= sn.getActive1() %>">
-	                    <a href="admin.me">회원 관리</a>
+	                    <a href="list.me?currentPage=1">회원 관리</a>
 	                    <ul>
-	                        <li style="display: block !important;"><a href="admin.me">회원정보 조회</a></li>
+	                        <li style="display: block !important;"><a href="list.me?currentPage=1">회원정보 조회</a></li>
 	                        <li style="display: block !important;"><a href="admin.me">회원 탈퇴</a></li>                   
 	                    </ul>
 	                </li>

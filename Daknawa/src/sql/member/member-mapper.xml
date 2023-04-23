@@ -112,4 +112,29 @@
  	 	 WHERE ? BETWEEN POINT_MIN AND POINT_MAX
 	</entry>
 	
+	<!-- 총 회원 수 조회용 쿼리문 -->
+	<entry key="selectListCount">
+		SELECT COUNT(*) COUNT
+		  FROM MEMBER
+		 WHERE STATUS = 'Y'		 
+		   AND MEMBER_NICKNAME LIKE ?
+	</entry>
+	
+	<!-- 회원 조회용 쿼리문 -->
+	<entry key="selectList">
+		SELECT *
+		  FROM (
+		    SELECT ROWNUM RNUM
+		         , A.*
+		      FROM (
+		        SELECT *
+		          FROM MEMBER
+		         WHERE MEMBER_NICKNAME = ?
+		           AND STATUS = 'Y'
+		         ORDER BY MEMBER_NO DESC
+		      ) A
+		  )
+		 WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
 </properties>
