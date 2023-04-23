@@ -74,7 +74,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="data-table-list">
                         <div class="basic-tb-hd">
-                            <h2>문의글 관리 테이블</h2>
+                            <h2>문의글 관리 테이블></h2>
                             <p>공지, 자유, 사진 게시판 관리</p>
                         </div>
                         <div class="table-responsive">

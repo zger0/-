@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.kh.store.model.vo.*"%>
-<%
-	Store s = (Store)request.getAttribute("s");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +14,8 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-example-wrap" >
-                        <form id="update-form" action="<%= contextPath %>/update.st" method="post" >
-                            <input type="hidden" name="sno" value="<%= s.getStoreNo() %>">
+                        <form id="update-form" action="<%= contextPath %>/insert.st" method="post" >
+
                             <div class="cmp-tb-hd" style="margin-bottom: 25px; margin-top: 40px; text-align: center;">
                                 <h2>매장 정보 추가</h2>
                             </div>
@@ -26,7 +23,7 @@
                                 <div class="form-group">
                                     <label>브랜드명</label>
                                     <div class="nk-int-st">
-                                        <input type="text" class="form-control input-sm" name="bname" value="<%= s.getBrandName() %>" required>
+                                        <input type="text" class="form-control input-sm" name="bname" required>
                                     </div>
                                 </div>
                             </div>
@@ -34,7 +31,7 @@
                                 <div class="form-group">
                                     <label>매장명</label>
                                     <div class="nk-int-st">
-                                        <input type="text" class="form-control input-sm" name="sname" value="<%= s.getStoreName() %>" required>
+                                        <input type="text" class="form-control input-sm" name="sname" required>
                                     </div>
                                 </div>
                             </div>
@@ -42,7 +39,7 @@
                                 <div class="form-group">
                                     <label>매장주소</label>
                                     <div class="nk-int-st">
-                                        <input type="text" class="form-control input-sm" name="address" value="<%= s.getStoreAddress() %>" required>
+                                        <input type="text" class="form-control input-sm" name="address"required>
                                     </div>
                                 </div>
                             </div>
@@ -50,7 +47,7 @@
                                 <div class="form-group">
                                     <label>매장전화번호</label>
                                     <div class="nk-int-st">
-                                        <input type="text" class="form-control input-sm" name="phone" value="<%= s.getStorePhone() %>" required>
+                                        <input type="text" class="form-control input-sm" name="phone"  required>
                                     </div>
                                 </div>
                             </div>
@@ -58,7 +55,7 @@
                                 <div class="form-group">
                                     <label>영업시간</label>
                                     <div class="nk-int-st">
-                                        <input type="text" class="form-control input-sm" name="time" value="<%= s.getStoreTime() %>">
+                                        <input type="text" class="form-control input-sm" name="time">
                                     </div>
                                 </div>
                             </div>

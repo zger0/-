@@ -73,20 +73,23 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="data-table-list">
-                        <div class="basic-tb-hd">
-                            <h2>매장 관리 테이블</h2>
+                        <div class="basic-tb-hd" style="text-align: justify;">
+                            <h2>
+                              매장 관리 테이블 
+                              <a href="insertForm.st" style="margin-right: 20px; float :right; font-size : 25px;">매장추가</a> 
+                            </h2>
                             <p>매장 정보 관리</p>
                         </div>
                         <div class="table-responsive">
                             <table id="data-table-basic" class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>매장 번호</th>
+                                        <th>번호</th>
                                         <th>매장 주소</th>
                                         <th>브랜드 명</th>
                                         <th>매장 이름</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+                                        <th>수정</th>
+                                        <th>삭제</th>
                                     </tr>
                                 </thead>
                                 
@@ -98,19 +101,19 @@
                                         <td><%= s.getBrandName() %></td>
                                         <td><%= s.getStoreName() %></td>
                                         <td><a href="updateForm.st?sno=<%= s.getStoreNo() %>">수정</a></td>
-                                        <td>삭제</td>
+                                        <td><a href="delete.st?sno=<%= s.getStoreNo() %>">삭제</a></td>
                                     </tr>
                                     <% } %>
                                 </tbody>
                                
                                 <tfoot>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+                                        <th>번호</th>
+                                        <th>매장 주소</th>
+                                        <th>브랜드 명</th>
+                                        <th>매장 이름</th>
+                                        <th>추가</th>
+                                        <th>삭제</th>
                                     </tr>
                                 </tfoot>
                             </table>
