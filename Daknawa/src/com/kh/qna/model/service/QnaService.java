@@ -102,19 +102,6 @@ public class QnaService {
 		
 		int result = new QnaDao().deleteAsk(conn, askNo);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		if(result > 0) { 
 			commit(conn);
 		} else {
@@ -125,21 +112,38 @@ public class QnaService {
 		return result;
 	}
 	
-	public int insertAnswer(int ano, String aContent) {
+	public int insertAnswer(int askNo, String answerContent) {
 		
 		Connection conn = getConnection();
 		
-		int result = new QnaDao().insertAnswer(conn, ano, aContent);
+		int result = new QnaDao().insertAnswer(conn, askNo, answerContent);
 		
+		if(result > 0) { 
+			commit(conn);
+		} else { 
+			rollback(conn);
+		}
+		close(conn);
 		
-		
+		return result;
 	}
 	
-	public Qna selectAnswer() {
-		
-		
-		
-		
+	
+		// 1:1 문의 답변삭제용 서비스
+	public int deleteAnswer(int askNo) {
+			
+		Connection conn = getConnection();
+			
+		int result = new QnaDao().deleteAnswer(conn, askNo);
+			
+		if(result > 0) { 
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		close(conn);
+
+		return result;
 	}
 	
 }

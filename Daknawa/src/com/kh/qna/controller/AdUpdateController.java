@@ -7,19 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.qna.model.service.QnaService;
-
 /**
- * Servlet implementation class AskDeleteController
+ * Servlet implementation class AdUpdateController
  */
-@WebServlet("/delete.ask")
-public class AskDeleteController extends HttpServlet {
+@WebServlet("/adUpdate.ask")
+public class AdUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AskDeleteController() {
+    public AdUpdateController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,21 +27,10 @@ public class AskDeleteController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int askNo = Integer.parseInt(request.getParameter("ano"));
 		
-		int result = new QnaService().deleteAsk(askNo);
 		
-		if(result > 0) {
-			request.getSession().setAttribute("alertMsg", "성공적으로 해당 문의가 삭제되었습니다.");
-			
-			response.sendRedirect(request.getContextPath() + "/list.ask?currentPage=1");
-			
-		} else {
-			
-			request.setAttribute("errorMsg", "문의 삭제 실패");
-			
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
-		}
+		
+		
 	}
 
 	/**

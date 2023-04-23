@@ -73,6 +73,21 @@
 		   SET STATUS = 'N'
 		 WHERE ASK_NO = ?
 	</entry>
+	
+	<entry key="insertAnswer">
+		INSERT INTO QNA(ASK_NO
+		              , ANSWER_CONTENT
+		              , ANSWER_DATE)
+		         VALUES(SEQ_QNO.NEXTVAL
+		              , ?
+		              , NULL)
+	</entry>
+	
+	<entry key="deleteAnswer">
+		UPDATE QNA
+		   SET STATUS = 'N'
+		 WHERE ASK_NO = ?
+	</entry>
 
 
 </properties>

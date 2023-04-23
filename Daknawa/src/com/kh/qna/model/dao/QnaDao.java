@@ -225,7 +225,7 @@ public class QnaDao {
 		return result;
 	}
 	
-	public int insertAnswer(Connection conn, int ano, String aContent) {
+	public int insertAnswer(Connection conn, int askNo, String answerContent) {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
@@ -235,24 +235,48 @@ public class QnaDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
+			pstmt.setString(1, getAskContent());
 			
+			result = pstmt.executeUpdate();
+			
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			
+			JDBCTemplate.close(pstmt);
+
+		}
+		
+		return result;
+		
+	}
+
+	private String getAskContent() {
+		return null;
+	}
+	
+	public int deleteAnswer(Connection conn, int askNo) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+
+		String sql = prop.getProperty("deleteAnswer");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, askNo);
+			
+			result = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(pstmt);
 		}
-		
-		
+		return result;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }
