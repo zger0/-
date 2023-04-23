@@ -138,6 +138,7 @@ public class QnaService {
 		// 커넥션 객체 자원 반납 해주기
 		close(conn);
 		
+		
 		// 결과값 반환
 		return result;
 	}
