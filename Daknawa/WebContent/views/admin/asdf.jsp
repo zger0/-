@@ -11,5 +11,6 @@
 	<%@ include file="../common/menubar.jsp" %>
 
 	<%@ include file="../common/adminPageNavbar.jsp" %>
+	
 </body>
 </html>
