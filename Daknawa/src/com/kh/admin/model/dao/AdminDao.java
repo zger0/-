@@ -12,6 +12,8 @@ import java.util.Properties;
 import com.kh.common.JDBCTemplate;
 import com.kh.post.model.dao.PostDao;
 import com.kh.post.model.vo.Post;
+import com.kh.qna.model.vo.Qna;
+import com.kh.store.model.vo.Store;
 
 public class AdminDao {
 
@@ -58,5 +60,75 @@ public class AdminDao {
 			JDBCTemplate.close(pstmt);
 		}
 		return list;
+	}
+
+	public ArrayList<Qna> selectQnaList(Connection conn) {
+	
+        ArrayList<Qna> list = new ArrayList<>();
+        PreparedStatement pstmt = null;
+        ResultSet rset = null;
+        String sql = prop.getProperty("selectQnaList");
+        
+        try {
+            pstmt = conn.prepareStatement(sql);
+            rset = pstmt.executeQuery();
+            
+            while(rset.next()) {
+                
+                Qna q = new Qna();
+                
+                q.setAskNo(rset.getInt("ASK_NO"));
+                q.setAskType(rset.getInt("ASK_TYPE"));
+                q.setAskTitle(rset.getString("ASK_TITLE"));
+                q.setAskContent(rset.getString("ASK_CONTENT"));
+                q.setAskDate(rset.getDate("ASK_DATE"));
+                q.setAnswerContent(rset.getString("ANSWER_CONTENT"));
+                q.setAnswerDate(rset.getDate("ANSWER_DATE"));
+                q.setMemberNo(rset.getInt("MEMBER_NO"));
+                
+                list.add(q);
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCTemplate.close(rset);
+            JDBCTemplate.close(pstmt);
+        }	
+        return list;
+	}
+
+	public ArrayList<Store> selectStoreList(Connection conn) {
+		
+        ArrayList<Store> list = new ArrayList<>();
+        PreparedStatement pstmt = null;
+        ResultSet rset = null;
+        String sql = prop.getProperty("selectStoreList");
+        
+        try {
+            pstmt = conn.prepareStatement(sql);
+            rset = pstmt.executeQuery();
+            
+            while(rset.next()) {
+                
+            	Store q = new Store();
+
+                q.setStoreNo(rset.getInt("STORE_NO"));
+                q.setStoreName(rset.getString("STORE_NAME"));
+                q.setStoreAddress(rset.getString("STORE_ADDRESS"));
+                q.setStorePhone(rset.getString("STORE_PHONE"));
+                q.setStoreTime(rset.getString("STORE_TIME"));
+                q.setBrandName(rset.getString("BRAND_NAME"));
+                
+                list.add(q);
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCTemplate.close(rset);
+            JDBCTemplate.close(pstmt);
+        }	
+        return list;
 	}
 }

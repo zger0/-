@@ -43,6 +43,8 @@ public class asdf extends HttpServlet {
 		sn.setActive4("1");
 		
 		request.setAttribute("sn", sn);
+
+		request.getRequestDispatcher("views/admin/asdf.jsp").forward(request, response);
 	}
 
 	/**

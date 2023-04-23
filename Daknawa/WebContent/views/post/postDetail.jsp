@@ -168,8 +168,9 @@
                                 result += "<td>" + list[i].memberNo + '<i class"fa-regular"></i>' + "</td>";
                                 result += "<td id='reply'>" + list[i].replyContent + "</td>";
                                 result += "<td>" + list[i].createDate + "</td>"; 
-
-                                if("<%= loginUser.getUserNickName() %>" === list[i].memberNo) {
+                                
+                                <% String loginUserNickname = (loginUser != null) ? loginUser.getUserNickName() : ""; %>
+                                if ("<%= loginUserNickname %>" === list[i].memberNo) {
                                 	result += "<td><span style='cursor : pointer;' onClick=Reply('" + list[i].replyContent + "','" + list[i].replyNo + "'); >수정</span></td>";
                                 	result += "<td><span style='cursor : pointer;' onClick=deleteReply(" + list[i].replyNo + ");>삭제</span></td>";
                                 } 

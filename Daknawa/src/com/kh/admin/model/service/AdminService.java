@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 import com.kh.admin.model.dao.AdminDao;
 import com.kh.post.model.vo.Post;
+import com.kh.qna.model.vo.Qna;
+import com.kh.store.model.vo.Store;
 
 public class AdminService {
 
@@ -22,6 +24,28 @@ public class AdminService {
         close(conn);
         
         return list;
+	}
+
+	public ArrayList<Qna> selectQnaList() {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Qna> list = new AdminDao().selectQnaList(conn);
+		
+		close(conn);
+		
+		return list;
+	}
+
+	public ArrayList<Store> selectStoreList() {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Store> list = new AdminDao().selectStoreList(conn);
+		
+		close(conn);
+		
+		return list;
 	}
 
 }

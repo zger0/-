@@ -171,14 +171,14 @@ public class StoreService {
 		return result;
 	}
 	
-		// 총 게시글 갯수를 구하는 서비스
-		public int selectKeywordListCount(String brandName, String keyword) {
+		// 총 매장 갯수를 구하는 서비스
+		public int selectStoreListCount(String brandName, String keyword) {
 	
 			// 1. Connection 객체 생성
 			Connection conn = getConnection();
 	
 			// 2. Dao 로 만들어진 Connection 과 전달값을 넘기면서 요청 후 결과 받기
-			int listCount = new StoreDao().selectKeywordListCount(conn, brandName, keyword);
+			int listCount = new StoreDao().selectStoreListCount(conn, brandName, keyword);
 	
 			// 3. 트랜잭션 처리 => SELECT 문 이므로 패스
 	
@@ -189,13 +189,13 @@ public class StoreService {
 			return listCount;
 		}
 
-		public ArrayList<Store> selectKeywordList(PageInfo pi, Store s, String brandName , String keyword) {
+		public ArrayList<Store> selectStoreList(PageInfo pi, Store s, String brandName , String keyword) {
 
 			// 1. Connection 객체 생성
 			Connection conn = getConnection();
 
 			// 2. Dao 로 만들어진 Connection 과 전달값을 넘기면서 요청 후 결과 받기
-			ArrayList<Store> list = new StoreDao().selectKeywordList(conn, pi, s, brandName, keyword);
+			ArrayList<Store> list = new StoreDao().selectStoreList(conn, pi, s, brandName, keyword);
 
 			// 3. 트랜잭션 처리 => SELECT 문 패스
 

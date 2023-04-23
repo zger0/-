@@ -192,7 +192,7 @@
                       url : "reinsert.po",
                       type : "post",
                       data : {
-                          pㅌㅌㅌㅌㅌno : <%=p.getPostNo()%>, 
+                          pno : <%=p.getPostNo()%>, 
                           content : $("#replyContent").val()
                       },
                       success : function(result){
