@@ -225,7 +225,38 @@ public class QnaDao {
 		return result;
 	}
 	
-	public int insertAnswer(Connection conn, int ano, String aContent) {
+	public Qna selectAnswer(Connection conn, int memberNo, String answerContent) {
+		
+		Qna q = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectAnswer");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+				if(rset.next()) {
+				
+				q = new Qna();
+				q.setAskNo(rset.getInt("ASK_NO"));
+				q.setAskTitle(rset.getString("ASK_TITLE"));
+				q.setAskContent(rset.getString("ASK_CONTENT"));
+				q.setAskDate(rset.getDate("ASK_DATE"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return q;
+		
+	}
+	
+	public int insertAnswer(Qna q, Connection conn, int ano, String aContent) {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
@@ -235,14 +266,21 @@ public class QnaDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			
+			pstmt.setString(1, q.getAnswerContent());
+
+			result = pstmt.executeUpdate();
+
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			
+			JDBCTemplate.close(pstmt);
+			
 		}
-		
-		
+		return result;
 	}
+	
 	
 	
 	

@@ -102,19 +102,6 @@ public class QnaService {
 		
 		int result = new QnaDao().deleteAsk(conn, askNo);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		if(result > 0) { 
 			commit(conn);
 		} else {
@@ -125,21 +112,34 @@ public class QnaService {
 		return result;
 	}
 	
-	public int insertAnswer(int ano, String aContent) {
+	
+	public Qna selectAnswer(int memberNo, String answerContent) {
 		
 		Connection conn = getConnection();
 		
-		int result = new QnaDao().insertAnswer(conn, ano, aContent);
+		Qna q = new QnaDao().selectAnswer(conn, memberNo, answerContent);
+
+		close(conn);
 		
-		
-		
+		return q;
 	}
-	
-	public Qna selectAnswer() {
+
+	public int insertAnswer(Qna q, int ano, String aContent) {
 		
+		Connection conn = getConnection();
 		
+		int result = new QnaDao().insertAnswer(q, conn, ano, aContent);
 		
+		if(result > 0) { // 성공시 커밋
+			commit(conn);
+		} else { // 실패시 롤백
+			rollback(conn);
+		}
+		// 커넥션 객체 자원 반납 해주기
+		close(conn);
 		
+		// 결과값 반환
+		return result;
 	}
 	
 }

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.kh.qna.model.service.QnaService;
+import com.kh.qna.model.vo.Qna;
 
 /**
  * Servlet implementation class AdInsertAnswerController
@@ -44,6 +45,11 @@ public class AdInsertAnswerController extends HttpServlet {
 //		
 //		new QnaService().insertAnswer(ano, aContent);
 		
+		int ano = Integer.parseInt(request.getParameter("askNo"));
+		String aContent = request.getParameter("askContent");
+		
+		Qna q = new Qna();
+		q.setAnswerContent(aContent);
 		
 		response.setContentType("text/html; charset=UTF-8");
 		
@@ -51,7 +57,7 @@ public class AdInsertAnswerController extends HttpServlet {
 		
 		out.print(response);
 		
-		new QnaService().insertAnswer();
+		new QnaService().insertAnswer(q, ano, aContent);
 	}
 
 	/**

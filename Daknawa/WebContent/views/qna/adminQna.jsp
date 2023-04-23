@@ -216,12 +216,11 @@
 
 	<%@ include file="../common/menubar.jsp" %>
 	<%@ include file="../common/myPageNavbar.jsp" %>
-	
-	
-	 <section id="container">
+
+	<section id="container">
     <% if(loginUser != null) { %>
     <div align="right" style="width : 850px">
-	    <a href="<%= contextPath %>/questionForm.qna" class="ask1">1:1 문의하기 </a>
+	    <a href="<%= contextPath %>/questionForm.qna" class="ask1">1:1 문의 관리 </a>
 		<br><br>
     </div>
     <% } %>
@@ -257,10 +256,10 @@
 	                            <td><%= q.getAskContent() %></td>
 	                            <td><%= q.getMemberNo() %></td>
 	                            <td><%= q.getAskDate() %></td>
-	                            <td><button><a href="<%= contextPath %>/updateForm.ask?ano=<%= q.getAskNo() %>" class="updateAsk">수정하기</a></button></td>
-	                            <td><button><a href="<%= contextPath %>/delete.ask?ano=<%= q.getAskNo() %>" class="deleteAsk">삭제하기</a></button></td>
+	                            <td><button><a href="<%= contextPath %>/<%= q.getAskNo() %>" class="insertAnswer">답변달기</a></button></td>
+	                            <td><button><a href="<%= contextPath %>/<%= q.getAskNo() %>" class="updateAnswer">수정하기</a></button></td>
 	                         </tr>
-	                         <% } %>
+                   			<% } %>
             </tbody>
         </table>
         <br><br>
@@ -289,11 +288,5 @@
 		  <% } %>
         </div>
     </div>
-    
-    
-  </section>
-  
-                         
-
 </body>
 </html>
