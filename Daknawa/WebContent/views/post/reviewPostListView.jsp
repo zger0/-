@@ -146,7 +146,7 @@
           <div class="blog6-section-title">
             <div class="blog6-content" style="margin: auto">
               <span class="blog6-text02 HeadingH1" ST>
-                <span>리뷰 게시판</span>
+                <span><h1>리뷰 게시판</span>
               </span>
               
             </div>

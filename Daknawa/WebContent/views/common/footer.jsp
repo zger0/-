@@ -50,20 +50,43 @@
               <div class="footer7-content">
                 <div class="footer7-logo">
                   <img
-                    src="resources/css/public/playground_assets/logoi146-r6fj.svg"
+                    src="resources/css/public/playground_assets/logo.png"
                     alt="logoI146"
                     class="footer7-logo1"
                   />
                 </div>
                 <div class="footer7-links">
                   <span class="footer7-text TextRegularSemiBold">
-                    <span>Link One</span>
+                    <span>
+                    <img
+                    src="resources/css/public/playground_assets/bhc.png"
+                     alt="logoI146"
+                    class="footer7-logo1"
+                     />
+                    
+                    </span>
                   </span>
                   <span class="footer7-text02 TextRegularSemiBold">
-                    <span>Link Two</span>
+                    <span>
+                    <img
+                    src="resources/css/public/playground_assets/bbq.png"
+                     alt="logoI146"
+                    class="footer7-logo1"
+                     />
+
+					</span>
                   </span>
                   <span class="footer7-text04 TextRegularSemiBold">
-                    <span>Link Three</span>
+                    <span>
+                    <img
+                    src="resources/css/public/playground_assets/goobne.png"
+                     alt="logoI146"
+                    class="footer7-logo1"
+                     />
+                    
+                    
+                    
+                    </span>
                   </span>
                   <span class="footer7-text06 TextRegularSemiBold">
                     <span>Link Four</span>
