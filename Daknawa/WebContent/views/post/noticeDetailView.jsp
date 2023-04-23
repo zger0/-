@@ -53,7 +53,7 @@
                             <th width="30">첨부파일</th>
                             <td colspan="4">
                                 <% if(at == null) { %>
-                                    첨부파일이 없습니다
+                                    	첨부파일이 없습니다
                                 <% } else { %>
                                    <a download="<%= at.getOriginName() %>"
                                       href="<%= contextPath %>/<%= at.getFilePath() + at.getChangeName() %>">
@@ -165,7 +165,7 @@
                             for(let i in list) {
 
                                 result += "<tr>"
-                                result += "<td>" + list[i].memberNo + '<i class"fa-regular"></i>' + "</td>";
+                                result += "<td>" + list[i].memberNo + '<i class="fa-regular"></i>' + "</td>";
                                 result += "<td id='reply'>" + list[i].replyContent + "</td>";
                                 result += "<td>" + list[i].createDate + "</td>"; 
 

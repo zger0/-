@@ -399,55 +399,17 @@ public class MemberDao {
 		return gradeName;
 	}
 
-	// 총 회원 수(닉네임 검색 시 포함) 조회 서비스
-	public int selectListCount(Connection conn, String nickName) {
-
-		int listCount = 0;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		
-		String sql = prop.getProperty("selectListCount");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, "%" + nickName + "%");
-			
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				
-				listCount = rset.getInt("COUNT"); // 별칭으로도 데이터 뽑기 가능
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-		
-			close(rset);
-			close(pstmt);
-		}
-		
-		return listCount;
-	}
-
-	public ArrayList<Member> selectList(Connection conn, String nickName, PageInfo pi) {
+	// 회원 리스트 조회
+	public ArrayList<Member> selectMemberList(Connection conn) {
 
 		ArrayList<Member> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("selectList");
+		String sql = prop.getProperty("selectMemberList");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			
-			int startRow = (pi.getCurrentPage() - 1) * pi.getPageLimit() + 1;
-			int endRow = startRow + pi.getPageLimit() - 1;
-			
-			pstmt.setString(1, nickName);
-			pstmt.setInt(2, startRow);
-			pstmt.setInt(3, endRow);
 			
 			rset = pstmt.executeQuery();
 			
@@ -465,18 +427,72 @@ public class MemberDao {
 								  , rset.getString("ADDRESS1")
 								  , rset.getString("ADDRESS2")
 								  , rset.getString("BLACKLIST")
-								  , rset.getInt("USERPOINT")
+								  , rset.getInt("MEMBER_POINT")
 								  , rset.getString("STATUS")
 								  ));
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			
+			close(rset);
+			close(pstmt);
 		}
-		
 		
 		return list;
 	}
+
+	// 블랙리스트 추가
+	public int updateBlacklist(Connection conn, int mno) {
+
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updateBlacklist");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, mno);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	// 회원탈퇴 (관리자)
+	public int adminDeleteMember(Connection conn, int mno) {
+
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("adminDeleteMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, mno);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
 	
 	
 }

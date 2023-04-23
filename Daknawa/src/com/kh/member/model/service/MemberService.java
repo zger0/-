@@ -168,27 +168,79 @@ public class MemberService {
 	}
 
 	// 총 회원 수(닉네임 검색 시 포함) 조회 서비스
-	public int selectListCount(String nickName) {
-		
-		Connection conn = getConnection();
-		
-		int listCount = new MemberDao().selectListCount(conn, nickName);
-		
-		close(conn);
-		
-		return listCount;
-	}
+//	public int selectListCount(String nickName) {
+//		
+//		Connection conn = getConnection();
+//		
+//		int listCount = new MemberDao().selectListCount(conn, nickName);
+//		
+//		close(conn);
+//		
+//		return listCount;
+//	}
 
 	// 회원리스트 조회용 서비스
-	public ArrayList<Member> selectList(String nickName, PageInfo pi) {
+	public ArrayList<Member> selectMemberList() {
 
 		Connection conn = getConnection();
 		
-		ArrayList<Member> list = new MemberDao().selectList(conn, nickName, pi);
+		ArrayList<Member> list = new MemberDao().selectMemberList(conn);
 		
 		close(conn);
 		
 		return list;
+	}
+
+	// 블랙리스트 추가
+	public int updateBlacklist(int mno) {
+
+		Connection conn = getConnection();
+		
+		int result = new MemberDao().updateBlacklist(conn, mno);
+		
+		if(result > 0) {
+			
+			commit(conn);
+		} else {
+			
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
+
+	// 회원 탈퇴 (관리자)
+	public int adminDeleteMember(int mno) {
+
+		Connection conn = getConnection();
+		
+		int result = new MemberDao().adminDeleteMember(conn, mno);
+		
+		if(result > 0) {
+			
+			commit(conn);
+		} else {
+			
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
+
+	// 회원 조회 서비스
+	public Member selectMember(String memId) {
+
+		Connection conn = getConnection();
+		
+		Member m = new MemberDao().selectMember(conn, memId);
+		
+		close(conn);
+		
+		return m;
 	}
 
 }
