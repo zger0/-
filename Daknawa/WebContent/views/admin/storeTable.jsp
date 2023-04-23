@@ -97,7 +97,7 @@
                                         <td><%= s.getStoreAddress() %></td>
                                         <td><%= s.getBrandName() %></td>
                                         <td><%= s.getStoreName() %></td>
-                                        <td>수정</td>
+                                        <td><a href="updateForm.st?sno=<%= s.getStoreNo() %>">수정</a></td>
                                         <td>삭제</td>
                                     </tr>
                                     <% } %>
