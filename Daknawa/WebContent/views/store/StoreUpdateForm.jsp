@@ -68,7 +68,7 @@
 				<tr>
 					<th>영업시간</th>
 					<td>
-						<input type="text" name="time" value="<%= s.getStoreTime() %>" required>
+						<input type="text" name="time" value="<%= s.getStoreTime() %>" >
 					</td>
 				</tr>
 				

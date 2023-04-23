@@ -2,30 +2,25 @@ package com.kh.store.model.vo;
 
 public class Store {
 	
-	private int storeNo;		    //	STORE_NO NUMBER
-	private String storeName;		//	STORE_NAME VARCHAR2(90)
-	private String storeAddress;	//	STORE_ADDRESS VARCHAR2(300)
-	private String storePhone;		//	STORE_PHONE CHAR(15)
-	private String storeTime; 		//	STORE_TIME VARCHAR2(1000)
-	private String mapLat;  		//	MAP_LAT VARCHAR2(15)
-	private String mapLng;  		//	MAP_LNG VARCHAR2(15)
-	private String brandNo;     	//	BRAND_NO VARCHAR(15) 
+	private int storeNo;		  
+	private String storeName;		
+	private String storeAddress;	
+	private String storePhone;	
+	private String storeTime; 		
+	private String brandNo;     	
 	private String brandName;
 	private int startRow;	
 	private int endRow;
 	
 	public Store( ) { }
 
-	public Store(int storeNo, String storeName, String storeAddress, String storePhone, String storeTime, String mapLat,
-			String mapLng, String brandNo) {
+	public Store(int storeNo, String storeName, String storeAddress, String storePhone, String storeTime, String brandNo) {
 		super();
 		this.storeNo = storeNo;
 		this.storeName = storeName;
 		this.storeAddress = storeAddress;
 		this.storePhone = storePhone;
 		this.storeTime = storeTime;
-		this.mapLat = mapLat;
-		this.mapLng = mapLng;
 		this.brandNo = brandNo;
 	}
 	
@@ -83,22 +78,6 @@ public class Store {
 		this.storeTime = storeTime;
 	}
 
-	public String getMapLat() {
-		return mapLat;
-	}
-
-	public void setMapLat(String mapLat) {
-		this.mapLat = mapLat;
-	}
-
-	public String getMapLng() {
-		return mapLng;
-	}
-
-	public void setMapLng(String mapLng) {
-		this.mapLng = mapLng;
-	}
-
 	public String getBrandNo() {
 		return brandNo;
 	}
@@ -134,9 +113,8 @@ public class Store {
 	@Override
 	public String toString() {
 		return "Store [storeNo=" + storeNo + ", storeName=" + storeName + ", storeAddress=" + storeAddress
-				+ ", storePhone=" + storePhone + ", storeTime=" + storeTime + ", mapLat=" + mapLat + ", mapLng="
-				+ mapLng + ", brandNo=" + brandNo + ", brandName=" + brandName + ", startRow=" + startRow + ", endRow="
-				+ endRow + "]";
+				+ ", storePhone=" + storePhone + ", storeTime=" + storeTime + ", brandNo=" + brandNo 
+				+ ", brandName=" + brandName + ", startRow=" + startRow + ", endRow=" + endRow + "]";
 	}
 	
 	
