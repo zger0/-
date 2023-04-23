@@ -236,11 +236,11 @@
 	                    </ul>
 	                </li>
 	                <li class="<%= sn.getActive4() %>">
-	                    <a href="list.ask">문의내역 관리</a>
+	                    <a href="qna.ad">문의내역 관리</a>
 	                    <ul>
 	                        <li><a href="list.ask">1:1 문의내역 관리</a></li>
 	                        <li><a href="faq.qna">FAQ</a></li>
-	                        <li><a href="">C</a></li>                
+	                        <li><a href="qna.ad">1:1문의내역 모두 보기</a></li>                
 	                    </ul>
 	                </li>
 		        </ul>

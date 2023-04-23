@@ -12,6 +12,7 @@ import java.util.Properties;
 import com.kh.common.JDBCTemplate;
 import com.kh.post.model.dao.PostDao;
 import com.kh.post.model.vo.Post;
+import com.kh.qna.model.vo.Qna;
 
 public class AdminDao {
 
@@ -58,5 +59,41 @@ public class AdminDao {
 			JDBCTemplate.close(pstmt);
 		}
 		return list;
+	}
+
+	public ArrayList<Qna> selectQnaList(Connection conn) {
+	
+        ArrayList<Qna> list = new ArrayList<>();
+        PreparedStatement pstmt = null;
+        ResultSet rset = null;
+        String sql = prop.getProperty("selectQnaList");
+        
+        try {
+            pstmt = conn.prepareStatement(sql);
+            rset = pstmt.executeQuery();
+            
+            while(rset.next()) {
+                
+                Qna q = new Qna();
+                
+                q.setAskNo(rset.getInt("ASK_NO"));
+                q.setAskType(rset.getInt("ASK_TYPE"));
+                q.setAskTitle(rset.getString("ASK_TITLE"));
+                q.setAskContent(rset.getString("ASK_CONTENT"));
+                q.setAskDate(rset.getDate("ASK_DATE"));
+                q.setAnswerContent(rset.getString("ANSWER_CONTENT"));
+                q.setAnswerDate(rset.getDate("ANSWER_DATE"));
+                q.setMemberNo(rset.getInt("MEMBER_NO"));
+                
+                list.add(q);
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCTemplate.close(rset);
+            JDBCTemplate.close(pstmt);
+        }	
+        return list;
 	}
 }

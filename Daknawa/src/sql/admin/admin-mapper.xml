@@ -11,4 +11,10 @@
 				ORDER BY POST_NO DESC
 	</entry>
 
+	<entry key="selectQnaList">
+       SELECT *
+  		 FROM QNA
+	</entry>
+
+
 </properties>
