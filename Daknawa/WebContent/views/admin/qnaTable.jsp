@@ -98,7 +98,7 @@
                                         <td><%= q.getAskType() %></td>
                                         <td><%= q.getAskDate() %></td>
                                         <td><a href="<%= contextPath %>/askAnswer.ask?ano=<%= q.getAskNo() %>">답변달기</a></td>
-                                        <td>삭제</td>
+                                        <td><a href="<%= contextPath %>/delete.st?sno=<%= q.getAskNo() %>">삭제</a></td>
                                     </tr>
                                     <% } %>
                                 </tbody>
