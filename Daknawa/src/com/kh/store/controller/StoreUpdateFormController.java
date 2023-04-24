@@ -42,6 +42,8 @@ public class StoreUpdateFormController extends HttpServlet {
 			
 			request.setAttribute("s", s);
 			
+//			System.out.println(s);
+			
 			// 수정페이지 포워딩
 			request.getRequestDispatcher("views/store/StoreUpdateForm.jsp").forward(request, response);
 			

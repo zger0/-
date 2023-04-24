@@ -12,6 +12,7 @@
 	
 	<%@ include file="views/common/mainPage.jsp"%>
 
+	<%@ include file="views/common/footer.jsp"%>
 </body>
 </html>
 

@@ -41,15 +41,18 @@
         height : 45px;
         border-style : solid;
         border-width : 2px;
+        border-radius : 5px;
     }
 
     .input {
         box-sizing : border-box;
+        border-radius : 5px;
         margin-bottom : 5px;
     }
 
     .button {
         background-color : black;
+        border-radius : 5px;
         color : white;
         margin : 20px 0px 5px 0px;
     }

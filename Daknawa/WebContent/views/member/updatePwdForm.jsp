@@ -16,16 +16,19 @@
         height : 45px;
         border-style : solid;
         border-width : 2px;
+        border-radius : 5px;
         font-size : 14px;
     }
 
     .input {
         box-sizing : border-box;
+        border-radius : 5px;
         margin-bottom : 15px;
     }
 
     .button {
         background-color : black;
+        border-radius : 5px;
         color : white;
         margin : 30px 0px 5px 0px;
     }

@@ -112,4 +112,56 @@
  	 	 WHERE ? BETWEEN POINT_MIN AND POINT_MAX
 	</entry>
 	
+	<!-- 총 회원 수 조회용 쿼리문 -->
+	<!--
+	<entry key="selectListCount">
+		SELECT COUNT(*) COUNT
+		  FROM MEMBER
+		 WHERE STATUS = 'Y'		 
+		   AND MEMBER_NICKNAME LIKE ?
+	</entry>
+	-->
+	
+	<!-- 회원 조회용 쿼리문 -->
+	<!--
+	<entry key="selectList">
+		SELECT *
+		  FROM (
+		    SELECT ROWNUM RNUM
+		         , A.*
+		      FROM (
+		        SELECT *
+		          FROM MEMBER
+		         WHERE MEMBER_NICKNAME = ?
+		           AND STATUS = 'Y'
+		         ORDER BY MEMBER_NO DESC
+		      ) A
+		  )
+		 WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	-->
+	
+	<!-- 회원 조회용 쿼리문 -->
+	<entry key="selectMemberList">
+		SELECT *
+          FROM MEMBER
+         WHERE STATUS = 'Y'
+           AND BLACKLIST= 'N'
+         ORDER BY MEMBER_NO DESC
+	</entry>
+	
+	<!-- 블랙리스트 추가 -->
+	<entry key="updateBlacklist">
+		UPDATE MEMBER
+		   SET BLACKLIST = 'Y'
+		 WHERE MEMBER_NO = ?
+	</entry>
+	
+	<!-- 회원 탈퇴(관리자) -->
+	<entry key="adminDeleteMember">
+		UPDATE MEMBER
+		   SET STATUS = 'N'
+		 WHERE MEMBER_NO = ?
+	</entry>
+	
 </properties>

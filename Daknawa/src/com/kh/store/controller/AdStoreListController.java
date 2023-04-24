@@ -44,8 +44,17 @@ public class AdStoreListController extends HttpServlet {
 		int startPage; // 페이징바의 시작수
 		int endPage; // 페이징바의 끝수
 		
+		// 검색 전달값을 뽑아서 변수에 기록
+		String brandName = request.getParameter("bname");
+		String keyword = request.getParameter("keyword");
+		
+		if(brandName == null && keyword == null) {
+			brandName = "";
+			keyword = "";
+		}
+				
 		// * listCount : 총 게시글 갯수 (삭제된 게시글은 제외하고 카운트)
-		listCount = new StoreService().selectListCount();
+		listCount = new StoreService().selectStoreListCount(brandName, keyword);
 		
 		// * currentPage : 현재페이지 (즉, 사용자가 요청한 페이지)
 		currentPage = Integer.parseInt(request.getParameter("currentPage")); // "1" -> 1
@@ -76,7 +85,7 @@ public class AdStoreListController extends HttpServlet {
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit,
 				                    storeLimit, maxPage, startPage, endPage);
 		
-		ArrayList<Store> list = new StoreService().selectList(pi, s);
+		ArrayList<Store> list = new StoreService().selectStoreList(pi, s, brandName , keyword);
 		
 		// 응답페이지에서 필요로 하는 데이터 먼저 담기
 		// 실제 조회된 리스트 (list), 페이징바 (pi)

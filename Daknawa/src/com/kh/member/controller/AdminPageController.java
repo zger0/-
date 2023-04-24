@@ -43,7 +43,9 @@ public class AdminPageController extends HttpServlet {
 		
 		request.setAttribute("sn", sn);
 		
-		request.getRequestDispatcher("views/member/adminPage.jsp").forward(request, response);
+		response.sendRedirect(request.getContextPath() + "/list.me");
+		
+		// request.getRequestDispatcher("views/member/memberListView.jsp").forward(request, response);
 	
 	}
 
