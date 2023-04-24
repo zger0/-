@@ -137,14 +137,14 @@ public class MenuInsertController extends HttpServlet {
 			String menuName = multiRequest.getParameter("name");
 			int menuPrice = Integer.parseInt(multiRequest.getParameter("price"));
 			String menuCategory = multiRequest.getParameter("category");
-			int menuStore = Integer.parseInt(multiRequest.getParameter("store"));
+			int menuBrand = Integer.parseInt(multiRequest.getParameter("brand"));
 			String menuDesc = multiRequest.getParameter("desc");
 
 			Menu m = new Menu();
 			m.setMenuName(menuName);
 			m.setMenuPrice(menuPrice);
 			m.setMenuCategory(menuCategory);
-			m.setStoreNo(menuStore);
+			m.setBrandNo(menuBrand);
 			m.setMenuDesc(menuDesc);
 
 			//  Board가 먼저 1번 insert 되고 나서 Attachment도 한번 insert 되야함

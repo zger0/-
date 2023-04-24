@@ -8,8 +8,10 @@ ArrayList<Menu> list = (ArrayList<Menu>) request.getAttribute("list");
 ArrayList<Attachment> ilist = (ArrayList<Attachment>) request.getAttribute("ilist");
 int mno = Integer.parseInt(request.getParameter("mno"));
 int h; int lo;
+// h = 하트 상태 확인 0 보다크면 like 상태
 if (request.getAttribute("heart") != null) h = (Integer) request.getAttribute("heart");
 else h = 0;
+// lo = 좋아요 수
 if (request.getAttribute("love") != null)  lo = (Integer) request.getAttribute("love");
 else lo = 0;
 %>
@@ -51,7 +53,9 @@ else lo = 0;
 					<h1 class="display-5 fw-bolder" style="display: inline-block;"><%=list.get(0).getMenuName()%></h1>
 					<%
 						if (loginUser != null) {
+							
 					%>
+					<%-- 하트아이콘 --%>
 					<i class="fa-heart fa-regular"
 						style="font-size: 2rem; cursor: pointer;"
 						onclick="heart(<%=list.get(0).getMenuNo()%>)"></i>
@@ -61,38 +65,41 @@ else lo = 0;
 
 					<script>
 					$(document).ready(function() {
-					   <%if (h > 0) {%>
-					       var heartIcon = $(".fa-heart");
-					       heartIcon.removeClass("fa-regular").addClass("fa-solid fa-bounce").css("color", "#ED0707");
-					       heartIcon.one("animationiteration webkitAnimationIteration oanimationiteration", function() {
-			                    $(this).removeClass("fa-bounce");
-					       });
-					   <%}%>
-					});
+						  <%if (h > 0) {%> // like / unlike 상태 확인
+						    var heartIcon = $(".fa-heart");
+						    heartIcon.removeClass("fa-regular").addClass("fa-solid fa-bounce").css("color", "#ED0707");
+						    heartIcon.one("animationiteration webkitAnimationIteration oanimationiteration", function() {
+				          $(this).removeClass("fa-bounce");
+						    });
+						  <%}%>
+						});
 					function heart(menuNo) {
 					    var heartIcon = $(".fa-heart");
 					    var isLiked = heartIcon.hasClass("fa-solid");
-					    
+					    var type = isLiked ? "unlike" : "like"; // 하트가 칠해져 있다면 "unlike", 칠해져 있지 않다면 "like" 지정
+
 					    $.ajax({
-					        url: isLiked ? "heart.mn" : "heartLike.mn",
+					        url: "heart.mn", // 서블릿으로 전송
 					        type: "get",
 					        data: {
-					            menuNo: menuNo
+					            menuNo: menuNo, // 메뉴번호랑 타입(like, unlike) 전달
+					            type: type
 					        },
 					        success: function(response) {
 					            if(response.success) {
-					                if(isLiked) {
+					                if(isLiked) { // like 상태일 경우 기존 상태를 지우고 unlike 상태로 변환
 					                    heartIcon.removeClass("fa-solid").addClass("fa-regular fa-bounce").css("color", "");
-					                } else {
+					                } else { // unlike 상태일  경우 기존 상태를 지우고 like 상태로 변환
 					                    heartIcon.removeClass("fa-regular").addClass("fa-solid fa-bounce").css("color", "#ED0707");
-					                }
+					                } // 애니메이션 효과 멈춤
 					                heartIcon.one("animationiteration webkitAnimationIteration oanimationiteration", function() {
 					                    $(this).removeClass("fa-bounce");
-					                });
+					                }); // 좋아요 수 늘리고 지우기
 					                var likeCount = parseInt($(".like-count").text());
 					                $(".like-count").text(isLiked ? likeCount - 1 : likeCount + 1);
 					            } else {
 					                // 에러 처리
+					            	 alert("좋아요 처리에 실패했습니다. 다시 로그인해주세요.");
 					            }
 					        }
 					    });
@@ -106,9 +113,6 @@ else lo = 0;
 					<p class="lead"><%=list.get(0).getMenuDesc()%></p>
 					<br>
 					<div class="d-flex">
-						<button class="btn btn-outline-dark flex-shrink-0" type="button"
-							onclick="location.href='<%=contextPath%>/map=<%=mno%> '">
-							매장찾기</button>
 							<% if(loginUser != null && loginUser.getUserId().equals("admin")) { %>
 						<button class="btn btn-outline-dark flex-shrink-0" type="button"
 							onclick="location.href='<%=contextPath%>/updateForm.mn?mno=<%=mno%> '">

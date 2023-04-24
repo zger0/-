@@ -73,9 +73,9 @@ body {
 				</select>
 			</div>
 			<div class="form-group">
-				<label for="product-store" class="form-label">매장</label> <input
-					type="text" class="form-control" id="product-store" name="store"
-					placeholder="매장을 입력하세요" />
+				<label for="product-store" class="form-label">브랜드</label> <input
+					type="text" class="form-control" id="product-store" name="brand"
+					placeholder="브랜드를 입력하세요" />
 			</div>
 			<div class="form-group">
 				<label for="product-description" class="form-label">메뉴 설명</label>
