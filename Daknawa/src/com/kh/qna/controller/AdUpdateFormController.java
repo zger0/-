@@ -11,16 +11,16 @@ import com.kh.qna.model.service.QnaService;
 import com.kh.qna.model.vo.Qna;
 
 /**
- * Servlet implementation class AdUpdateController
+ * Servlet implementation class AdUpdateFormController
  */
-@WebServlet("/adUpdate.ask")
-public class AdUpdateController extends HttpServlet {
+@WebServlet("/adUpdateForm.ask")
+public class AdUpdateFormController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdUpdateController() {
+    public AdUpdateFormController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,27 +30,17 @@ public class AdUpdateController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("UTF-8");
-
 		int askNo = Integer.parseInt(request.getParameter("ano"));
-		String answerContent = request.getParameter("answerContent");
 		
-		Qna q = new Qna();
-		q.setAskNo(askNo);
-		q.setAnswerContent(answerContent);
+		Qna q = new QnaService().selectAsk(askNo);
 		
-		int result = new QnaService().updateAnswer(q);
+		request.setAttribute("q", q);
 		
-		if(result > 0) {
-			request.getSession().setAttribute("alertMsg", "성공적으로 1:1문의가 수정되었습니다.");
-			response.sendRedirect(request.getContextPath() + "/adAnswerList.ask");
-		} else {
-			
-			request.setAttribute("errorMsg", "답변 수정 실패");
-			
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
-		}
+		request.getRequestDispatcher("views/qna/UpdateForm.jsp").forward(request, response);
 	}
+		
+		
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
