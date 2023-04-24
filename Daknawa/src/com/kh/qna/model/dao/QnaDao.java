@@ -234,27 +234,47 @@ public class QnaDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, getAskContent());
+			pstmt.setString(1, getAnswerContent());
 			
 			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+	
+	private String getAnswerContent() {
+		return null;
+	}
+
+	public int updateAnswer(Connection conn, Qna q) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updateAnswer");
+		
+		System.out.println(q);
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
 			
+			pstmt.setString(1, q.getAnswerContent());
+			pstmt.setInt(2, q.getAskNo());
+
+			result = pstmt.executeUpdate();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			
 			JDBCTemplate.close(pstmt);
-
 		}
-		
 		return result;
-		
-	}
-
-	private String getAskContent() {
-		return null;
-	}
+	}	
+	
 	
 	public int deleteAnswer(Connection conn, int askNo) {
 		

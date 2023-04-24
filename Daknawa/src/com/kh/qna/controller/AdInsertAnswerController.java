@@ -40,7 +40,7 @@ public class AdInsertAnswerController extends HttpServlet {
 		int askNo = Integer.parseInt(request.getParameter("askNo"));
 		String answerContent = request.getParameter("answerContent");
 				
-		int result = new QnaService().insertAnswer();
+		int result = new QnaService().insertAnswer(askNo, answerContent);
 		
 		if(result > 0) { // 성공
 			

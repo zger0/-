@@ -83,6 +83,13 @@
 		              , NULL)
 	</entry>
 	
+	<entry key="updateAsk">
+	UPDATE QNA
+	   SET ANSWER_CONTENT = ?
+	 WHERE ASK_NO = ?
+		AND STATUS = 'Y'
+	</entry>
+	
 	<entry key="deleteAnswer">
 		UPDATE QNA
 		   SET STATUS = 'N'

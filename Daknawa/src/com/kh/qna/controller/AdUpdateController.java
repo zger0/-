@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.qna.model.service.QnaService;
+import com.kh.qna.model.vo.Qna;
+
 /**
  * Servlet implementation class AdUpdateController
  */
@@ -27,11 +30,15 @@ public class AdUpdateController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		int askNo = Integer.parseInt(request.getParameter("ano"));
 		
+		Qna q = new QnaService().selectAsk(askNo);
 		
+		request.setAttribute("q", q);
 		
-		
+		request.getRequestDispatcher("views/admin/answerUpdateForm.jsp").forward(request, response);
 	}
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

@@ -128,6 +128,22 @@ public class QnaService {
 		return result;
 	}
 	
+	// 1:1 문의 답변수정용 서비스
+	public int updateAnswer(Qna q) {
+				
+		Connection conn = getConnection();
+				
+		int result = new QnaDao().updateAsk(conn, q);
+				
+		if(result > 0) { 
+			commit(conn);
+		} else { 
+			rollback(conn);
+		}
+		close(conn);
+				
+		return result;
+	}	
 	
 		// 1:1 문의 답변삭제용 서비스
 	public int deleteAnswer(int askNo) {
@@ -145,5 +161,6 @@ public class QnaService {
 
 		return result;
 	}
+	
 	
 }
