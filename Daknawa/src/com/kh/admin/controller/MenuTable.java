@@ -49,8 +49,6 @@ public class MenuTable extends HttpServlet {
 
 		ArrayList<Menu> list = new AdminService().selectMenuList();
 
-		System.out.println(list);
-
 		request.setAttribute("list", list);
 
 		

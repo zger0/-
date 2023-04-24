@@ -41,8 +41,6 @@ public class MenuUpdateFormController extends HttpServlet {
 		request.setAttribute("m", m);
 		request.setAttribute("at", at);
 
-		System.out.println(m);
-		
 		request.getRequestDispatcher("views/menu/menuUpdateForm.jsp").forward(request, response);
 	}
 

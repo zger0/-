@@ -215,15 +215,6 @@ int maxPage = pi.getMaxPage();
 						<button class="btn btn-outline-success" type="submit">Search</button>
 					</div>
 				</form>
-				&nbsp;<%
-					if (loginUser != null && loginUser.getUserId().equals("admin")) {
-				%>
-				<button onclick="location.href='<%=contextPath%>/enrollForm.mn'"
-					type="button" class="btn btn-outline-dark" style="margin: 0 auto">메뉴
-					생성</button>
-				<%
-					}
-				%>
 			</div>
 		</nav>
 	</div>

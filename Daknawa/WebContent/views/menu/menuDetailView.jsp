@@ -114,14 +114,6 @@ else lo = 0;
 					<p class="lead"><%=list.get(0).getMenuDesc()%></p>
 					<br>
 					<div class="d-flex">
-							<% if(loginUser != null && loginUser.getUserId().equals("admin")) { %>
-						<button class="btn btn-outline-dark flex-shrink-0" type="button"
-							onclick="location.href='<%=contextPath%>/updateForm.mn?mno=<%=mno%> '">
-							메뉴수정</button>
-						<button class="btn btn-outline-dark flex-shrink-0" type="button"
-							onclick="location.href='<%=contextPath%>/delete.mn?mno=<%=mno%> '">
-							메뉴삭제</button>
-							<% } %>
 					</div> <br>조회수 <%=list.get(0).getView()%> 좋아요 <span class="like-count"><%=lo%></span>
 				</div>
 			</div>
