@@ -50,8 +50,8 @@ public class PostInsertController extends HttpServlet {
 			MultipartRequest multiRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 			
 			int MemberNickname = 1;
-			String postTitle = multiRequest.getParameter("postTitle");
-			String postContent = multiRequest.getParameter("postContent");
+			String postTitle = multiRequest.getParameter("title");
+			String postContent = multiRequest.getParameter("content");
 			
 			//	System.out.println(MemberNickname);
 			//	System.out.println(postTitle);
