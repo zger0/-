@@ -160,9 +160,14 @@ public class QnaDao {
 				
 				q = new Qna();
 				q.setAskNo(rset.getInt("ASK_NO"));
+				q.setAskType(rset.getInt("ASK_TYPE"));
 				q.setAskTitle(rset.getString("ASK_TITLE"));
 				q.setAskContent(rset.getString("ASK_CONTENT"));
+				q.setAnswerContent(rset.getString("ANSWER_CONTENT"));
+				q.setAnswerDate(rset.getDate("ANSWER_DATE"));
 				q.setAskDate(rset.getDate("ASK_DATE"));
+				q.setMemberNo(rset.getInt("MEMBER_NO"));
+
 			}
 			
 		} catch (SQLException e) {
@@ -255,9 +260,7 @@ public class QnaDao {
 		PreparedStatement pstmt = null;
 		
 		String sql = prop.getProperty("updateAnswer");
-		
-		System.out.println(q);
-		
+				
 		try {
 			pstmt = conn.prepareStatement(sql);
 			

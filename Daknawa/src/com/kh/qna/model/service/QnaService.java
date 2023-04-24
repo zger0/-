@@ -133,7 +133,7 @@ public class QnaService {
 				
 		Connection conn = getConnection();
 				
-		int result = new QnaDao().updateAsk(conn, q);
+		int result = new QnaDao().updateAnswer(conn, q);
 				
 		if(result > 0) { 
 			commit(conn);
