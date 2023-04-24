@@ -309,7 +309,7 @@
     </div>
     
     <!-- 관리자쪽 1:1문의 답변 ajax -->
-    <script>
+    <!-- <script>
       $(document).ready(function() {
           // 1:1문의 클릭 시 이벤트 처리
           $('tbody tr').on('click', function(event) {
@@ -372,7 +372,7 @@
             });
           });
         });
-      </script>
+      </script> -->
     
     
   </section>

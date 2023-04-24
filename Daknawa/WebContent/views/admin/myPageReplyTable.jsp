@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList, com.kh.qna.model.vo.Qna" %>
+<%@ page import="java.util.ArrayList, com.kh.common.model.vo.Reply" %>
 <%
-    ArrayList<Qna> list = (ArrayList<Qna>)request.getAttribute("list");
+    ArrayList<Reply> list = (ArrayList<Reply>)request.getAttribute("list");
 %>
 <!doctype html>
 <html class="no-js" lang="">
@@ -66,7 +66,7 @@
 
 	<%@ include file="../common/menubar.jsp" %>
 
-	<%@ include file="../common/adminPageNavbar.jsp" %>
+	<%@ include file="../common/myPageNavbar.jsp" %>
     
     <div class="data-table-area">
         <div class="container">
@@ -74,16 +74,16 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="data-table-list">
                         <div class="basic-tb-hd">
-                            <h2>문의글 관리 테이블></h2>
-                            <p>공지, 자유, 사진 게시판 관리</p>
+                            <h2>댓글 관리</h2>
+                            <p>내 댓글 관리</p>
                         </div>
                         <div class="table-responsive">
                             <table id="data-table-basic" class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>글번호</th>
-                                        <th>문의제목</th>
-                                        <th>문의타입</th>
+                                        <th>댓글번호</th>
+                                        <th>댓글내용</th>
+                                        <th>댓글작성일</th>
                                         <th>문의날짜</th>
                                         <th>답변달기</th>
                                         <th>삭제</th>
@@ -91,14 +91,14 @@
                                 </thead>
                                 
                                 <tbody>
-                                    <% for(Qna q : list) { %>
+                                    <% for(Reply r : list) { %>
                                     <tr>
-                                        <td><%= q.getAskNo() %></td>
-                                        <td><%= q.getAskContent() %></td>
-                                        <td><%= q.getAskType() %></td>
-                                        <td><%= q.getAskDate() %></td>
-                                        <td><a href="<%= contextPath %>/askAnswer.ask?ano=<%= q.getAskNo() %>">답변달기</a></td>
-                                        <td><a href="<%= contextPath %>/delete.st?sno=<%= q.getAskNo() %>">삭제</a></td>
+                                        <td><%= r.getReplyNo() %></td>
+                                        <td><%= r.getReplyContent() %></td>
+                                        <td><%= r.getCreateDate() %></td>
+                                        <td><%= r.getPostNo() %></td>
+                                        <td></td>
+                                        <td><a href="<%= contextPath %>/delete.st?rno=<%= r.getReplyNo() %> %>">삭제</a></td>
                                     </tr>
                                     <% } %>
                                 </tbody>

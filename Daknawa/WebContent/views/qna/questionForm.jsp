@@ -249,7 +249,6 @@
 	  </script>
       </div>
     </div>
-      </div>
     </form>
    </section>
 

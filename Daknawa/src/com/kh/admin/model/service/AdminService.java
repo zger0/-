@@ -1,14 +1,13 @@
 package com.kh.admin.model.service;
 
 import static com.kh.common.JDBCTemplate.close;
-import static com.kh.common.JDBCTemplate.commit;
 import static com.kh.common.JDBCTemplate.getConnection;
-import static com.kh.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.kh.admin.model.dao.AdminDao;
+import com.kh.common.model.vo.Reply;
 import com.kh.post.model.vo.Post;
 import com.kh.qna.model.vo.Qna;
 import com.kh.store.model.vo.Store;
@@ -42,6 +41,28 @@ public class AdminService {
 		Connection conn = getConnection();
 		
 		ArrayList<Store> list = new AdminDao().selectStoreList(conn);
+		
+		close(conn);
+		
+		return list;
+	}
+
+	public ArrayList<Post> selectPostList(int userNo) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Post> list = new AdminDao().selectPostList(conn, userNo);
+		
+		close(conn);
+		
+		return list;
+	}
+	
+	public ArrayList<Reply> selectReplyList(int userNo) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Reply> list = new AdminDao().selectReplyList(conn, userNo);
 		
 		close(conn);
 		
