@@ -50,7 +50,8 @@ else lo = 0;
 						alt="..." />
 				</div>
 				<div class="col-md-6">
-					<h1 class="display-5 fw-bolder" style="display: inline-block;"><%=list.get(0).getMenuName()%></h1>
+				<h2 class="display-7 fw-bolder"><%=list.get(0).getBrandName()%></h2>
+					<h1 class="display-7 fw-bolder" style="display: inline-block;"><%=list.get(0).getMenuName()%></h1>
 					<%
 						if (loginUser != null) {
 							
