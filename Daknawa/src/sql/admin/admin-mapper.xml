@@ -22,4 +22,16 @@
 		JOIN BRAND USING (BRAND_NO)
 	</entry>	
 
+	<entry key="selectPostList">
+        SELECT POST_NO, POST_TITLE, POST_CONTENT, POST_VIEW, POST_DATE
+		  FROM POST
+		 WHERE MEMBER_NO = ?
+	</entry>
+	
+	<entry key="selectReplyList">
+       SELECT *
+  FROM REPLY
+ WHERE MEMBER_NO = ?
+	</entry>
+	
 </properties>
