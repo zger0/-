@@ -11,41 +11,6 @@ import com.kh.store.model.vo.Store;
 
 public class StoreService {
 
-	// 총 게시글 갯수를 구하는 서비스
-	public int selectListCount() {
-
-		// 1. Connection 객체 생성
-		Connection conn = getConnection();
-
-		// 2. Dao 로 만들어진 Connection 과 전달값을 넘기면서 요청 후 결과 받기
-		int listCount = new StoreDao().selectListCount(conn);
-
-		// 3. 트랜잭션 처리 => SELECT 문 이므로 패스
-
-		// 4. Connection 객체 반납
-		close(conn);
-
-		// 5. 결과 반환
-		return listCount;
-	}
-
-	public ArrayList<Store> selectList(PageInfo pi, Store s) {
-
-		// 1. Connection 객체 생성
-		Connection conn = getConnection();
-
-		// 2. Dao 로 만들어진 Connection 과 전달값을 넘기면서 요청 후 결과 받기
-		ArrayList<Store> list = new StoreDao().selectList(conn, pi, s);
-
-		// 3. 트랜잭션 처리 => SELECT 문 패스
-
-		// 4. Connection 반납
-		close(conn);
-
-		// 5. 결과 반환
-		return list;
-	}
-
 	// 매장정보 상세조회용 서비스
 	public Store selectStore(int storeNo) {
 

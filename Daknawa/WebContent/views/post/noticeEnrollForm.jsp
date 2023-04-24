@@ -141,7 +141,7 @@
           method="post"
           enctype="multipart/form-data"
         >
-        <input type="hidden" name="userNo" value="admin">
+        <input type="hidden" name="userNo" value="<%= loginUser.getUserId() %>">
         <div
         class="blog-post1-blog-post1"
         style="width: 1200px; margin: 0 auto"
@@ -150,7 +150,7 @@
           <div class="blog-post1-content">
             <div class="blog-post1-breadcrumbs">
               <span class="blog-post1-text TextRegularNormal">
-                <span>자유 게시판 글작성 하기</span>
+                <span>공지사항 글작성 하기</span>
               </span>
               <img
               src="resources/css/public/playground_assets/iconi110-bfo.svg"
@@ -158,7 +158,7 @@
               class="blog-post1-icon"
               />
               <span class="blog-post1-text02 TextRegularSemiBold">
-                    <span>자유게시판</span>
+                    <span>공지사항</span>
                   </span>
                 </div>
                 <span class="blog-post1-text04 HeadingH2"> </span>
