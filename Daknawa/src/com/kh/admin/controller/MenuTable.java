@@ -37,12 +37,12 @@ public class MenuTable extends HttpServlet {
 		
 		sn.setTitle1("ADMIN PAGE");
 		sn.setTitle1Addr("admin.me");
-		sn.setTitle2("매장 관리");
-		sn.setTitle2Addr("adlist.st");
-		sn.setTitle3("전체 매장 조회");
+		sn.setTitle2("매뉴 관리");
+		sn.setTitle2Addr("menu.ad");
+		sn.setTitle3("전체 메뉴 조회");
 		sn.setActive1("1");
-		sn.setActive2("active");
-		sn.setActive3("1");
+		sn.setActive2("1");
+		sn.setActive3("active");
 		sn.setActive4("1");
 		
 		request.setAttribute("sn", sn);
