@@ -44,6 +44,21 @@
 		AND P.STATUS = 'Y'
 		AND POST_CAT_NO = 2
     </entry>
+    
+    <entry key="selectPost2">
+		SELECT POST_NO
+				, POST_TITLE
+				, POST_CONTENT
+				, MEMBER_NICKNAME
+				, POST_VIEW
+				, POST_DATE
+			FROM POST P
+			JOIN MEMBER USING (MEMBER_NO)
+			WHERE POST_NO = ?
+		AND P.STATUS = 'Y'
+		AND POST_CAT_NO = 3
+    </entry>
+    
 
     <entry key="selectAttachment">
 			SELECT FILE_NO, 

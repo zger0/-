@@ -67,7 +67,7 @@ public class PostListController extends HttpServlet {
 		
 		
 		// System.out.println(pi);
-		System.out.println(list);
+		// System.out.println(list);
 		
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);

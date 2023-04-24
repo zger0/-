@@ -1,93 +1,233 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<%@ page import="java.util.ArrayList, com.kh.post.model.vo.Category" %>    
- 
+<%@ page import="com.kh.post.model.vo.Post, com.kh.common.model.vo.Attachment"%>
 <%
-	ArrayList<Category> list = (ArrayList<Category>)request.getAttribute("list");
-%>    
-    
+    Post p = (Post)request.getAttribute("p");
+    Attachment at = (Attachment)request.getAttribute("at"); 
+%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>게시글 작성</title>
-<style>
-	table {
-		width: 600px;
-		height: 400px;
-		border-collapse: collapse;
-		margin: 20px;
-	}
+<html lang="english">
+  <head>
+    <title>exported project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
 
-	th, td {
-		padding: 10px;
-		text-align: center;
-		border: 1px solid #ddd;
-	}
+    <style data-tag="reset-style-sheet">
+      html {
+        line-height: 1.15;
+      }
+      body {
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+      }
+      p,
+      li,
+      ul,
+      pre,
+      div,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      figure,
+      blockquote,
+      figcaption {
+        margin: 0;
+        padding: 0;
+      }
+      button {
+        background-color: transparent;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: inherit;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+      }
+      button,
+      select {
+        text-transform: none;
+      }
+      button,
+      [type="button"],
+      [type="reset"],
+      [type="submit"] {
+        -webkit-appearance: button;
+      }
+      button::-moz-focus-inner,
+      [type="button"]::-moz-focus-inner,
+      [type="reset"]::-moz-focus-inner,
+      [type="submit"]::-moz-focus-inner {
+        border-style: none;
+        padding: 0;
+      }
+      button:-moz-focus,
+      [type="button"]:-moz-focus,
+      [type="reset"]:-moz-focus,
+      [type="submit"]:-moz-focus {
+        outline: 1px dotted ButtonText;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      input {
+        padding: 2px 4px;
+      }
+      img {
+        display: block;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
 
-	thead th {
-		background-color: #f5f5f5;
-	}
+      body {
+        font-weight: 400;
+        font-style: normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+      data-tag="font"
+    />
+   
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+  
+    <%@ include file="../common/menubar.jsp"%>
+    <div>
+      <link href="resources/css/blog-post1-enroll.css" rel="stylesheet" />
 
-	textarea {
-		width: 100%;
-		height: 200px;
-	}
+      <div class="blog-post1-container">
+        <form
+          id="enroll-form"
+          action="<%= contextPath %>/pinsert.bo"
+          method="post"
+          enctype="multipart/form-data"
+        >
+        <input type="hidden" name="userNo" value="admin">
+        <div
+        class="blog-post1-blog-post1"
+        style="width: 1200px; margin: 0 auto"
+        >
+        <div class="blog-post1-blog-header">
+          <div class="blog-post1-content">
+            <div class="blog-post1-breadcrumbs">
+              <span class="blog-post1-text TextRegularNormal">
+                <span>자유 게시판 글작성 하기</span>
+              </span>
+              <img
+              src="resources/css/public/playground_assets/iconi110-bfo.svg"
+              alt="IconI110"
+              class="blog-post1-icon"
+              />
+              <span class="blog-post1-text02 TextRegularSemiBold">
+                    <span>자유게시판</span>
+                  </span>
+                </div>
+                <span class="blog-post1-text04 HeadingH2"> </span>
+                <!-- 게시글 제목 -->
+                <input
+                type="text"
+                name="title"
+                required
+                style="
+                    border: 1px solid black;
+                    width: 500px;
+                    height: 70px;
+                    font-size: 30px;
+                    "
+                  placeholder="게시글 제목 입력란"
+                  />
+                </div>
+                <div class="blog-post1-content01">
+                  <div class="blog-post1-avatar">
+                    <div class="blog-post1-content02">
+                      <span class="blog-post1-text06 TextSmallSemiBold">
+                        <span>글 작성중 </span>
+                      </span>
+                      <div class="blog-post1-time">
+                        <span class="blog-post1-text08 TextSmallNormal">
+                          <span>작성일</span>
+                        </span>
+                        <span class="blog-post1-text10 TextMediumNormal">•</span>
+                        <span class="blog-post1-text11 TextSmallNormal">
+                          <span>5분의 효과</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="blog-post1-share-buttons"></button>
+                </div>
+              </div>
+              
+              <div class="blog-post1-content03">
+                <div class="blog-post1-content04">
+                  <div class="blog-post1-rich-text">
+                    <input type="file" name="upfile" style="" />
+                    
+                    <div class="blog-post1-content06">
+                      <span class="blog-post1-text15 TextRegularNormal">
+                        <!-- 게시글 내용 -->
+                        <textarea
+                        name="content"
+                        rows="40"
+                        required
+                        style="border: 1px solid black; width: 800px; font-size: 20px;"
+                        ></textarea>
+                    </span>
+                  </div>
 
-	input[type="text"] {
-		width: 100%;
-		height: 30px;
-		box-sizing: border-box;
-	}
-
-	.file-link {
-		display: inline-block;
-		margin-top: 10px;
-		padding: 5px;
-		border: 1px solid #ddd;
-		background-color: #f5f5f5;
-	}
-</style>
-</head>
-<body>
-	
-	<%@ include file="../common/menubar.jsp" %>
-	
-	<h2>게시글 작성</h2>
-	
-	<form id="penroll-form" action="<%= contextPath %>/pinsert.bo" method="post" enctype="multipart/form-data">
-		<table>
-			<thead>
-				<tr>
-					<th>제목</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>
-						<input type="text" name="postTitle" required>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<textarea name="postContent"></textarea>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<input type="file" name="upfile">
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		<div align="center">
-			<button onclick="location.href='<%= contextPath %>/plist.bo?currentPage=1'">목록</button>
-			<button type="submit">작성</button>
-			<button type="reset">취소</button>
-		</div>
-		
-	</form>
-	
-</body>
+                  <button
+                    class="btn btn-outline-dark"
+                    style="margin: 0 auto"
+                    type="submit"
+                  >
+                    작성 완료
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
+

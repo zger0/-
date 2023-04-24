@@ -74,17 +74,17 @@ public class ReviewPostListController extends HttpServlet {
 		
 		for(Post p : list) {
 			
-			System.out.println("포스트 넘버" + p.getPostNo());
+			// System.out.println("포스트 넘버" + p.getPostNo());
 			
 			Attachment att = new PostService().selectAttachment(p.getPostNo());
 			
 			flist.add(att);
 		}
 
-		System.out.println(flist);
-		System.out.println(list);
-		System.out.println(pi);
-		System.out.println(flist);
+		// System.out.println(flist);
+		// System.out.println(list);
+		// System.out.println(pi);
+		// System.out.println(flist);
 		
 		request.setAttribute("list", list);
 		request.setAttribute("pi", pi);

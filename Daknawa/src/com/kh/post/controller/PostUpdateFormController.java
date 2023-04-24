@@ -36,7 +36,7 @@ public class PostUpdateFormController extends HttpServlet {
 		
 		PostService pService = new PostService();
 		
-		Post p = pService.selectPost(postNo);
+		Post p = pService.selectPost2(postNo);
 		Attachment at = pService.selectAttachment(postNo);
 		
 		request.setAttribute("p", p);

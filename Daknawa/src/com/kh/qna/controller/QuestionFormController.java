@@ -28,7 +28,7 @@ public class QuestionFormController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		// 1:1 문의하기 페이지를 포워딩
-		request.getRequestDispatcher("/views/qna/questionForm.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/qna/questionForm1.jsp").forward(request, response);
 	}
 
 	/**

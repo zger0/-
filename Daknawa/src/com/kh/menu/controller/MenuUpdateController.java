@@ -49,7 +49,7 @@ public class MenuUpdateController extends HttpServlet {
 			String menuName = multiRequest.getParameter("name");
 			int menuPrice = Integer.parseInt(multiRequest.getParameter("price"));
 			String menuCategory = multiRequest.getParameter("category");
-			int menuStore = Integer.parseInt(multiRequest.getParameter("store"));
+			int menuBrand = Integer.parseInt(multiRequest.getParameter("brand"));
 			String menuDesc = multiRequest.getParameter("desc");
 
 			Menu m = new Menu();
@@ -57,7 +57,7 @@ public class MenuUpdateController extends HttpServlet {
 			m.setMenuName(menuName);
 			m.setMenuPrice(menuPrice);
 			m.setMenuCategory(menuCategory);
-			m.setStoreNo(menuStore);
+			m.setBrandNo(menuBrand);
 			m.setMenuDesc(menuDesc);
 
 			Attachment at = null;

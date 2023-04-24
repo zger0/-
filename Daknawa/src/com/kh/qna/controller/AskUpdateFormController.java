@@ -31,13 +31,17 @@ public class AskUpdateFormController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		
+		// 사용자가 답변 수정
 		int askNo = Integer.parseInt(request.getParameter("ano"));
 		
 		Qna q = new QnaService().selectAsk(askNo);
 		
 		request.setAttribute("q", q);
 		
-		request.getRequestDispatcher("views/qna/askUpdateForm.jsp").forward(request, response);
+		System.out.println("q 들오나" + q);
+		
+		request.getRequestDispatcher("views/qna/askUpdateForm1.jsp").forward(request, response);
 	}
 
 	/**

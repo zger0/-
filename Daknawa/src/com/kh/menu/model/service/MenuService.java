@@ -95,9 +95,7 @@ public class MenuService {
 
         return listCount;
     }
-    
-
-
+      
         public ArrayList<Attachment> selectImgPageList(PageInfo pi) {
         
         Connection conn = getConnection();
@@ -272,38 +270,49 @@ public class MenuService {
         
         return result1 * result2;
     }
-
-    public ArrayList<Menu> searchMenu(String query){
-       
+    
+    
+    public int selectSEListCount(String query) {
+        // 1. 드라이버 등록
         Connection conn = getConnection();
         
-        ArrayList<Menu> list = new MenuDao().searchMenu(conn, query);
+        // 2. dao 메소드 호출
+        int listCount = new MenuDao().selectSEListCount(conn, query);
+
+        // 3. 트랜잭션 처리
+        close(conn);
+
+        return listCount;
+    }
+    
+    
+    public ArrayList<Menu> searchMenu(String query, PageInfo pi, String type){
+       
+        Connection conn = getConnection();
+        ArrayList<Menu> list = null;
+        
+        if(type=="") { 
+        	list = new MenuDao().searchMenu(conn, pi, query);
+        }
+        else {
+        	list = new MenuDao().searchMenu(conn, pi, query, type);
+        }
         
         close(conn);
         
         return list;
     }
 
-    public int insertHeart(int mno, int uno) {
+        public int heart(int mno, int uno, String type) {
         Connection conn = getConnection();
+        int result = 0;
         
-        int result = new MenuDao().insertHeart(conn, mno, uno);
-        
-        if(result > 0) {
-            commit(conn);
-        }else {
-            rollback(conn);
+        if("like".equals(type)) {
+        	result = new MenuDao().insertHeart(conn, mno, uno);
         }
-        
-        close(conn);
-        
-        return result;
-    }
-
-        public int heart(int mno, int uno) {
-        Connection conn = getConnection();
-        
-        int result = new MenuDao().heart(conn, mno, uno);
+        else {
+        	result = new MenuDao().heart(conn, mno, uno);
+        }
         
         if(result > 0) {
             commit(conn);
