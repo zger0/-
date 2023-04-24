@@ -11,6 +11,7 @@ import java.util.Properties;
 
 import com.kh.common.JDBCTemplate;
 import com.kh.common.model.vo.Reply;
+import com.kh.menu.model.vo.Menu;
 import com.kh.post.model.dao.PostDao;
 import com.kh.post.model.vo.Post;
 import com.kh.qna.model.vo.Qna;
@@ -190,6 +191,40 @@ public class AdminDao {
                 re.setMemberNo(rset.getString("MEMBER_NO"));
                 
                 list.add(re);
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCTemplate.close(rset);
+            JDBCTemplate.close(pstmt);
+        }	
+        return list;
+	}
+
+	public ArrayList<Menu> selectMenuList(Connection conn) {
+		
+        ArrayList<Menu> list = new ArrayList<>();
+        PreparedStatement pstmt = null;
+        ResultSet rset = null;
+        String sql = prop.getProperty("selectMenuList");
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+            rset = pstmt.executeQuery();
+            
+            while(rset.next()) {
+                
+                Menu me = new Menu();
+  
+                me.setMenuNo(rset.getInt("MENU_NO"));
+                me.setMenuName(rset.getString("MENU_NAME"));
+                me.setMenuPrice(rset.getInt("MENU_PRICE"));
+                me.setMenuCategory(rset.getString("MENU_CATEGORY"));
+                me.setMenuDesc(rset.getString("MENU_DESC"));
+                me.setBrandName(rset.getString("BRAND_NAME"));
+                
+                list.add(me);
             }
             
         } catch (SQLException e) {
