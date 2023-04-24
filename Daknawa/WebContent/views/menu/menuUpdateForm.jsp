@@ -83,9 +83,9 @@ body {
 				</select>
 			</div>
 			<div class="form-group">
-				<label for="m-store" class="form-label">매장</label> <input
-					type="text" class="form-control" id="m-store" name="store"
-					placeholder="매장을 입력하세요" value="<%=m.getStoreNo()%>" />
+				<label for="m-store" class="form-label">브랜드</label> <input
+					type="text" class="form-control" id="m-store" name="brand"
+					placeholder="브랜드를 입력하세요" value="<%=m.getBrandNo()%>" />
 			</div>
 			<div class="form-group">
 				<label for="m-description" class="form-label">메뉴 설명</label>
