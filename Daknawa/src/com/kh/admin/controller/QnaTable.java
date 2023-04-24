@@ -37,13 +37,13 @@ public class QnaTable extends HttpServlet {
 		
 		sn.setTitle1("ADMIN PAGE");
 		sn.setTitle1Addr("admin.me");
-		sn.setTitle2("매장 관리");
-		sn.setTitle2Addr("adlist.st");
-		sn.setTitle3("전체 매장 조회");
+		sn.setTitle2("문의내역 관리");
+		sn.setTitle2Addr("qna.ad");
+		sn.setTitle3("1:1 문의내역 관리");
 		sn.setActive1("1");
-		sn.setActive2("active");
+		sn.setActive2("1");
 		sn.setActive3("1");
-		sn.setActive4("1");
+		sn.setActive4("active");
 		
 		request.setAttribute("sn", sn);
 

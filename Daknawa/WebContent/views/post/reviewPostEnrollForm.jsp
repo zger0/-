@@ -141,7 +141,7 @@
           method="post"
           enctype="multipart/form-data"
         >
-        <input type="hidden" name="userNo" value="admin">
+        <input type="hidden" name="userNo" value="<%= loginUser.getUserId() %>">
         <div
         class="blog-post1-blog-post1"
         style="width: 1200px; margin: 0 auto"
