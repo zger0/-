@@ -40,7 +40,7 @@ public class PostDetailController extends HttpServlet {
 		
 		if(result > 0) {
 			
-			Post p = pService.selectPost(postNo);
+			Post p = pService.selectPost2(postNo);
 			
 			Attachment at = pService.selectAttachment(postNo);
 			

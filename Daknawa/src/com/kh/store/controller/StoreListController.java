@@ -45,9 +45,9 @@ public class StoreListController extends HttpServlet {
 		int endPage; // 페이징바의 끝수
 		
 		// 검색 전달값을 뽑아서 변수에 기록
-		
 		String brandName = request.getParameter("bname");
 		String keyword = request.getParameter("keyword");
+		
 		if(brandName == null && keyword == null) {
 			brandName = "";
 			keyword = "";
@@ -56,7 +56,7 @@ public class StoreListController extends HttpServlet {
 		System.out.println("키워드값 받기 : " + keyword);
 		
 		// * listCount : 총 게시글 갯수 (삭제된 게시글은 제외하고 카운트)
-		listCount = new StoreService().selectKeywordListCount(brandName, keyword);
+		listCount = new StoreService().selectStoreListCount(brandName, keyword);
 		
 		System.out.println("브랜드 키워드 값 받기 : " + listCount);
 		
@@ -64,7 +64,7 @@ public class StoreListController extends HttpServlet {
 		
 		pageLimit = 10;
 		
-		postLimit = 4;
+		postLimit = 8;
 		
 		maxPage = (int)Math.ceil((double)listCount /postLimit);
 		
@@ -81,7 +81,7 @@ public class StoreListController extends HttpServlet {
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit,
 				                    postLimit, maxPage, startPage, endPage);
 		
-		ArrayList<Store> list = new StoreService().selectKeywordList(pi, s, brandName , keyword);
+		ArrayList<Store> list = new StoreService().selectStoreList(pi, s, brandName , keyword);
 		
 		
 		// System.out.println(pi);
@@ -91,8 +91,6 @@ public class StoreListController extends HttpServlet {
 		request.setAttribute("list", list);
 		
 		request.getRequestDispatcher("views/store/StoreListView.jsp").forward(request, response);
-		
-
 	}
 
 	/**

@@ -37,16 +37,16 @@ public class QuestionInsertController extends HttpServlet {
 		// 1. 요청시 전달값뽑기 (반드시 input, select, textarea 태그의 name 속성으로 뽑아야함)
 		// => String 변수 = request.getParameter("name속성값");
 		int askType = Integer.parseInt(request.getParameter("askType"));
-		String subject = request.getParameter("subject");
-		String message = request.getParameter("message");
+		String askTitle = request.getParameter("askTitle");
+		String askContent = request.getParameter("askContent");
 		
 		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
 		
 		// 2. VO로 가공하기
 		Qna q = new Qna();
 		q.setAskType(askType);
-		q.setAskTitle(subject);
-		q.setAskContent(message);
+		q.setAskTitle(askTitle);
+		q.setAskContent(askContent);
 		q.setMemberNo(memberNo);
 		
 		// 3. Service 로 요청 후 결과 받기

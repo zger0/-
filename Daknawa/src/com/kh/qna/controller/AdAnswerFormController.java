@@ -1,7 +1,6 @@
 package com.kh.qna.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,9 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.member.model.vo.Member;
-import com.kh.qna.model.service.QnaService;
-import com.kh.qna.model.vo.Qna;
 
 /**
  * Servlet implementation class AdAnswerFormController
@@ -33,15 +29,9 @@ public class AdAnswerFormController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int memberNo = ((Member)request.getSession().getAttribute("loginUser")).getUserNo();
-		String answerContent = request.getSession().getAttribute()
 		
-		Qna q = new Qna();
-		q.setMemberNo(memberNo);
-		q.setAnswerContent(answerContent);
-		
-		ArrayList<Qna> list = new QnaService().selectAnswer(memberNo, q);
-		
+		request.getRequestDispatcher("/views/admin/adminAnswerForm.jsp").forward(request, response);
+
 		
 		
 	}

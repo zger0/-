@@ -118,8 +118,6 @@ public class StoreDao {
 						, rset.getString("STORE_ADDRESS")
 						, rset.getString("STORE_PHONE")
 						, rset.getString("STORE_TIME")
-						, rset.getString("MAP_LAT")
-						, rset.getString("MAP_LNG")
 						, rset.getString("BRAND_NAME")));
 			}
 
@@ -206,9 +204,7 @@ public class StoreDao {
 			pstmt.setString(2, s.getStoreAddress());
 			pstmt.setString(3, s.getStorePhone());
 			pstmt.setString(4, s.getStoreTime());
-			pstmt.setString(5, s.getMapLat());
-			pstmt.setString(6, s.getMapLng());
-			pstmt.setString(7, s.getBrandName());
+			pstmt.setString(5, s.getBrandName());
 
 			// 3_2. 쿼리문 실행 후 결과 받기
 			result = pstmt.executeUpdate();
@@ -354,13 +350,13 @@ public class StoreDao {
 		return result;
 	}
 
-	public int selectKeywordListCount(Connection conn, String brandName, String keyword) {
+	public int selectStoreListCount(Connection conn, String brandName, String keyword) {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 
-		String sql = prop.getProperty("selectKeywordListCount");
+		String sql = prop.getProperty("selectStoreListCount");
 
 		try {
 	
@@ -384,7 +380,7 @@ public class StoreDao {
 		return result;
 	}
 
-	public ArrayList<Store> selectKeywordList(Connection conn, PageInfo pi, Store s, String brandName , String keyword) {
+	public ArrayList<Store> selectStoreList(Connection conn, PageInfo pi, Store s, String brandName , String keyword) {
 
 		// SELECT 문 => ResultSet (여러 행) => ArrayList<Board> 
 
@@ -394,7 +390,7 @@ public class StoreDao {
 		ResultSet rset = null;
 
 		// 실행할 쿼리문
-		String sql = prop.getProperty("selectKeywordList");
+		String sql = prop.getProperty("selectStoreList");
 
 		try {
 			// 2. PreparedStatement 객체 생성
@@ -436,8 +432,6 @@ public class StoreDao {
 						, rset.getString("STORE_ADDRESS")
 						, rset.getString("STORE_PHONE")
 						, rset.getString("STORE_TIME")
-						, rset.getString("MAP_LAT")
-						, rset.getString("MAP_LNG")
 						, rset.getString("BRAND_NAME")));
 			}
 		} catch (SQLException e) {

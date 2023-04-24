@@ -191,11 +191,13 @@
         height : 45px;
         border-style : solid;
         border-width : 2px;
+        border-radius : 5px;
         font-size : 14px;
     }
 
     .input {
         box-sizing : border-box;
+        border-radius : 5px;
         margin-bottom : 5px;
     }
 
@@ -203,6 +205,7 @@
         width : 100px;
         height : 44px;
         box-sizing : border-box;
+        border-radius : 5px;
         background-color : black;
         color : white;
         margin : 0px 0px 6px 10px;
@@ -210,18 +213,9 @@
 
     .button2 {
         background-color : black;
+        border-radius : 5px;
         color : white;
         margin : 20px 0px 5px 0px;
-    }
-
-    .button3 {
-        width : 100px;
-        height : 45px;
-        border : 2px solid rgb(255, 37, 37);
-        font-size : 14px;
-        background-color : rgb(255, 37, 37);
-        color : white;
-        margin : 50px 0px 5px 150px;
     }
 
     .button1:hover, .button2:hover {
@@ -272,71 +266,11 @@
 	%>
 	
 	 <section id="container">
-	 	<!--
-        <div class="title">
-          <h2 class="sub_title">
-            <span>MY PAGE</span>
-            </h2>
-            <ol id="mini_title">
-            <li><a href="<%= contextPath %>">Home</a>
-            </li>
-            <li>></li>
-            <li><a href="<%= contextPath %>/myInfo.me">MY PAGE</a>
-            </li>
-            <li>></li>
-            <li><a href="<%= contextPath %>/myInfo.me">내 정보 관리</a>
-            </li>
-            <li>></li>
-            <li>정보 조회 및 수정</li>
-            </ol>
-        </div>
-        <div id="mnb" class="menubar">
-		    <div class="mnb_header">
-		        <ul id="mnb_sub">
-	            	<li id="mnb_li" class="active1">
-	                    <a href="<%= contextPath %>/myInfo.me"">내 정보 관리</a>
-	                    <ul>
-	                        <li style="display: block !important;"><a href="<%= contextPath %>/myInfo.me">정보 조회 및 수정</a></li>
-	                        <li style="display: block !important;"><a href="<%= contextPath %>/deleteForm.me">회원 탈퇴</a></li>                   
-	                    </ul>
-	                </li>
-	                <li id="mnb_li">
-	                    <a href="">내 활동 관리</a>
-	                    <ul>
-	                        <li><a href="">게시글 관리</a></li>
-	                        <li><a href="">댓글 관리</a></li>
-	                        <li><a href="">좋아요 관리</a></li>                   
-	                    </ul>
-	                </li>
-	                <li id="mnb_li">
-	                    <a href="">내 신고 관리</a>
-	                    <ul>
-	                        <li><a href="">A</a></li>
-	                        <li><a href="">B</a></li>
-	                        <li><a href="">C</a></li>                   
-	                    </ul>
-	                </li>
-	                <li id="mnb_li">
-	                    <a href="<%= contextPath %>/list.ask">문의내역</a>
-	                    <ul>
-	                        <li><a href="<%= contextPath %>/list.ask">1:1문의내역관리</a></li>
-	                        <li><a href="<%= contextPath %>/faq.qna">FAQ</a></li>
-	                        <li><a href="">C</a></li>                
-	                    </ul>
-	                </li>
-		        </ul>
-		    </div>
-		    <br>
-    	</div>
-    	-->
-    	
-    	
+	 	
     	<div>
 		    <% if(loginUser != null) { %>
 		    
 				<form id="infoUpdate-form" action="update.me" method="post">
-		
-			        <br><br><br>
 			        
 			        <h1 class="h1">내 정보</h1>
 			
@@ -474,10 +408,6 @@
 				        </div>
 
     				</form>
-                    
-                    <script>
-                    	
-                    </script>
                     
                 </div>
             </div>

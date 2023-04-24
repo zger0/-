@@ -7,6 +7,7 @@
 	ArrayList<Menu> list = (ArrayList<Menu>) request.getAttribute("list");
 ArrayList<Attachment> ilist = (ArrayList<Attachment>) request.getAttribute("ilist");
 PageInfo pi = (PageInfo) request.getAttribute("pi");
+String userId = request.getParameter("userId");
 // 자주 쓰일법한 변수들 셋팅
 int currentPage = pi.getCurrentPage();
 int startPage = pi.getStartPage();
@@ -202,12 +203,13 @@ int maxPage = pi.getMaxPage();
 									href="<%=contextPath%>/list.ch?type=기타">기타</a></li>
 							</ul></li>
 						<li class="nav-item"><a class="nav-link" href="#"
-							onclick="window.open('<%=contextPath%>/list.chat', 'chatWindow', 'width=500, height=500')">채팅방</a>
+							onclick="window.open('<%=contextPath%>/views/menu/menuChat.jsp', 'chatWindow', 'width=500, height=500')">채팅방</a>
 						</li>
 					</ul>
 				</div>
 				<form class="d-flex" method="POST" action="search.mn">
 					<div class="input-group">
+						<input type="hidden" name="type">
 						<input class="form-control" type="search" name="query"
 							placeholder="Search" aria-label="Search">
 						<button class="btn btn-outline-success" type="submit">Search</button>
@@ -360,59 +362,23 @@ int maxPage = pi.getMaxPage();
 	</div>
 
 	<script>
-		$(function() {
-			// 모달창을 열어주는 부트스트랩 메소드 : 모달요소.modal("show");
-			// 모달창을 띄우는 코드
-			//$("#adModal").modal("show");
+	$(function() {
+		  $("#mainPop").click(function() {
+		    $("#adModal").modal("hide");
+		    let today = new Date();
+		    today.setDate(today.getDate() + 1); // 하루 뒤의 날짜를 구함
+		    document.cookie = "mainPop=n; expires=" + today.toUTCString();
+		  });
 
-			// 체크박스에 클릭 이벤트가 걸릴 경우 모달 닫기 겸 쿠키 설정
-			// 사용자 입장에서 체크박스를 클릭함 == 24시간동안 광고창을 안보겠다.
-			$("#mainPop").click(function() {
-				// 모달창을 닫아주는 부트스트랩 메소드 : 모달요소.modal("hide");
-				$("#adModal").modal("hide");
-				// 쿠키를 생성하는 메소드 : $.cookie("쿠키명", "쿠키값", {옵션});
-				// 옵션 : expires(쿠키의 유효기간), path(쿠키의 경로), domain(쿠키의 도메인), secure(https인 경우에만 쿠키를 전송)
+		  if (document.cookie.includes("mainPop=n")) {
+		    $("#adModal").modal("hide");
+		  } else {
+		    $("#adModal").modal("show");
+		  }
 
-				// 쿠키 설정
-				// => 상태값을 단순히 저장하기 위함이므로 형태에 맞게 하드코딩할 것
-
-				// * 자바스크립트를 이용해서 쿠키를 생성하려면
-				// document 객체에서 제공하는 cookie 속성에 접근한다.
-				// => 이 떄, 반드시 형식에 맞는 문자열로 쿠키를 지정해야 한다.
-				// "키=벨류; 키=벨류; 키=벨류;"
-
-				// [표현법]
-				// document.cookie = "키=벨류; expires="만료시간";
-
-				// 우선적으로 현재시간 먼저 구하기
-				let today = new Date();
-				today.setDate(today.getDate() + 1); // 하루 뒤의 날짜를 구함
-				document.cookie = "mainPop=n; expires=" + today.toUTCString();
-				// 주의사항 : 만료일은 한국 시간이 아니라 그리니치 천문대 시간 기준임!!
-				// 우리나라는 +9시간
-				//console.log(document.cookie); // "mailPop=n"
-				// "svaeId=admin; mainPop=n"
-
-				//$.cookie("mainPop", "done", {expires:1, path:"/"}); 
-
-			});
-
-			// 클릭이벤트 밖에서는 쿠키가 항상 있나 없나 검사하는 로직 추가
-			// => document.cookie 속성값에 "mainPop=n" 이라는 문자열이 "포함" 되어있을 경우
-
-			if (document.cookie.includes("mainPop=n")) {
-				// 문자열.includes("문자열") : 해당 문자열에 매개변수값이 포함된다면 true / 아니면 false 반환
-				// => 자바의 contains() 메소드와 동일
-				// mainPop 이라는 쿠기가 있다 == 광고창을 24시간동안 아보겠다.
-				// => adModal 닫기
-				// => 쿠키값이 "mainPop=n" 이라면 광고창을 닫아주고
-				// => 쿠키값이 "mainPop=done" 이라면 광고창을 닫지 않고
-				$("#adModal").modal("hide");
-			} else {
-				// mainPop 이라는 쿠기가 없다 == 광고창을 24시간동안 보겠다.
-				// => adModal 열기
-				$("#adModal").modal("show");
-			}
+		  document.querySelector('#adModal .close').addEventListener('click', function() {
+		    $("#adModal").modal("hide");
+		  });
 		});
 	</script>
 </body>

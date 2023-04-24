@@ -72,7 +72,7 @@ public class MenuDao {
 
 			while (rset.next()) {
 				list.add(new Menu(rset.getInt("MENU_NO"), rset.getString("MENU_NAME"), rset.getInt("MENU_PRICE"),
-						rset.getString("MENU_CATEGORY"), rset.getInt("STORE_NO"), rset.getString("MENU_DESC")));
+						rset.getString("MENU_CATEGORY"), rset.getInt("BRAND_NO"), rset.getString("MENU_DESC")));
 
 			}
 		} catch (SQLException e) {
@@ -107,7 +107,7 @@ public class MenuDao {
 
 			while (rset.next()) {
 				list.add(new Menu(rset.getInt("MENU_NO"), rset.getString("MENU_NAME"), rset.getInt("MENU_PRICE"),
-						rset.getString("MENU_CATEGORY"), rset.getInt("STORE_NO"), rset.getString("MENU_DESC"),
+						rset.getString("MENU_CATEGORY"), rset.getInt("BRAND_NO"), rset.getString("MENU_DESC"),
 						rset.getInt("MENU_VIEW")));
 			}
 
@@ -183,7 +183,6 @@ public class MenuDao {
 			close(rset);
 			close(pstmt);
 		}
-
 		return listCount;
 	}
 
@@ -212,6 +211,8 @@ public class MenuDao {
 
 		return listCount;
 	}
+	
+	
 
 	public ArrayList<Menu> selectPageList(Connection conn, PageInfo pi) {
 
@@ -248,7 +249,7 @@ public class MenuDao {
 			// 4. ResultSet 객체에서 값을 꺼내서 변수에 저장
 			while (rset.next()) {
 				list.add(new Menu(rset.getInt("MENU_NO"), rset.getString("MENU_NAME"), rset.getInt("MENU_PRICE"),
-						rset.getString("MENU_CATEGORY"), rset.getInt("STORE_NO"), rset.getString("MENU_DESC")));
+						rset.getString("MENU_CATEGORY"), rset.getInt("BRAND_NO"), rset.getString("MENU_DESC")));
 			}
 
 		} catch (SQLException e) {
@@ -332,7 +333,7 @@ public class MenuDao {
 			// 4. ResultSet 객체에서 값을 꺼내서 변수에 저장
 			while (rset.next()) {
 				list.add(new Menu(rset.getInt("MENU_NO"), rset.getString("MENU_NAME"), rset.getInt("MENU_PRICE"),
-						rset.getString("MENU_CATEGORY"), rset.getInt("STORE_NO"), rset.getString("MENU_DESC")));
+						rset.getString("MENU_CATEGORY"), rset.getInt("BRAND_NO"), rset.getString("MENU_DESC")));
 			}
 
 		} catch (SQLException e) {
@@ -441,7 +442,7 @@ public class MenuDao {
 			pstmt.setString(1, m.getMenuName());
 			pstmt.setInt(2, m.getMenuPrice());
 			pstmt.setString(3, m.getMenuCategory());
-			pstmt.setInt(4, m.getStoreNo());
+			pstmt.setInt(4, m.getBrandNo());
 			pstmt.setString(5, m.getMenuDesc());
 
 			result = pstmt.executeUpdate();
@@ -517,7 +518,7 @@ public class MenuDao {
 
 			if (rset.next()) {
 				m = new Menu(rset.getInt("MENU_NO"), rset.getString("MENU_NAME"), rset.getInt("MENU_PRICE"),
-						rset.getString("MENU_CATEGORY"), rset.getInt("STORE_NO"), rset.getString("MENU_DESC"));
+						rset.getString("MENU_CATEGORY"), rset.getInt("BRAND_NO"), rset.getString("MENU_DESC"));
 			}
 
 		} catch (SQLException e) {
@@ -571,7 +572,7 @@ public class MenuDao {
 			pstmt.setString(1, m.getMenuName());
 			pstmt.setInt(2, m.getMenuPrice());
 			pstmt.setString(3, m.getMenuCategory());
-			pstmt.setInt(4, m.getStoreNo());
+			pstmt.setInt(4, m.getBrandNo());
 			pstmt.setString(5, m.getMenuDesc());
 			pstmt.setInt(6, m.getMenuNo());
 
@@ -635,8 +636,35 @@ public class MenuDao {
 
 		return result;
 	}
+	
+	
+	public int selectSEListCount(Connection conn, String query) {
+		int listCount = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectSEListCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, query);
+			
+			rset = pstmt.executeQuery();
 
-	public ArrayList<Menu> searchMenu(Connection conn, String menuName) {
+			if (rset.next()) {
+				listCount = rset.getInt("COUNT");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return listCount;
+	}
+	
+	
+	public ArrayList<Menu> searchMenu(Connection conn, PageInfo pi, String query) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Menu> list = new ArrayList<Menu>();
@@ -645,14 +673,20 @@ public class MenuDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
+			
+			int startRow = (pi.getCurrentPage() - 1) * pi.getPostLimit() + 1;
+			int endRow = startRow + pi.getPostLimit() - 1;
 
-			pstmt.setString(1, menuName);
+			pstmt.setString(1, query);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+
 
 			rset = pstmt.executeQuery();
 
 			while (rset.next()) {
 				list.add(new Menu(rset.getInt("MENU_NO"), rset.getString("MENU_NAME"), rset.getInt("MENU_PRICE"),
-						rset.getString("MENU_CATEGORY"), rset.getInt("STORE_NO"), rset.getString("MENU_DESC"),
+						rset.getString("MENU_CATEGORY"), rset.getInt("BRAND_NO"), rset.getString("MENU_DESC"),
 						rset.getString("FILE_PATH")));
 			}	
 		} catch (SQLException e) {
@@ -664,6 +698,44 @@ public class MenuDao {
 
 		return list;
 	}
+	
+	
+	public ArrayList<Menu> searchMenu(Connection conn, PageInfo pi, String query, String type) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<Menu> list = new ArrayList<Menu>();
+
+		String sql = prop.getProperty("searchCMenu");
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			int startRow = (pi.getCurrentPage() - 1) * pi.getPostLimit() + 1;
+			int endRow = startRow + pi.getPostLimit() - 1;
+
+			pstmt.setString(1, query);
+			pstmt.setString(2, type);
+			pstmt.setInt(3, startRow);
+			pstmt.setInt(4, endRow);
+
+
+			rset = pstmt.executeQuery();
+
+			while (rset.next()) {
+				list.add(new Menu(rset.getInt("MENU_NO"), rset.getString("MENU_NAME"), rset.getInt("MENU_PRICE"),
+						rset.getString("MENU_CATEGORY"), rset.getInt("BRAND_NO"), rset.getString("MENU_DESC"),
+						rset.getString("FILE_PATH")));
+			}	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+
+		return list;
+	}
+	
 
 	public int insertHeart(Connection conn, int menuNo, int userNo) {
 		PreparedStatement pstmt = null;

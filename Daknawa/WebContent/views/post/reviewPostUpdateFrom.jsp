@@ -138,7 +138,7 @@
       <div class="blog-post1-container">
         <form
           id="enroll-form"
-          action="<%= contextPath %>/rupdate.po"
+          action="<%= contextPath %>/update.po"
           method="post"
           enctype="multipart/form-data"
         >
@@ -163,7 +163,7 @@
                   </span>
                 </div>
                 <span class="blog-post1-text04 HeadingH2"> </span>
-                <!-- 게이글 제목 -->
+                <!-- 게시글 제목 -->
                 <input
                 type="text"
                 name="title"

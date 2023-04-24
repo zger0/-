@@ -29,7 +29,7 @@ public class StoreInsertFormController extends HttpServlet {
 
 		System.out.println(1);
 			
-		request.getRequestDispatcher("views/store/StoreInsertForm.jsp").forward(request, response);
+		request.getRequestDispatcher("views/admin/asdf.jsp").forward(request, response);
 	
 	}
 

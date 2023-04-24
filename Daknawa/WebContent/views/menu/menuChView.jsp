@@ -136,6 +136,7 @@ int maxPage = pi.getMaxPage();
 				</div>	
 				<form class="d-flex" method="POST" action="search.mn">
 					<div class="input-group">
+						<input type="hidden" name="type" value="<%=type%>">
 					  <input class="form-control" type="search" name="query" placeholder="Search" aria-label="Search">
 					  <button class="btn btn-outline-success" type="submit">Search</button>
 					</div>
