@@ -29,7 +29,8 @@
     
           }
 
-          .footer7-logo1 { width : 100px; }
+          .footer7-logo1 { width : 30px; }
+
         </style>
         <link
           rel="stylesheet"
@@ -44,25 +45,25 @@
         <link rel="stylesheet" href="./style.css" />
       </head>
       <body>
-        <div style="height : 500px;">
+        <div style="height : 0px;">
           <link href="resources/css/footer7.css" rel="stylesheet" />
           <img
             src="resources/css/public/playground_assets/logo.png"
-            style="margin : auto; width : 80px; height : 100px; margin-top : 80px;"  
+            style="margin : auto; width : 75px; height : ; margin-top : 80px; margin-bottom : 20px;"  
           >
-          <div class="footer7-container" style="height : 300px; min-height: 0vh;">
+          <div class="footer7-container" style="height : ; min-height: 0vh;">
             <div class="footer7-footer7" style="padding-top : 0px;">
-              <div class="footer7-content" style="margin-bottom : 0px; height : 182px;">
+              <div class="footer7-content" style="margin-bottom : 0px; height : ;">
 
 
-                <div class="footer7-links" style>
+                <div class="footer7-links">
                   <span class="footer7-text TextRegularSemiBold">
                     <span class>
                      <img
                     src="resources/css/public/playground_assets/bbq.png"
                     alt="logoI146"
                     class="footer7-logo1"
-                    style="width : 100px;"
+                    style="height : 60px; width : 75px; "
                   	/>
                     </span>
                   </span>
@@ -73,7 +74,7 @@
                     src="resources/css/public/playground_assets/bhc.png"
                     alt="logoI146"
                     class="footer7-logo1"
-                    style="width : 100px;"
+                    style="height : 60px; width : 75px; "
                   />
                     </span>
                   </span>
@@ -84,7 +85,7 @@
                     src="resources/css/public/playground_assets/goobne.png"
                     alt="logoI146"
                     class="footer7-logo1"
-                    style="width : 100px;"
+                    style="height : 60px; width : 72px; "
                   />
                     </span>
                   </span>
@@ -95,7 +96,7 @@
                     src="resources/css/public/playground_assets/hosigi.png"
                     alt="logoI146"
                     class="footer7-logo1"
-                    style="width : 100px;"
+                    style="height : 60px; width : 75px;"
                   />
                     </span>
                   </span>
@@ -106,13 +107,13 @@
                     src="resources/css/public/playground_assets/dore.png"
                     alt="logoI146"
                     class="footer7-logo1"
-                    style="width : 100px;"
+                    style="height : 60px; width : 75px; "
                   />
                     </span>
                   </span>
                 </div>
               </div>
-              <div class="footer7-credits">
+              <div class="footer7-credits" style="margin-top : 30px;">
                 <img
                   src="resources/css/public/playground_assets/divideri146-w1db-200h.png"
                   alt="DividerI146"

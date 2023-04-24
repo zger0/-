@@ -270,6 +270,7 @@
     <button class="ask1" onclick="location.href='<%= contextPath %>/questionForm.qna';">1:1 문의하기 ></button>
     </div>
 
+ <%@ include file="../common/footer.jsp"%>
 	
 	
 

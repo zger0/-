@@ -389,7 +389,7 @@ map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
         <div class="category-filters5-category-filters5">
           <div class="category-filters5-section-title">
             <span class="category-filters5-text HeadingH2">
-              <span><h1><b>매장검색</b></h2></span>
+              <span><h1>매장검색</h2></span>
             </span>
           </div>
           <div class="category-filters5-content">
@@ -591,10 +591,10 @@ map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
               <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
               <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
             </ul>
-          </div> -->
+          </div> 
         </div>
       </div>
-</footer>
+</footer>-->
 		
 		
 		
