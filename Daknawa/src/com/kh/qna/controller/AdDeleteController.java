@@ -1,31 +1,25 @@
 package com.kh.qna.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.kh.member.model.vo.Member;
 import com.kh.qna.model.service.QnaService;
-import com.kh.qna.model.vo.Qna;
 
 /**
- * Servlet implementation class AdInsertAnswerController
+ * Servlet implementation class AdDeleteController
  */
-@WebServlet("/adAnswer.ask")
-public class AdInsertAnswerController extends HttpServlet {
+@WebServlet("/adDelete.ask")
+public class AdDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdInsertAnswerController() {
+    public AdDeleteController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,26 +29,23 @@ public class AdInsertAnswerController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("UTF-8");
-
 		int askNo = Integer.parseInt(request.getParameter("askNo"));
-		String answerContent = request.getParameter("answerContent");
-				
-		int result = new QnaService().insertAnswer(askNo, answerContent);
 		
-		if(result > 0) { // 성공
-			
-			request.getSession().setAttribute("alertMsg", "답변 등록에 성공했습니다.");
+		int result = new QnaService().deleteAnswer(askNo);
+		
+		if(result > 0) {
+			request.getSession().setAttribute("alertMsg", "성공적으로 해당 답변이 삭제되었습니다.");
 			
 			response.sendRedirect(request.getContextPath() + "/adAnswerList.ask");
 			
-		} else { // 실패
+		} else {
 			
-			request.getSession().setAttribute("alertMsg", "답변 등록에 실패했습니다. 다시 시도해 주세요.");
+			request.setAttribute("errorMsg", "답변 삭제 실패");
 			
-			response.sendRedirect(request.getContextPath() + "/adAnswerForm.ask");
-			
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
+		
+		
 		
 	}
 
