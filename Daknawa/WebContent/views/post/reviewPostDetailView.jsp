@@ -74,7 +74,11 @@
                 </span>
               </div>
               <span class="blog-post1-text04 HeadingH2">
-                <span style="font-size : 45px"><%= p.getPostTitle() %> </span>
+	              <% if (p != null) { %>
+				  	<span style="font-size : 45px"><%= p.getPostTitle() %> </span>
+				  <% } else { %>
+				  	<span style="font-size : 45px">제목 없음</span>
+				  <% } %>
               </span>
             </div>
             <div class="blog-post1-content01">
@@ -86,7 +90,14 @@
                 />
                 <div class="blog-post1-content02">
                   <span class="blog-post1-text06 TextSmallSemiBold">
-                    <span><%= p.getMemberNickname() %></span>
+                    
+
+						<% if (p != null) { %>
+						  <span><%= p.getMemberNickname() %></span>
+						<% } else { %>
+						  <span>익명</span>
+						<% } %>                
+                  
                   </span>
                   <div class="blog-post1-time">
                     <span class="blog-post1-text08 TextSmallNormal">
