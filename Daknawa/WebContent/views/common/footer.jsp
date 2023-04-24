@@ -28,6 +28,8 @@
             background-color: var(--dl-color-gray-white);
     
           }
+
+          .footer7-logo1 { width : 100px; }
         </style>
         <link
           rel="stylesheet"
@@ -42,34 +44,71 @@
         <link rel="stylesheet" href="./style.css" />
       </head>
       <body>
-        <div>
+        <div style="height : 500px;">
           <link href="resources/css/footer7.css" rel="stylesheet" />
-    
-          <div class="footer7-container">
-            <div class="footer7-footer7">
-              <div class="footer7-content">
-                <div class="footer7-logo">
-                  <img
-                    src="resources/css/public/playground_assets/logoi146-r6fj.svg"
+          <img
+            src="resources/css/public/playground_assets/logo.png"
+            style="margin : auto; width : 80px; height : 100px; margin-top : 80px;"  
+          >
+          <div class="footer7-container" style="height : 300px; min-height: 0vh;">
+            <div class="footer7-footer7" style="padding-top : 0px;">
+              <div class="footer7-content" style="margin-bottom : 0px; height : 182px;">
+
+
+                <div class="footer7-links" style>
+                  <span class="footer7-text TextRegularSemiBold">
+                    <span class>
+                     <img
+                    src="resources/css/public/playground_assets/bbq.png"
                     alt="logoI146"
                     class="footer7-logo1"
-                  />
-                </div>
-                <div class="footer7-links">
-                  <span class="footer7-text TextRegularSemiBold">
-                    <span>Link One</span>
+                    style="width : 100px;"
+                  	/>
+                    </span>
                   </span>
+
                   <span class="footer7-text02 TextRegularSemiBold">
-                    <span>Link Two</span>
+                    <span>
+                     <img
+                    src="resources/css/public/playground_assets/bhc.png"
+                    alt="logoI146"
+                    class="footer7-logo1"
+                    style="width : 100px;"
+                  />
+                    </span>
                   </span>
+
                   <span class="footer7-text04 TextRegularSemiBold">
-                    <span>Link Three</span>
+                    <span>
+                     <img
+                    src="resources/css/public/playground_assets/goobne.png"
+                    alt="logoI146"
+                    class="footer7-logo1"
+                    style="width : 100px;"
+                  />
+                    </span>
                   </span>
+
                   <span class="footer7-text06 TextRegularSemiBold">
-                    <span>Link Four</span>
+                    <span>
+                     <img
+                    src="resources/css/public/playground_assets/hosigi.png"
+                    alt="logoI146"
+                    class="footer7-logo1"
+                    style="width : 100px;"
+                  />
+                    </span>
                   </span>
+
                   <span class="footer7-text08 TextRegularSemiBold">
-                    <span>Link Five</span>
+                    <span>
+                     <img
+                    src="resources/css/public/playground_assets/dore.png"
+                    alt="logoI146"
+                    class="footer7-logo1"
+                    style="width : 100px;"
+                  />
+                    </span>
                   </span>
                 </div>
               </div>
@@ -80,18 +119,17 @@
                   class="footer7-divider"
                 />
                 <div class="footer7-row">
-                  <span class="footer7-text10 TextSmallNormal">
-                    <span>© 2023 Relume. All rights reserved.</span>
+                  <span class="footer7-text10 TextSmallNormal"></span>
+                    <span>
+                      상호명 : (주)Daknawa | 대표명 : 이동수 | 사업자등록번호 : 394-96-294852 | 문의 : localhost8889/Daknawa <br>
+                      통신판매업신고번호 :  제 2023-서울영등포-04256호 | 주소 :  서울 영등포구 선유동 2로 57 이레빌딩 19F, 20F <br>
+                      ⓒ 2023 (주)Daknawa, Inc. All rights reserved.
+                    
                   </span>
                   <div class="footer7-footer-links">
-                    <span class="footer7-text12 TextSmallLink">
-                      <span>Privacy Policy</span>
-                    </span>
                     <span class="footer7-text14 TextSmallLink">
-                      <span>Terms of Service</span>
-                    </span>
-                    <span class="footer7-text16 TextSmallLink">
-                      <span>Cookies Settings</span>
+                      <span></span>
+                      </span>
                     </span>
                   </div>
                 </div>
