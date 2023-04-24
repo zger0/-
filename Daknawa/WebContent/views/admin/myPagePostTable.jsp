@@ -82,9 +82,9 @@
                                 <thead>
                                     <tr>
                                         <th>글번호</th>
-                                        <th>문의제목</th>
-                                        <th>문의타입</th>
-                                        <th>문의날짜</th>
+                                        <th>글제목</th>
+                                        <th>글내용</th>
+                                        <th>조회수</th>
                                         <th>답변달기</th>
                                         <th>삭제</th>
                                     </tr>
@@ -94,10 +94,10 @@
                                     <% for(Post p : list) { %>
                                     <tr>
                                         <td><%= p.getPostNo() %></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td><a href="<%= contextPath %>/askAnswer.ask?ano=<%= p.getPostNo() %>">답변달기</a></td>
+                                        <td><%= p.getPostTitle() %></td>
+                                        <td><%= p.getPostContent() %></td>
+                                        <td><%= p.getPostView() %></td>
+                                        <td><a href="<%= contextPath %>/askAnswer.ask?ano=<%= p.getPostNo() %>">수정</a></td>
                                         <td><a href="<%= contextPath %>/delete.st?sno=<%= p.getPostNo() %>">삭제</a></td>
                                     </tr>
                                     <% } %>

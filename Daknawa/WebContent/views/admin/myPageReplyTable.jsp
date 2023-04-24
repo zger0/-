@@ -81,9 +81,9 @@
                             <table id="data-table-basic" class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>글번호</th>
-                                        <th>문의제목</th>
-                                        <th>문의타입</th>
+                                        <th>댓글번호</th>
+                                        <th>댓글내용</th>
+                                        <th>댓글작성일</th>
                                         <th>문의날짜</th>
                                         <th>답변달기</th>
                                         <th>삭제</th>
@@ -94,10 +94,10 @@
                                     <% for(Reply r : list) { %>
                                     <tr>
                                         <td><%= r.getReplyNo() %></td>
+                                        <td><%= r.getReplyContent() %></td>
+                                        <td><%= r.getCreateDate() %></td>
+                                        <td><%= r.getPostNo() %></td>
                                         <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td><a href="<%= contextPath %>/askAnswer.ask?rno=<%= r.getReplyNo() %> %>">답변달기</a></td>
                                         <td><a href="<%= contextPath %>/delete.st?rno=<%= r.getReplyNo() %> %>">삭제</a></td>
                                     </tr>
                                     <% } %>
