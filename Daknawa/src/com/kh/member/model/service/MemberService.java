@@ -190,6 +190,18 @@ public class MemberService {
 		
 		return list;
 	}
+	
+	// 블랙리스트 회원리스트 조회용 서비스
+		public ArrayList<Member> selectBlackMemberList() {
+
+			Connection conn = getConnection();
+			
+			ArrayList<Member> list = new MemberDao().selectBlackMemberList(conn);
+			
+			close(conn);
+			
+			return list;
+		}
 
 	// 블랙리스트 추가
 	public int updateBlacklist(int mno) {
@@ -197,6 +209,26 @@ public class MemberService {
 		Connection conn = getConnection();
 		
 		int result = new MemberDao().updateBlacklist(conn, mno);
+		
+		if(result > 0) {
+			
+			commit(conn);
+		} else {
+			
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
+	
+	// 블랙리스트 해제
+	public int updateUnBlacklist(int mno) {
+
+		Connection conn = getConnection();
+		
+		int result = new MemberDao().updateUnBlacklist(conn, mno);
 		
 		if(result > 0) {
 			
@@ -242,5 +274,6 @@ public class MemberService {
 		
 		return m;
 	}
+
 
 }

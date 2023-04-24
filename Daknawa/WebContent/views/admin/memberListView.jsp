@@ -4,7 +4,8 @@
 <%
 	// 필요한 데이터들 뽑기
 	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
-	Member sm = (Member)request.getSession().getAttribute("selectMember");
+	
+	int temp = 0;
 %>
 <!DOCTYPE html>
 <html>
@@ -67,6 +68,39 @@
 		background-color : lightgray;
 		cursor : pointer;
 	}
+	
+	<style>
+    .h1 {
+        text-align : center;
+        font-size : 50px;
+    }
+
+    .input {
+            width : 400px;
+            height : 45px;
+            border-style : solid;
+            border-width : 2px;
+            border-radius : 5px;
+            font-size : 14px;
+        }
+
+    .input {
+        box-sizing : border-box;
+        border-radius : 5px;
+        margin-bottom : 5px;
+    }
+
+    .div1 {
+        width : 400px;
+        margin : auto;
+    }
+
+    .div1 td {
+        text-align: left;
+        font-size : 14px;
+    }
+
+    #genderM, #genderF { cursor : pointer; }
 </style>
 <body>
 
@@ -102,7 +136,7 @@
                                 
                                 <tbody>
                                     <% for(Member m : list) { %>
-                                    <tr>
+                                    <tr onclick="get1(this);">
                                         <td><%= m.getUserNo() %></td>
                                         <td><%= m.getUserId() %></td>
                                         <td><%= m.getUserNickName() %></td>
@@ -138,7 +172,12 @@
     
     <!-- 블랙리스트 추가 -->
     <script>
+    
+    	var toggle = 0;
+    
     	function blacklist(mno) {
+    		
+    		toggle = 1;
     		
     		let answer = confirm("블랙리스트에 추가하시겠습니까?");
     		
@@ -169,11 +208,12 @@
     		}
     		
     	}
-    </script>
+
+    	<!-- 탈퇴 처리 -->
     
-    <!-- 탈퇴 처리 -->
-    <script>
     	function deleteMember(mno) {
+    		
+    		toggle = 1;
     		
     		let answer = confirm("해당 회원을 탈퇴처리 하시겠습니까?");
     		
@@ -204,33 +244,53 @@
     		}
     		
     	}
-    </script>
-    
-    
-    <script>
-		$(function() {
-			$("#data-table-basic>tbody>tr").click(function() {
+ 		
+    	
+    	
+		function get1(e) {
+			
+			if(toggle == 0) {
 				
-				let memId = $(this).children().eq(1).text();
-				
-				console.log(memId);
+				let memId = $(e).children().eq(1).text();
 				
 				$.ajax({
 					url : "select.me",
 					type : "post",
+					async : false,
 					data : { memId : memId },
-					success : function(m) {
-						request.getSession().setAttribute("selectMember", m);
-						$('div.modal').modal();
+					success : function(sm) {
+						
+						if(sm != null) {
+							
+							$("#userNo").val(sm.userNo);
+							$("#userId").val(sm.userId);
+							$("#userPwd").val(sm.userPwd);
+							$("#userNickName").val(sm.userNickName);
+							$("#userName").val(sm.userName);
+							$("#email").val(sm.email);
+							$("#phone").val(sm.phone);
+							$("#birth").val(sm.birth);
+							$("#gender").val(sm.gender);
+							$("#roadAddress").val(sm.address1);
+							$("#detailAddress").val(sm.address2);
+							
+							$('div.modal').modal("show");
+							
+						} else {
+							
+							alert("회원의 정보를 불러오지 못했습니다. 다시 시도해주세요!");
+						}
+						
 					},
 					error : function() {
 						alert("정보를 불러오지 못했습니다. 다시 시도해주세요.");
 					}
 					
 				});
-				
-			});
-		});
+			}
+			toggle = 0;
+		}
+		
 	</script>
 	
 	<!-- 회원 상세정보 모달창 (부트스트랩) -->
@@ -246,79 +306,73 @@
         
                 <!-- Modal body -->
                 <div class="modal-body" align="center">
-
+					
 			        <div class="div1">
 				        <table>
+				        	<tr>
+				                <td>회원 번호</td>
+				            </tr>
+				            <tr>
+				                <td><input type="text" name="userNo" id="userNo" class="input" readonly></td>
+				            </tr>
 				            <tr>
 				                <td>아이디</td>
 				            </tr>
 				            <tr>
-				                <td><input type="text" name="userId" class="input" value="<%= sm.getUserId() %>"></td>
+				                <td><input type="text" name="userId" id="userId" class="input" readonly></td>
+				            </tr>
+				            <tr>
+				                <td>비밀번호</td>
+				            </tr>
+				            <tr>
+				                <td><input type="text" name="userPwd" id="userPwd" class="input" readonly></td>
 				            </tr>
 				            <tr>
 				                <td>닉네임</td>
 				            </tr>
 				            <tr>
-				                <td><input type="text" name="userNickname" class="input" value="<%= sm.getUserNickName() %>"></td>
+				                <td><input type="text" name="userNickname" id="userNickName" class="input" readonly></td>
 				            </tr>
 				            <tr>
 				                <td>이름</td>
 				            </tr>
 				            <tr>
-				                <td><input type="text" name="userName" class="input" value="<%= sm.getUserName() %>"></td>
+				                <td><input type="text" name="userName" id="userName" class="input" readonly></td>
 				            </tr>
 				            <tr>
 				                <td>이메일</td>
 				            </tr>
 				            <tr>
-				                <td><input type="email" name="email" class="input" value="<%= sm.getEmail() %>"></td>
+				                <td><input type="email" name="email" id="email" class="input" readonly></td>
 				            </tr>
 				            <tr>
 				                <td>전화번호</td>
 				            </tr>
 				            <tr>
-				                <td><input type="text" name="phone" class="input" value="<%= sm.getPhone() %>"></td>
+				                <td><input type="text" name="phone" id="phone" class="input" readonly></td>
 				            </tr>
 				            <tr>
 				                <td>생년월일</td>
 				            </tr>
 				            <tr>
-				                <td><input type="date" name="birth" class="input" value="<%= sm.getBirth() %>"></td>
+				                <td><input type="text" name="birth" id="birth" class="input" readonly></td>
 				            </tr>
 				            <tr>
 				                <td>성별</td>
 				            </tr>
 				            <tr>
-				                <td>
-				                    <% if(sm.getGender().equals("남")) { %>
-			                	<td>
-			                    	<input type="radio" name="gender" id="genderM" value="남" checked style="width : 15px; height : 15px;"><label for="genderM" style="font-size : 15px; margin-right : 15px;">&nbsp;남</label>
-			                    	<input type="radio" name="gender" id="genderF" value="여" style="width : 15px; height : 15px;"><label for="genderF" style="font-size : 15px;">&nbsp;여</label>
-			                	</td>
-			                <% } else if(sm.getGender().equals("여")) { %>
-			                	<td>
-			                    	<input type="radio" name="gender" id="genderM" value="남" style="width : 15px; height : 15px;"><label for="genderM" style="font-size : 15px; margin-right : 15px;">&nbsp;남</label>
-			                    	<input type="radio" name="gender" id="genderF" value="여" checked style="width : 15px; height : 15px;"><label for="genderF" style="font-size : 15px;">&nbsp;여</label>
-			                	</td>
-			                <% } else { %>
-			                	<td>
-			                    	<input type="radio" name="gender" id="genderM" value="남" style="width : 15px; height : 15px;"><label for="genderM" style="font-size : 15px; margin-right : 15px;">&nbsp;남</label>
-			                    	<input type="radio" name="gender" id="genderF" value="여" style="width : 15px; height : 15px;"><label for="genderF" style="font-size : 15px;">&nbsp;여</label>
-			                	</td>
-			                <% } %>
-				                </td>
+				            	<td><input type="text" name="gender" id="gender" class="input" readonly></td>
 				            </tr>
 				            <tr>
 				                <td>주소</td>
 				            </tr>
 				            <tr>
-				            	<td><input type="text" name="address1" id="roadAddress" class="input" placeholder="도로명주소"></td>
-				                <td><input type="button" class="button1" onclick="addressAPI();" value="내 주소 찾기"></td>
+				            	<td><input type="text" name="address1" id="roadAddress" class="input" readonly placeholder="도로명주소"></td>
 				            </tr>
 				            <tr>
 				            	<td>
 				            		<span id="guide" style="color:#999;display:none"></span>
-									<input type="text" name="address2" id="detailAddress" class="input" placeholder="상세주소">
+									<input type="text" name="address2" id="detailAddress" class="input" readonly placeholder="상세주소">
 								</td>
 				            </tr>
 				        </table>
@@ -329,6 +383,15 @@
         </div>
     </div>
     
+    <script>
+    	$(function() {
+    		
+    		document.querySelector('.modal .close').addEventListener('click', function() {
+    		    $(".modal").modal("hide");
+    		  });	
+    	});
+    </script>
+
     <!-- jquery
 		============================================ -->
     <script src="resources/admin/js/vendor/jquery-1.12.4.min.js"></script>

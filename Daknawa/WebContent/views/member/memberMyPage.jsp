@@ -271,8 +271,6 @@
 		    <% if(loginUser != null) { %>
 		    
 				<form id="infoUpdate-form" action="update.me" method="post">
-		
-			        <br><br><br>
 			        
 			        <h1 class="h1">내 정보</h1>
 			
