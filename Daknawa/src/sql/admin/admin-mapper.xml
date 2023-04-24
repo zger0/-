@@ -33,5 +33,11 @@
   FROM REPLY
  WHERE MEMBER_NO = ?
 	</entry>
+
+	<entry key="selectMenuList">
+      SELECT BRAND_NO, MENU_NO, MENU_NAME, MENU_PRICE, MENU_CATEGORY, MENU_DESC, M.STATUS, BRAND_NAME
+		FROM MENU M
+		JOIN BRAND USING (BRAND_NO)
+	</entry>
 	
 </properties>

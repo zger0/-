@@ -16,8 +16,24 @@ public class Menu {
     private String menuDesc;
     private String Img;
     private int view;
+    private String brandName;
 
-    public Menu() {}
+
+	public Menu() {}
+	
+    public Menu(int menuNo, String menuName, int menuPrice, String menuCategory, int brandNo, String menuDesc,
+			String img, int view, String brandName) {
+		super();
+		this.menuNo = menuNo;
+		this.menuName = menuName;
+		this.menuPrice = menuPrice;
+		this.menuCategory = menuCategory;
+		this.brandNo = brandNo;
+		this.menuDesc = menuDesc;
+		Img = img;
+		this.view = view;
+		this.brandName = brandName;
+	}
 
 	public Menu(int menuNo, String menuName, int menuPrice, String menuCategory, int brandNo, String menuDesc) {
 		super();
@@ -130,13 +146,21 @@ public class Menu {
 		this.view = view;
 	}
 
+	public String getBrandName() {
+		return brandName;
+	}
+
+	public void setBrandName(String brandName) {
+		this.brandName = brandName;
+	}
+
 	@Override
 	public String toString() {
 		return "Menu [menuNo=" + menuNo + ", menuName=" + menuName + ", menuPrice=" + menuPrice + ", menuCategory="
 				+ menuCategory + ", brandNo=" + brandNo + ", menuDesc=" + menuDesc + ", Img=" + Img + ", view=" + view
-				+ "]";
+				+ ", brandName=" + brandName + "]";
 	}
-    
+
 }
     
 	

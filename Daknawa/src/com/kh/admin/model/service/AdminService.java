@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.kh.admin.model.dao.AdminDao;
 import com.kh.common.model.vo.Reply;
+import com.kh.menu.model.vo.Menu;
 import com.kh.post.model.vo.Post;
 import com.kh.qna.model.vo.Qna;
 import com.kh.store.model.vo.Store;
@@ -66,6 +67,17 @@ public class AdminService {
 		
 		close(conn);
 		
+		return list;
+	}
+
+	public ArrayList<Menu> selectMenuList() {
+		
+		Connection conn = getConnection();
+
+		ArrayList<Menu> list = new AdminDao().selectMenuList(conn);
+
+		close(conn);
+
 		return list;
 	}
 

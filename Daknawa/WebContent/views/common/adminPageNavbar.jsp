@@ -228,7 +228,7 @@
 	                    </ul>
 	                </li>
 	                <li class="<%= sn.getActive3() %>">
-	                    <a href="">신고내역 관리</a>
+	                    <a href="menu.ad">메뉴 관리</a>
 	                    <ul>
 	                        <li><a href="table.ad">전체 신고내역 조회</a></li>
 	                        <li><a href="">???</a></li>
