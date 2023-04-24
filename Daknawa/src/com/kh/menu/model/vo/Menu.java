@@ -12,57 +12,73 @@ public class Menu {
     private String menuName;
     private int menuPrice;
     private String menuCategory;
-    private int storeNo;
+    private int brandNo;
     private String menuDesc;
-    private String img;
+    private String Img;
     private int view;
+    private String brandName;
 
-    public Menu() {}
 
-	public Menu(int menuNo, String menuName, int menuPrice, String menuCategory, int storeNo, String menuDesc) {
+	public Menu() {}
+	
+    public Menu(int menuNo, String menuName, int menuPrice, String menuCategory, int brandNo, String menuDesc,
+			String img, int view, String brandName) {
 		super();
 		this.menuNo = menuNo;
 		this.menuName = menuName;
 		this.menuPrice = menuPrice;
 		this.menuCategory = menuCategory;
-		this.storeNo = storeNo;
+		this.brandNo = brandNo;
+		this.menuDesc = menuDesc;
+		Img = img;
+		this.view = view;
+		this.brandName = brandName;
+	}
+
+	public Menu(int menuNo, String menuName, int menuPrice, String menuCategory, int brandNo, String menuDesc) {
+		super();
+		this.menuNo = menuNo;
+		this.menuName = menuName;
+		this.menuPrice = menuPrice;
+		this.menuCategory = menuCategory;
+		this.brandNo = brandNo;
 		this.menuDesc = menuDesc;
 	}
 
-	public Menu(int menuNo, String menuName, int menuPrice, String menuCategory, int storeNo, String menuDesc,
+	public Menu(int menuNo, String menuName, int menuPrice, String menuCategory, int brandNo, String menuDesc,
 			String img) {
 		super();
 		this.menuNo = menuNo;
 		this.menuName = menuName;
 		this.menuPrice = menuPrice;
 		this.menuCategory = menuCategory;
-		this.storeNo = storeNo;
+		this.brandNo = brandNo;
 		this.menuDesc = menuDesc;
-		this.img = img;
+		this.Img = img;
 	}
-	
-	public Menu(int menuNo, String menuName, int menuPrice, String menuCategory, int storeNo, String menuDesc,
+
+	public Menu(int menuNo, String menuName, int menuPrice, String menuCategory, int brandNo, String menuDesc,
 			int view) {
 		super();
 		this.menuNo = menuNo;
 		this.menuName = menuName;
 		this.menuPrice = menuPrice;
 		this.menuCategory = menuCategory;
-		this.storeNo = storeNo;
+		this.brandNo = brandNo;
 		this.menuDesc = menuDesc;
 		this.view = view;
 	}
 
-	public Menu(int menuNo, String menuName, int menuPrice, String menuCategory, int storeNo, String menuDesc,
+	public Menu(int menuNo, String menuName, int menuPrice, String menuCategory, int brandNo, String menuDesc,
 			String img, int view) {
 		super();
 		this.menuNo = menuNo;
 		this.menuName = menuName;
 		this.menuPrice = menuPrice;
 		this.menuCategory = menuCategory;
-		this.storeNo = storeNo;
+		this.brandNo = brandNo;
 		this.menuDesc = menuDesc;
-		this.img = img;
+		this.Img = img;
 		this.view = view;
 	}
 
@@ -98,12 +114,12 @@ public class Menu {
 		this.menuCategory = menuCategory;
 	}
 
-	public int getStoreNo() {
-		return storeNo;
+	public int getBrandNo() {
+		return brandNo;
 	}
 
-	public void setStoreNo(int storeNo) {
-		this.storeNo = storeNo;
+	public void setBrandNo(int brandNo) {
+		this.brandNo = brandNo;
 	}
 
 	public String getMenuDesc() {
@@ -115,11 +131,11 @@ public class Menu {
 	}
 
 	public String getImg() {
-		return img;
+		return Img;
 	}
 
 	public void setImg(String img) {
-		this.img = img;
+		Img = img;
 	}
 
 	public int getView() {
@@ -130,14 +146,21 @@ public class Menu {
 		this.view = view;
 	}
 
+	public String getBrandName() {
+		return brandName;
+	}
+
+	public void setBrandName(String brandName) {
+		this.brandName = brandName;
+	}
+
 	@Override
 	public String toString() {
 		return "Menu [menuNo=" + menuNo + ", menuName=" + menuName + ", menuPrice=" + menuPrice + ", menuCategory="
-				+ menuCategory + ", storeNo=" + storeNo + ", menuDesc=" + menuDesc + ", img=" + img + ", view=" + view
-				+ "]";
+				+ menuCategory + ", brandNo=" + brandNo + ", menuDesc=" + menuDesc + ", Img=" + Img + ", view=" + view
+				+ ", brandName=" + brandName + "]";
 	}
 
-	
 }
     
 	

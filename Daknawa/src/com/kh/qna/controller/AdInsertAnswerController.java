@@ -2,6 +2,7 @@ package com.kh.qna.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.kh.member.model.vo.Member;
 import com.kh.qna.model.service.QnaService;
+import com.kh.qna.model.vo.Qna;
 
 /**
  * Servlet implementation class AdInsertAnswerController
@@ -32,26 +35,27 @@ public class AdInsertAnswerController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-//		HttpSession session = request.getSession();
-//		int ano = Integer.parseInt(request.getParameter("askNo"));
-//		String aContent = request.getParameter("askContent");
-//		
-//		response.setContentType("text/html; charset=UTF-8"); // 한글이 깨질수있기 때문
-//		
-//		PrintWriter out = response.getWriter(); // 데이터 보내줄 통로 열어주기(출력스트림)
-//		
-//		out.print(response);
-//		
-//		new QnaService().insertAnswer(ano, aContent);
+		request.setCharacterEncoding("UTF-8");
+
+		int askNo = Integer.parseInt(request.getParameter("askNo"));
+		String answerContent = request.getParameter("answerContent");
+				
+		int result = new QnaService().insertAnswer(askNo, answerContent);
 		
+		if(result > 0) { // 성공
+			
+			request.getSession().setAttribute("alertMsg", "답변 등록에 성공했습니다.");
+			
+			response.sendRedirect(request.getContextPath() + "/adAnswerList.ask");
+			
+		} else { // 실패
+			
+			request.getSession().setAttribute("alertMsg", "답변 등록에 실패했습니다. 다시 시도해 주세요.");
+			
+			response.sendRedirect(request.getContextPath() + "/adAnswerForm.ask");
+			
+		}
 		
-		response.setContentType("text/html; charset=UTF-8");
-		
-		PrintWriter out = response.getWriter();
-		
-		out.print(response);
-		
-		new QnaService().insertAnswer();
 	}
 
 	/**

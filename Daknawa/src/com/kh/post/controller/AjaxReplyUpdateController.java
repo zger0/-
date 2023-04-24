@@ -33,7 +33,7 @@ public class AjaxReplyUpdateController extends HttpServlet {
 		int rno = Integer.parseInt(request.getParameter("rno"));
 		String content = request.getParameter("content");
 		
-		System.out.println("수정댓글" + content);
+		// System.out.println("수정댓글" + content);
 		
 		int result = new PostService().updateReply(rno, content);
 		

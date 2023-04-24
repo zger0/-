@@ -40,7 +40,7 @@ public class AskDeleteController extends HttpServlet {
 			
 		} else {
 			
-			request.setAttribute("errorMsg", "공지사항 삭제 실패");
+			request.setAttribute("errorMsg", "문의 삭제 실패");
 			
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}

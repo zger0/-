@@ -44,7 +44,7 @@ public class AjaxReplyInsertContoller extends HttpServlet {
 		// 서비스 요청 후 결과 받기
 		int result = new PostService().insertReply(r);
 		
-		System.out.println("댓글서비스결과" + result);
+		// System.out.println("댓글서비스결과" + result);
 
 		response.setContentType("text/html; charset=UTF-8");
 

@@ -85,8 +85,8 @@
                                         <th>문의제목</th>
                                         <th>문의타입</th>
                                         <th>문의날짜</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+                                        <th>답변달기</th>
+                                        <th>삭제</th>
                                     </tr>
                                 </thead>
                                 
@@ -97,8 +97,8 @@
                                         <td><%= q.getAskContent() %></td>
                                         <td><%= q.getAskType() %></td>
                                         <td><%= q.getAskDate() %></td>
-                                        <td><a>답변달기</a></td>
-                                        <td>삭제</td>
+                                        <td><a href="<%= contextPath %>/askAnswer.ask?ano=<%= q.getAskNo() %>">답변달기</a></td>
+                                        <td><a href="<%= contextPath %>/delete.st?sno=<%= q.getAskNo() %>">삭제</a></td>
                                     </tr>
                                     <% } %>
                                 </tbody>

@@ -442,6 +442,50 @@ public class MemberDao {
 		
 		return list;
 	}
+	
+	// 블랙리스트회원 리스트 조회
+		public ArrayList<Member> selectBlackMemberList(Connection conn) {
+
+			ArrayList<Member> list = new ArrayList<>();
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			
+			String sql = prop.getProperty("selectBlackMemberList");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				rset = pstmt.executeQuery();
+				
+				while(rset.next()) {
+					
+					list.add(new Member(rset.getInt("MEMBER_NO")
+									  , rset.getString("MEMBER_ID")
+									  , rset.getString("MEMBER_PWD")
+									  , rset.getString("MEMBER_NICKNAME")
+									  , rset.getString("MEMBER_NAME")
+									  , rset.getString("EMAIL")
+									  , rset.getString("PHONE")
+									  , rset.getString("BIRTH")
+									  , rset.getString("GENDER")
+									  , rset.getString("ADDRESS1")
+									  , rset.getString("ADDRESS2")
+									  , rset.getString("BLACKLIST")
+									  , rset.getInt("MEMBER_POINT")
+									  , rset.getString("STATUS")
+									  ));
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				
+				close(rset);
+				close(pstmt);
+			}
+			
+			return list;
+		}
 
 	// 블랙리스트 추가
 	public int updateBlacklist(Connection conn, int mno) {
@@ -450,6 +494,31 @@ public class MemberDao {
 		PreparedStatement pstmt = null;
 		
 		String sql = prop.getProperty("updateBlacklist");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, mno);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	// 블랙리스트 해제
+	public int updateUnBlacklist(Connection conn, int mno) {
+
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updateUnBlacklist");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);

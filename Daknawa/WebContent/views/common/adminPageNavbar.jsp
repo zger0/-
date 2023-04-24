@@ -89,8 +89,8 @@
       }
       .menubar { height : 38px; }
 
-      #mnb.menubar .mnb_header ul li {
-        /* width: 25%; ------------------------- */ 
+      #mnb.menubar {
+        margin-bottom : 100px;
       }
       #mnb .mnb_header ul li {
         text-align: center;
@@ -216,19 +216,17 @@
 	                    <a href="list.me">회원 관리</a>
 	                    <ul>
 	                        <li style="display: block !important;"><a href="list.me">회원정보 조회</a></li>
-	                        <li style="display: block !important;"><a href="list.me">블랙리스트 목록</a></li>                   
+	                        <li style="display: block !important;"><a href="blacklist.me">블랙리스트 목록</a></li>                   
 	                    </ul>
 	                </li>
 	                <li class="<%= sn.getActive2() %>">
 	                    <a href="store.ad">매장 관리</a>
 	                    <ul>
-	                        <li><a href="store.ad">전체 매장 조회</a></li>
-	                        <li><a href="adlist.st?currentPage=1">???</a></li>
-	                        <li><a href="adlist.st?currentPage=1">???</a></li>                   
+	                        <li><a href="store.ad">전체 매장 조회</a></li>                  
 	                    </ul>
 	                </li>
 	                <li class="<%= sn.getActive3() %>">
-	                    <a href="">신고내역 관리</a>
+	                    <a href="menu.ad">메뉴 관리</a>
 	                    <ul>
 	                        <li><a href="table.ad">전체 신고내역 조회</a></li>
 	                        <li><a href="">???</a></li>
@@ -245,7 +243,7 @@
 	                </li>
 		        </ul>
 		    </div>
-		    <br>
+		    <br><br><br><br>
     	</div>
     	
     </section>

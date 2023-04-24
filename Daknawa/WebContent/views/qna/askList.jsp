@@ -260,14 +260,6 @@
 	                            <td><button><a href="<%= contextPath %>/updateForm.ask?ano=<%= q.getAskNo() %>" class="updateAsk">수정하기</a></button></td>
 	                            <td><button><a href="<%= contextPath %>/delete.ask?ano=<%= q.getAskNo() %>" class="deleteAsk">삭제하기</a></button></td>
 	                         </tr>
-	                         
-	                         <form id="answer-form" style="display:none;">
-	                            <label for="answer-content">답변 내용:</label><br>
-	                            <textarea id="answer-content" name="answer-content"></textarea><br>
-	                            <label for="answer-date">답변 일자</label>
-	                            <button type="submit">답변전송</button>
-                         	 </form>
-	                         
 							<!--  
 		                    <% if(q.getAnswerContent() == null && q.getAnswerDate() == null) { %>
 		                    	<tr class="answer"> 클릭 시 보여지게, 다시클릭 시 사라지게
@@ -317,7 +309,7 @@
     </div>
     
     <!-- 관리자쪽 1:1문의 답변 ajax -->
-    <script>
+    <!-- <script>
       $(document).ready(function() {
           // 1:1문의 클릭 시 이벤트 처리
           $('tbody tr').on('click', function(event) {
@@ -380,7 +372,7 @@
             });
           });
         });
-      </script>
+      </script> -->
     
     
   </section>
