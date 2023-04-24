@@ -41,7 +41,7 @@ public class ReviewPostDetailController extends HttpServlet {
 		// 조회수 증가
 		int result = pService.increaseCount(postNo);
 
-		System.out.println("조회수 증가 결과 : " + result);
+		// System.out.println("조회수 증가 결과 : " + result);
 		// 게시글 상세 조회
 		if(result > 0) {
 
@@ -49,8 +49,8 @@ public class ReviewPostDetailController extends HttpServlet {
 
 			Attachment at = pService.selectAttachment(postNo);
 
-			System.out.println("게시글 상세 조회 결과 : " + p);
-			System.out.println("게시글 파일 조회 : " + at);
+			// System.out.println("게시글 상세 조회 결과 : " + p);
+			// System.out.println("게시글 파일 조회 : " + at);
 
 			request.setAttribute("p", p);
 			request.setAttribute("at", at);

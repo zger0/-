@@ -1,4 +1,4 @@
-package com.kh.member.controller;
+package com.kh.admin.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,17 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.member.model.service.MemberService;
+
 /**
- * Servlet implementation class AddressTestController
+ * Servlet implementation class MemberUnBlacklistController
  */
-@WebServlet("/addressTest.me")
-public class AddressTestController extends HttpServlet {
+@WebServlet("/unBlacklist.ad")
+public class MemberUnBlacklistController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddressTestController() {
+    public MemberUnBlacklistController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +29,13 @@ public class AddressTestController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.getRequestDispatcher("views/common/myPageNavbar.jsp").forward(request, response);
+		int mno = Integer.parseInt(request.getParameter("mno"));
+		
+		int result = new MemberService().updateUnBlacklist(mno);
+		
+		response.setContentType("text/html; charset=UTF-8");
+		
+		response.getWriter().print(result);
 	
 	}
 

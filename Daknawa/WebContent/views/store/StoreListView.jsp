@@ -5,6 +5,9 @@
 	PageInfo pi = (PageInfo)request.getAttribute("pi");
 	ArrayList<Store> list = (ArrayList<Store>)request.getAttribute("list");
 	
+	String bname = (String)request.getAttribute("bname");
+	String keyword = (String)request.getAttribute("keyword");
+	
 	int currentPage = pi.getCurrentPage();
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();
@@ -301,7 +304,7 @@
   <body>
       <%@ include file="../common/menubar.jsp"%>
       
-      @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+      <!-- @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"); -->
   
     <div>
       <link href="resources/css/layout155.css" rel="stylesheet" />
@@ -379,7 +382,8 @@ map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
     <div>
       <link href="resources/css/category-filters5.css" rel="stylesheet"/>
       
-	  <form id="keywordList-form" action="<%= contextPath %>/list.st?currentPage=1" method="post" >
+	  <form id="keywordList-form" action="<%= contextPath %>/list.st?currentPage=1" method="get" >
+	  <input type="hidden" name="currentPage" maxlength="12" value="1">
 	  
       <div class="category-filters5-container">
         <div class="category-filters5-category-filters5">
@@ -391,13 +395,13 @@ map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
           <div class="category-filters5-content">
             <div class="category-filters5-row1">
               <div class="category-filters5-filter-two">
-                <select name="bname" class="category-filters5-select2">
+                <select name="" class="category-filters5-select2">
 					<option value="" selected>시/도</option>
 	 				<option value="서울특별시">서울특별시</option>
 				</select>
               </div>
               <div class="category-filters5-filter-three">
-                <select name="bname" class="category-filters5-select2">
+                <select name="" class="category-filters5-select2">
 					<option value="" selected>구/군</option>
 	 				<option value="영등포구">영등포구</option>
 				</select>
@@ -405,13 +409,31 @@ map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
               <div class="category-filters5-filter-four">
                 <select name="bname" class="category-filters5-select2">
 					<option value="" selected>브랜드조회</option>
-					<option value="">전체</option>
+	 				<option value="BBQ">BBQ</option>
 	 				<option value="BHC">BHC</option>
-	 				<option value="바른치킨">바른치킨</option>
+	 				<option value="교촌치킨">교촌치킨</option>
+	 				<option value="처갓집양념치킨">처갓집양념치킨</option>
+	 				<option value="페리카나">페리카나</option>
+	 				<option value="네네치킨">네네치킨</option>
+	 				<option value="굽네치킨">굽네치킨</option>
+	 				<option value="멕시카나치킨">멕시카나치킨</option>
+	 				<option value="푸호식이두마리치킨">호식이두마리치킨</option>
+	 				<option value="또래오래">또래오래</option>
+	 				<option value="지코바치킨">지코바치킨</option>
 	 				<option value="푸라닭">푸라닭</option>
+	 				<option value="60계치킨">60계치킨</option>
+	 				<option value="바른치킨">바른치킨</option>
+	 				<option value="노랑통닭">노랑통닭</option>
+	 				<option value="맘스터치">맘스터치</option>
+	 				<option value="훌랄라 참숯바베큐치킨">훌랄라 참숯바베큐치킨</option>
+	 				<option value="치킨마루">치킨마루</option>
+	 				<option value="또봉이통닭">또봉이통닭</option>
+	 								
+	 				
 				</select>
 			</div>
-				<input type="text" name="keyword" class="category-filters5-select2" placeholder="검색어를 입력하세요."> 
+				<input type="text" name="keyword" class="category-filters5-select2" placeholder="검색어를 입력하세요.">
+				
 			</div>
           </div>
           <br>
@@ -497,14 +519,14 @@ map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
             <div align="center" class="paging-area">
             
             	<% if(currentPage != 1) { %>
-            		 <button onclick="location.href = '<%= contextPath %>/list.st?currentPage=<%= currentPage - 1 %>';">
+            		 <button onclick="location.href = '<%= contextPath %>/list.st?currentPage=<%= currentPage - 1 %>&bname=<%= bname %>&keyword=<%= keyword %>';">
             		 	&lt;
             		 </button>
             	<% } %>
             	
             	<% for(int p = startPage; p <= endPage; p++) { %>
             		<% if(p != currentPage) {  %>
-            			<button onclick="location.href = '<%= contextPath %>/list.st?currentPage=<%= p %>';">
+            			<button onclick="location.href = '<%= contextPath %>/list.st?currentPage=<%= p %>&bname=<%= bname %>&keyword=<%= keyword %>';">
            					<%= p %> 			
             			</button>
             		<% } else { %>
@@ -513,14 +535,15 @@ map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
             	<% } %>
             
             	<% if(currentPage != maxPage) { %>
-            		<button onclick="location.href = '<%= contextPath %>/list.st?currentPage=<%= currentPage + 1 %>';">
+            		<button onclick="location.href = '<%= contextPath %>/list.st?currentPage=<%= currentPage + 1 %>&bname=<%= bname %>&keyword=<%= keyword %>';">
             			&gt;
             		</button>
             	<% } %>
             </div>
+                  <%@ include file="../common/footer.jsp"%>
             
 		 <!-- Site footer -->
-    <footer class="site-footer">
+   <!--  <footer class="site-footer">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-6">
@@ -568,7 +591,7 @@ map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
               <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
               <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
             </ul>
-          </div>
+          </div> -->
         </div>
       </div>
 </footer>

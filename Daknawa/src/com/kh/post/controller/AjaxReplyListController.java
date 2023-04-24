@@ -33,10 +33,10 @@ public class AjaxReplyListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int postNo = Integer.parseInt(request.getParameter("pno"));
-		System.out.println(postNo + "asdf");
+		// System.out.println(postNo + "asdf");
 		ArrayList<Reply> List = new PostService().selectReplyList(postNo);
 
-		System.out.println("댓글리스트" + List);
+		// System.out.println("댓글리스트" + List);
 		response.setContentType("application/json; charset=UTF-8");
 
 		new Gson().toJson(List, response.getWriter());

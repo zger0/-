@@ -100,8 +100,8 @@
                                         <td><%= m.getMenuName() %></td>
                                         <td><%= m.getBrandName() %></td>
                                         <td><%= m.getMenuPrice() %></td>
-                                        <td><a href="updateForm.st?sno=<%= m.getMenuNo() %>">수정</a></td>
-                                        <td><a href="delete.st?sno=<%= m.getMenuNo() %>">삭제</a></td>
+                                        <td><a href="updateForm.mn?mno=<%= m.getMenuNo() %>">수정</a></td>
+                                        <td><a href="delete.mn?mno=<%= m.getMenuNo() %>">삭제</a></td>
                                     </tr>
                                     <% } %>
                                 </tbody>

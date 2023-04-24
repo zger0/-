@@ -33,8 +33,6 @@ public class StoreListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("UTF-8");
-		
 		int listCount; // 총 게시글 수
 		int currentPage; // 사용자가 요청하는 현재 페이지
 		int pageLimit; // 페이징바 최대 페이지 수
@@ -44,14 +42,22 @@ public class StoreListController extends HttpServlet {
 		int startPage; // 페이징바의 시작수
 		int endPage; // 페이징바의 끝수
 		
+		currentPage = Integer.parseInt(request.getParameter("currentPage"));
+//		int storeNo = Integer.parseInt(request.getParameter("nno"));
+		
 		// 검색 전달값을 뽑아서 변수에 기록
 		String brandName = request.getParameter("bname");
 		String keyword = request.getParameter("keyword");
 		
-		if(brandName == null && keyword == null) {
+		if(brandName == null) {
 			brandName = "";
+		}
+		
+		if(keyword == null) {
 			keyword = "";
 		}
+		
+		
 		System.out.println("브랜드값 받기 : " + brandName);
 		System.out.println("키워드값 받기 : " + keyword);
 		
@@ -59,8 +65,6 @@ public class StoreListController extends HttpServlet {
 		listCount = new StoreService().selectStoreListCount(brandName, keyword);
 		
 		System.out.println("브랜드 키워드 값 받기 : " + listCount);
-		
-		currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		
 		pageLimit = 10;
 		
@@ -87,6 +91,8 @@ public class StoreListController extends HttpServlet {
 		// System.out.println(pi);
 		System.out.println(list);
 		
+		request.setAttribute("bname", brandName);
+		request.setAttribute("keyword", keyword);
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
 		

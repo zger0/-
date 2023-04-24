@@ -81,6 +81,17 @@ public class PostService {
 		return p;
 	}
 
+	public Post selectPost2(int postNo) {
+		
+		Connection conn = getConnection();
+		
+		Post p = new PostDao().selectPost2(conn, postNo);
+		
+		close(conn);
+		
+		return p;
+	}
+
 
 
 	public ArrayList<Attachment> selectAttachmentList(int PostNo) {

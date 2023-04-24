@@ -65,8 +65,8 @@ public class PostDao {
 		int startRow = (pi.getCurrentPage() - 1) * pi.getPostLimit() + 1;
 		int endRow = startRow + pi.getPostLimit() - 1;
 		
-		System.out.println(startRow);
-		System.out.println(endRow);
+		// System.out.println(startRow);
+		// System.out.println(endRow);
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -122,7 +122,7 @@ public class PostDao {
 		Post p = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String sql = prop.getProperty("selectPost");
+		String sql = prop.getProperty("selectPost2");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -148,6 +148,39 @@ public class PostDao {
 		}
 		return p;
 	}
+	
+	public Post selectPost2(Connection conn, int postNo) {
+			
+			Post p = null;
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			String sql = prop.getProperty("selectPost");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, postNo);
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					p = new Post();
+					
+					p.setPostNo(rset.getInt("POST_NO"));
+					p.setPostTitle(rset.getString("POST_TITLE"));
+					p.setPostContent(rset.getString("POST_CONTENT"));
+					p.setMemberNickname(rset.getString("MEMBER_NICKNAME"));
+					p.setPostView(rset.getInt("POST_VIEW"));
+					p.setPostDate(rset.getDate("POST_DATE"));
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				JDBCTemplate.close(rset);
+				JDBCTemplate.close(pstmt);
+			}
+			return p;
+		}
+
 
 	public Attachment selectAttachment(Connection conn, int postNo) {
 		
@@ -386,7 +419,7 @@ public class PostDao {
 		ResultSet rset = null;
 		String sql = prop.getProperty("selectReplyList");
 
-		System.out.println("댓글dao : " + postNo);
+		// System.out.println("댓글dao : " + postNo);
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, postNo);
