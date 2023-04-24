@@ -71,7 +71,7 @@ public class StoreInsertController extends HttpServlet {
 			if(result > 0) { // 성공
 				
 				request.getSession().setAttribute("alertMsg", "성공적으로 매장이 등록되었습니다.");
-				response.sendRedirect(request.getContextPath() + "/adlist.st?currentPage=1");
+				response.sendRedirect(request.getContextPath() + "/store.ad");
 				
 			} else { // 실패 => 에러페이지 응답
 				

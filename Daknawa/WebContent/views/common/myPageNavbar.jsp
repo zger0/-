@@ -222,9 +222,9 @@
 	                <li class="<%= sn.getActive2() %>">
 	                    <a href="">내 활동 관리</a>
 	                    <ul>
-	                        <li><a href="">게시글 관리</a></li>
-	                        <li><a href="">댓글 관리</a></li>
-	                        <li><a href="">좋아요 관리</a></li>                   
+	                        <li><a href="postlist.mp">게시글 관리</a></li>
+	                        <li><a href="replylist.mp">댓글 관리</a></li>
+	                        <li><a href="liktlist.mp">좋아요 관리</a></li>                   
 	                    </ul>
 	                </li>
 	                <li class="<%= sn.getActive3() %>">

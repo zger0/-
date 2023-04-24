@@ -1,15 +1,18 @@
 package com.kh.member.model.dao;
 
+import static com.kh.common.JDBCTemplate.close;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Properties;
 
+import com.kh.common.model.vo.PageInfo;
 import com.kh.member.model.vo.Member;
-import static com.kh.common.JDBCTemplate.*;
 
 public class MemberDao {
 	
@@ -364,6 +367,7 @@ public class MemberDao {
 		return email;
 	}
 
+	// 회원등급 조회
 	public String selectGradeName(Connection conn, int userPoint) {
 
 		String gradeName = null;
@@ -394,6 +398,101 @@ public class MemberDao {
 		
 		return gradeName;
 	}
+
+	// 회원 리스트 조회
+	public ArrayList<Member> selectMemberList(Connection conn) {
+
+		ArrayList<Member> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectMemberList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				list.add(new Member(rset.getInt("MEMBER_NO")
+								  , rset.getString("MEMBER_ID")
+								  , rset.getString("MEMBER_PWD")
+								  , rset.getString("MEMBER_NICKNAME")
+								  , rset.getString("MEMBER_NAME")
+								  , rset.getString("EMAIL")
+								  , rset.getString("PHONE")
+								  , rset.getString("BIRTH")
+								  , rset.getString("GENDER")
+								  , rset.getString("ADDRESS1")
+								  , rset.getString("ADDRESS2")
+								  , rset.getString("BLACKLIST")
+								  , rset.getInt("MEMBER_POINT")
+								  , rset.getString("STATUS")
+								  ));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+
+	// 블랙리스트 추가
+	public int updateBlacklist(Connection conn, int mno) {
+
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updateBlacklist");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, mno);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	// 회원탈퇴 (관리자)
+	public int adminDeleteMember(Connection conn, int mno) {
+
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("adminDeleteMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, mno);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
 	
 	
 }

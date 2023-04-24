@@ -213,16 +213,16 @@
 		    <div class="mnb_header">
 		        <ul id="mnb_sub">
 	            	<li class="<%= sn.getActive1() %>">
-	                    <a href="admin.me">회원 관리</a>
+	                    <a href="list.me">회원 관리</a>
 	                    <ul>
-	                        <li style="display: block !important;"><a href="admin.me">회원정보 조회</a></li>
-	                        <li style="display: block !important;"><a href="admin.me">회원 탈퇴</a></li>                   
+	                        <li style="display: block !important;"><a href="list.me">회원정보 조회</a></li>
+	                        <li style="display: block !important;"><a href="list.me">블랙리스트 목록</a></li>                   
 	                    </ul>
 	                </li>
 	                <li class="<%= sn.getActive2() %>">
-	                    <a href="adlist.st?currentPage=1">매장 관리</a>
+	                    <a href="store.ad">매장 관리</a>
 	                    <ul>
-	                        <li><a href="adlist.st?currentPage=1">전체 매장 조회</a></li>
+	                        <li><a href="store.ad">전체 매장 조회</a></li>
 	                        <li><a href="adlist.st?currentPage=1">???</a></li>
 	                        <li><a href="adlist.st?currentPage=1">???</a></li>                   
 	                    </ul>
@@ -230,17 +230,17 @@
 	                <li class="<%= sn.getActive3() %>">
 	                    <a href="">신고내역 관리</a>
 	                    <ul>
-	                        <li><a href="">전체 신고내역 조회</a></li>
+	                        <li><a href="table.ad">전체 신고내역 조회</a></li>
 	                        <li><a href="">???</a></li>
 	                        <li><a href="">???</a></li>                   
 	                    </ul>
 	                </li>
 	                <li class="<%= sn.getActive4() %>">
-	                    <a href="list.ask">문의내역 관리</a>
+	                    <a href="qna.ad">문의내역 관리</a>
 	                    <ul>
 	                        <li><a href="list.ask">1:1 문의내역 관리</a></li>
 	                        <li><a href="faq.qna">FAQ</a></li>
-	                        <li><a href="">C</a></li>                
+	                        <li><a href="qna.ad">1:1문의내역 모두 보기</a></li>                
 	                    </ul>
 	                </li>
 		        </ul>

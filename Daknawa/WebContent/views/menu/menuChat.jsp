@@ -128,6 +128,7 @@ body {
 
 		// 메시지 수신 시 처리
 		socket.onmessage = function (event) {
+
 			const message = event.data;
 			const messageElement = document.createElement("div");
 
@@ -135,6 +136,7 @@ body {
 			messageElement.innerHTML = message;
 
 			chatBox.appendChild(messageElement);
+
 
 			// 채팅방 참여자 목록 출력
 			const userList = messageElement.querySelectorAll(".user");
@@ -172,6 +174,7 @@ body {
 			//사용자 리스트 처리
 			
 			</script>
+
 
 </body>
 </html>
