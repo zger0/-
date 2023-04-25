@@ -17,13 +17,13 @@ import com.kh.post.model.vo.Post;
  * Servlet implementation class AdminTable
  */
 @WebServlet("/table.ad")
-public class AdminTable extends HttpServlet {
+public class AdminTableXXX extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminTable() {
+    public AdminTableXXX() {
         super();
         // TODO Auto-generated constructor stub
     }

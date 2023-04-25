@@ -108,8 +108,6 @@
 
 	<%@ include file="../common/adminPageNavbar.jsp" %>
     
-    <br>
-    
     <div class="data-table-area">
         <div class="container">
             <div class="row">
