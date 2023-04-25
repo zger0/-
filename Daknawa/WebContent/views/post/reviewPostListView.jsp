@@ -142,10 +142,10 @@
       <link href="resources/css/blog6.css" rel="stylesheet" />
 
       <div class="blog6-container">
-        <div class="blog6-blog6" style="width: ">
-          <div class="blog6-section-title">
-            <div class="blog6-content" style="margin: auto">
-              <span class="blog6-text02 HeadingH1" ST>
+        <div class="blog6-blog6">
+          <div class="blog6-section-title" style="margin: auto">
+            <div class="blog6-content" style="font-size: 10px;">
+              <span class="blog6-text02 HeadingH1" style="margin: auto; font-size: 40px;">
                 <span>리뷰 게시판</span>
               </span>
               
