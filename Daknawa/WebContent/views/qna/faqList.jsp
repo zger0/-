@@ -7,270 +7,214 @@
 <title>Insert title here</title>
 
 <style>
-        /* MY PAGE 타이틀 부분 */
-        #container .title {
-        padding-top: 80px;
-        height: 200px;
-        position: relative;
-        min-width: 1000px;
-      }
-      #container .sub_title {
-        font-size: 44px;
-        line-height: 54px;
-        color: #000;
-        margin-bottom: 0px;
-        text-align: center;
-        text-transform: uppercase;
-      }
-      h2 {
-        margin:0;
-        font-weight: normal;
-        display: block;
-      }
-      #mini_title {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 44px;
-        position: absolute;
-        top: 134px;
-        left: 0;
-      }
-      ol {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: block;
-      }
-      li {
-        display: inline-block;
-        margin: 0;
-        padding: 0;
-        list-style: none;
+.template_faq {
+    background: #edf3fe none repeat scroll 0 0;
+}
+.panel-group {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 3px;
+    box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.04);
+    margin-bottom: 0;
+    padding: 30px;
+}
+#accordion .panel {
+    border: medium none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0 0 15px 10px;
+}
+#accordion .panel-heading {
+    border-radius: 30px;
+    padding: 0;
+}
+#accordion .panel-title a {
+    background: #40513B none repeat scroll 0 0;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 20px 12px 50px;
+    position: relative;
+    transition: all 0.3s ease 0s;
+}
+#accordion .panel-title a.collapsed {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #ddd;
+    color: #333;
+}
+#accordion .panel-title a::after, #accordion .panel-title a.collapsed::after {
+    background: #40513B none repeat scroll 0 0;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.58);
+    color: #fff;
+    content: "";
+    font-family: fontawesome;
+    font-size: 25px;
+    height: 55px;
+    left: -20px;
+    line-height: 55px;
+    position: absolute;
+    text-align: center;
+    top: -5px;
+    transition: all 0.3s ease 0s;
+    width: 55px;
+}
+#accordion .panel-title a.collapsed::after {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #ddd;
+    box-shadow: none;
+    color: #333;
+    content: "";
+}
+#accordion .panel-body {
+    background: transparent none repeat scroll 0 0;
+    border-top: medium none;
+    padding: 20px 25px 10px 9px;
+    position: relative;
+}
+#accordion .panel-body p {
+    border-left: 1px dashed #8c8c8c;
+    padding-left: 25px;
+}
 
-        text-transform: uppercase;
-      }
-      a {
-        text-decoration: none;
-        color: #000;
-      }
-
-      /* 메뉴바 부분 */
-      #mnb {
-        width: 100%;
-        min-width: 1000px;
-        border-bottom: 1px solid #888686;
-        background-color: #fff;
-        margin-bottom: 60px;
-      }
-
-      #mnb .mnb_header {
-        width: 100%;
-        min-width: 1000px;
-        background-color: #fff;
-        border-top: 1px solid #9d9d9d;
-      }
-
-      #mnb .mnb_header>ul {
-        width: 1000px;
-        margin: 0 auto;
-        padding: 0;
-        display: block;
-        list-style-type: disc;
-      }
-      #mnb_sub ul {
-        width: 250px;
-        margin: 0 auto;
-        padding: 0;
-        display: block;
-        list-style-type: disc;
-      }
-      .menubar { height : 38px; }
-
-      #mnb.menubar .mnb_header ul li {
-        /* width: 25%; ------------------------- */ 
-      }
-      #mnb .mnb_header ul li {
-        text-align: center;
-        /* float: left; */
-        position: relative;
-      }
-      b .mnb_header ul li a {
-        font-size: 14px;
-        vertical-align: middle;
-      }
-
-    /* 서브 메뉴바 부분 */
-    #mnb_sub {
-            list-style-type : none;
-            /*
-                p 태그와 마찬가지로 ul 태그 또한 위, 아래로 기본 margin 이 잡혀있음
-                또한 ul 태그는 padding 이 왼쪽에 기본적으로 존재함
-                => margin : 0px; 과 padding : 0px; 으로 margin 과 padding 을 없애기
-            */
-            /*
-            margin : 0px;
-            padding : 0px; /* padding 값 조정으로 메뉴 가운데 배치 가능 */
-           /* height : 100%; */
-
-            width: 25%;
-            height : 36px;
-            margin: 0 auto;
-            padding: 0;
-            display: block;
-        }
-
-        /* 메인 메뉴를 나타내는 li 태그들 */
-        #mnb_sub>li {
-            float : left;
-            height : 100%;
-            background-color: #fff;
-            display: block;
-        }
-
-        /* 메뉴 문구를 나타내는 a 태그들 */
-        #mnb a {
-            
-            color : black;
-            text-decoration : none;
-            font-size : 14px;
-            /*
-                a 태그는 인라인요소이기 때문에
-                width, height 속성이 적용되지 않음
-                => display : block; 으로 블럭요소화 시켜줄것임
-            */
-            width : 250px;
-            height : 100%;
-            display : block;
-            text-align : center;
-            /* vertical-align : middle; vertical-align 은 블럭요소에서 적용되지 않음 */
-            line-height : 36px;
-            /*
-                line-height 속성은 블럭요소에 대한 장평조절 속성
-                보통은 블럭요소의 세로길이만큼 주면 알아서 가운데로 옴
-            */
-        }
-
-        /* 메뉴에 마우스가 올라갔을 때 추가적인 속성 */
-        #mnb_sub a:hover {
-            color: #888686;
-            font-size: 15px;
-        }
-
-        /* 서브메뉴에 해당되는 ul 에 대한 스타일 */
-        #mnb_sub>li>ul {
-            list-style-type : none;
-            padding : 0px;
-            display : none !important; /* 평소에는 안보여지게끔 숨김 처리 */
-        }
-
-        /* 메인 메뉴에 마우스가 올라가는 순간 서브메뉴가 보여지게끔 스타일 부여 */
-        #mnb_sub>li:hover>ul {
-            display : block !important;
-        }
-        /* 혹시 몰라서 서브메뉴 자체에도 효과 부여 */
-        #mnb_sub>li>ul:hover {
-            display : block !important;
-        }
-
-        #mnb .mnb_header ul li.active {
-        background-color: #000;
-      }
-      #mnb .mnb_header ul li.active a {
-        background-color: #000;
-        color: #ffffff;
-      }
-
-	div {
-	    text-align: center;
-	    margin-bottom: 4%;
-	}
-	.accordion-item {
-	    width: 700px;
-	}
-	
-	.ask1 {
-	    width: 150px;
-	    height: 50px;
-	    text-align: center;
-	    background-color: white;
-	    border: 2px solid;
+.ask1 {
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    background-color: white;
+    border: 2px solid;
 }
 </style>
-
-	<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-
-</head>
+<!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ </head>
 <body>
 
 	<%@ include file="../common/menubar.jsp" %>
 	<%@ include file="../common/myPageNavbar.jsp" %>
 	
-    <div class="div1" style="width: 700px; margin:auto;">
-        <h1><b>고객센터</b></h1> <br>
-        <h3><b>FAQ</b></h3> <br>
-        <h5>자주 찾는 질문</h5> <br>
-
-
-    </div>
-    <div class="accordion" id="accordionPanelsStayOpenExample" style="width: 940px; margin:auto; padding : 5% 0% 10% 7%;"> 
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-              회원 등급 안내
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-            <div class="accordion-body">
-              <strong>회원등급 안내 사항은 고객센터 FAQ 를 참고 해주세요.</strong>
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-              이벤트 안내
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-            <div class="accordion-body">
-              <strong>이벤트 안내 사항은 고객센터 FAQ 를 참고 해주세요.</strong> 
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-              사이트 이용 안내
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-            <div class="accordion-body">
-              <strong>사이트 이용 안내 사항은 고객센터 FAQ 를 참고 해주세요.</strong> 
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-headingFour">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
-                기타 안내
-              </button>
-            </h2>
-            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
-              <div class="accordion-body">
-                <strong>기타 안내 사항은 고객센터 FAQ 를 참고 해주세요.</strong>
-             </div>
-            </div>
-          </div>
-      </div>
-
-
-    <div class="div3" style="width: 700px; margin:auto;">
+ <div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="section-title text-center wow zoomIn">
+						<h1> < FAQ > </h1><br>
+						<p>자주 찾는 질문</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">				
+				<div class="col-md-12">
+					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingOne">
+								<h4 class="panel-title">
+									<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+										홈페이지 이용 관련 문의 
+									</a>
+								</h4>
+							</div>
+							<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby= "headingOne">
+								<div class="panel-body">
+									<p>Q. 홈페이지 가입은 어디서 하나요?</p> <br>
+									<p>A. 화면 상단위의 로그인 버튼을 눌러주시면 회원가입 진행이 가능합니다.</p>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingTwo">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+										이벤트 관련 문의 
+									</a>
+								</h4>
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+								<div class="panel-body">
+									<p>Q. 이벤트 참여는 어떻게 하나요?</p> <br>
+									<p>A. 커뮤니티 이벤트는 현재 준비 중입니다. 이벤트는 추후에 공지를 드릴테니 조금만 기다려주세요.</p>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingThree">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+										커뮤니티 이용 관련 문의 
+									</a>
+								</h4>
+							</div>
+							<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+								<div class="panel-body">
+									<p>Q. 게시글 작성 후 삭제하고싶은데 어떻게 해야되나요?</p> <br>
+									<p>A. 로그인 후 마이페이지에서 작성하신 모든 게시글을 수정 및 삭제가 가능합니다.</p>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingFour">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+										회원 및 게시판 신고 관련 문의 
+									</a>
+								</h4>
+							</div>
+							<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+								<div class="panel-body">
+									<p>Q. 회원을 비방하거나 욕설하는 회원은 신고하면 어떻게 처리되나요?</p> <br>
+									<p>A. 관리자에게 신고하시면 내용을 보고 경고 및 탈퇴 처리 될 예정입니다.</p>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingFive">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+										기타문의 
+									</a>
+								</h4>
+							</div>
+							<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+								<div class="panel-body">
+									<p>Q. 등급이 높아질수록 어떤 혜택이 있을까요?</p> <br>
+									<p>A. 그런건 없습니다. </p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!--- END COL -->		
+			</div><!--- END ROW -->			
+		</div>
+		<br>
+		
+		<script>
+		(function($) {
+	'use strict';
+	
+	jQuery(document).on('ready', function(){
+	
+			$('a.page-scroll').on('click', function(e){
+				var anchor = $(this);
+				$('html, body').stop().animate({
+					scrollTop: $(anchor.attr('href')).offset().top - 50
+				}, 1500);
+				e.preventDefault();
+			});		
+		}); 	
+	})(jQuery);
+		</script>
+		
+    <div class="div3" style="width: 700px; margin:auto; text-align: center; margin-bottom: 4%;">
     <h2><b>문의가 해결되지 않으신가요?</b></h2> <br><br>
     <h5>자세한 문의는 1:1 문의 게시판을 이용하세요.</h5> <br><br>
     <button class="ask1" onclick="location.href='<%= contextPath %>/questionForm.qna';">1:1 문의하기 ></button>
     </div>
 
  <%@ include file="../common/footer.jsp"%>
+
 	
 	
 
