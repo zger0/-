@@ -84,6 +84,20 @@ int maxPage = pi.getMaxPage();
 .modal-footer label {
 	font-size: 14px;
 }
+
+.button {
+        background-color : black;
+        border-radius : 5px;
+        color : white;
+        margin : 20px 0px 5px 0px;
+    }
+
+    .button:hover {
+        background-color : gray;
+        cursor : pointer;
+    }
+
+
 </style>
 <meta charset="utf-8" />
 <meta name="viewport"
@@ -147,7 +161,7 @@ int maxPage = pi.getMaxPage();
 			<div class="swiper-button-prev"></div>
 			<div class="swiper-button-next"></div>
 			<!-- If we need scrollbar -->
-			<div class="swiper-scrollbar"></div>
+			<div class="swiper-scrollbar" style="display: none"></div>
 		</div>
 	</div>
 
@@ -172,7 +186,56 @@ int maxPage = pi.getMaxPage();
 		});
 	</script>
 	<br />
-	<div style="display: flex; justify-content: center"
+
+	<div>
+		<link href="resources/css/category-filters5.css" rel="stylesheet"/>
+		
+		<form id="keywordList-form" action="<%= contextPath %>/list.st?currentPage=1" method="get" >
+		  <input type="hidden" name="currentPage" maxlength="12" value="1">
+		
+		<div class="category-filters5-container">
+		  <div class="category-filters5-category-filters5">
+  
+			<div class="category-filters5-section-title">
+			  <span class="category-filters5-text HeadingH2">
+				<span><h1>메뉴검색</h1></span>
+			  </span>
+			</div>
+  
+			<div class="category-filters5-content" style="width: 1200px; margin-right: 0px;">
+			  <div class="category-filters5-row1">
+  
+				<div class="category-filters5-filter-four" style="width:150px; margin-right: 10px; ">
+				  <select name="bname" class="category-filters5-select2">
+				  <option value="" selected>전체</option>
+				  <option value="BBQ">치킨</option>
+				  <option value="BHC">사이드</option>
+				  <option value="교촌치킨">교촌치킨</option>
+				  <option value="처갓집양념치킨">처갓집양념치킨</option>
+				  </select>
+				</div>		
+  
+					  <div>
+						<input type="text" name="keyword" class="category-filters5-select2" style="width: 200px; height: 23px; margin-right: 10px;" placeholder="검색어를 입력하세요.">
+				</div>
+				<div>
+				<button class="button" style="width: 70px; padding: 15px 5px;" type="submit">검색</button>
+				</div>
+  
+					</div>
+			</div>
+				  </div>
+		   </div>
+	  </form> 
+	</div>
+
+
+
+
+
+
+
+	<!-- <div style="display: flex; justify-content: center"
 		class="navbar navbar-expand-lg navbar-light bg-light">
 		<nav class="navbar">
 			<div class="container-fluid">
@@ -202,9 +265,6 @@ int maxPage = pi.getMaxPage();
 								<li><a class="dropdown-item"
 									href="<%=contextPath%>/list.ch?type=기타">기타</a></li>
 							</ul></li>
-						<li class="nav-item"><a class="nav-link" href="#"
-							onclick="window.open('<%=contextPath%>/views/menu/menuChat.jsp', 'chatWindow', 'width=500, height=500')">채팅방</a>
-						</li>
 					</ul>
 				</div>
 				<form class="d-flex" method="GET" action="search.mn">
@@ -217,7 +277,8 @@ int maxPage = pi.getMaxPage();
 				</form>
 			</div>
 		</nav>
-	</div>
+	</div> -->
+	
 	<!-- Section-->
 	<section class="py-5">
 		<div class="container px-4 px-lg-5 mt-5">

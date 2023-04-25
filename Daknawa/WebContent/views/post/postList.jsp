@@ -27,8 +27,8 @@
     }
 
     .outer {
-        margin: 5%;
-        margin-top: 3%;
+        
+        margin-top: 30px;
     }
 
     .title {
