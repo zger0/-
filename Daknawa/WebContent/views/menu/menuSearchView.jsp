@@ -39,6 +39,18 @@ if (type == null) type = "";
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="resources/css/styles.css" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+.button {
+        background-color : black;
+        border-radius : 5px;
+        color : white;
+        margin : 20px 0px 5px 0px;
+    }
+    .button:hover {
+        background-color : gray;
+        cursor : pointer;
+    }
+</style>
 </head>
 <body>
 	<%@ include file="../common/menubar.jsp"%>
@@ -73,7 +85,7 @@ if (type == null) type = "";
 			<div class="swiper-button-prev"></div>
 			<div class="swiper-button-next"></div>
 			<!-- If we need scrollbar -->
-			<div class="swiper-scrollbar"></div>
+			<div class="swiper-scrollbar" style="display: none"></div>
 		</div>
 	</div>
 
@@ -98,48 +110,92 @@ if (type == null) type = "";
 		});
 	</script>
 	<br />
-	<div style="display: flex; justify-content: center"
-		class="navbar navbar-expand-lg navbar-light bg-light">
-		<nav class="navbar">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="menu.mn">전체메뉴</a>
-				<button class="navbar-toggler" type="button"
-					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item"><a class="nav-link active"
-							id="chicken-menu" aria-current="page"
-							href="<%=contextPath%>/list.ch?type=치킨">치킨메뉴</a></li>
-						<li class="nav-item"><a class="nav-link" href="#"></a></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-							role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								사이드 </a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item"
-									href="<%=contextPath%>/list.ch?type=감자튀김">감자튀김</a></li>
-								<li><a class="dropdown-item"
-									href="<%=contextPath%>/list.ch?type=떡볶이">떡볶이</a></li>
-								<li><hr class="dropdown-divider" /></li>
-								<li><a class="dropdown-item"
-									href="<%=contextPath%>/list.ch?type=기타">기타</a></li>
-							</ul></li>
-					</ul>
-				</div>
-				<form class="d-flex" method="GET" action="search.mn">
-					<div class="input-group">
-						<input class="form-control" type="search" name="query"
-							placeholder="Search" aria-label="Search">
-						<button class="btn btn-outline-success" type="submit">Search</button>
+		<div>
+		<link href="resources/css/category-filters5.css" rel="stylesheet" />
+
+		<form id="keywordList-form"
+			method="GET" action="search.mn">
+							<input type="hidden" id="type-input" name="type">
+			<div class="category-filters5-container">
+				<div class="category-filters5-category-filters5">
+
+					<div class="category-filters5-section-title">
+						<span class="category-filters5-text HeadingH2"> <span><h1
+									style="margin-top: 30px;">메뉴 정보</h1></span>
+						</span>
 					</div>
-				</form>
+
+					<div class="category-filters5-content"
+						style="width: 595px; margin-right: 0px; display: absolute; left: 47px">
+						<div class="category-filters5-row1">
+
+							<div class="category-filters5-filter-four"
+								style="width: 150px; margin-right: 0px;">
+								<select id="menu-select" name="menu"
+									class="category-filters5-select2">
+									<option value="전체">전체</option>
+									<option value="치킨">치킨</option>
+									<option value="감자튀김">감자튀김</option>
+									<option value="떡볶이">떡볶이</option>
+									<option value="기타">기타</option>
+								</select>
+							</div>
+							<div>
+								<input type="search" name="query"
+									class="category-filters5-select2"
+									style="width: 200px; height: 23px; margin-right: 0px;"
+									placeholder="검색어를 입력하세요.">
+							</div>
+							<div>
+								<button class="button"
+									style="width: 70px; padding: 15px 5px; margin: 0px; margin-left: 25px;"
+									type="submit">검색</button>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-		</nav>
+		</form>
 	</div>
+
+	<script>
+	$(document).ready(function() {
+		  // 메뉴 선택 변경 시 type 값 지정
+		  $('#menu-select').change(function() {
+		    var selected = $(this).val();
+		    var type = "";
+		    if (selected !== "전체") {
+		      type = selected;
+		    }
+		    $("#type-input").val(type); // type 값을 hidden input 요소에 지정
+
+		    // 전체를 선택한 경우 menu.mn 페이지로 이동
+		    if (selected === "전체") {
+		      window.location.href = "<%=contextPath%>/menu.mn";
+		    } else {
+		      window.location.href = "<%=contextPath%>/list.ch?type=" + type + "&menu=" + selected;
+		    }
+		  });
+
+		  // 페이지 로드 시 선택된 값을 변경
+		  var urlParams = new URLSearchParams(window.location.search);
+		  var selectedMenu = urlParams.get('menu');
+		  var selectedType = urlParams.get('type');
+		  if (selectedMenu === null) {
+		    selectedMenu = "전체";
+		  }
+		  $("#menu-select").val(selectedMenu);
+		  if (selectedType !== null) {
+		    $("#type-input").val(selectedType);
+		  }
+
+		  // 전체 페이지로 이동할 때도 선택한 값을 유지하도록 함
+		  $('.category-filters5-filter-four a:first').click(function() {
+		    $("#menu-select").val("");
+		  });
+		});
+
+</script>
 
 	<!-- Section-->
 	<section class="py-5">
