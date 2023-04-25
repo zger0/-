@@ -139,16 +139,6 @@ if (type == null) type = "";
 						<button class="btn btn-outline-success" type="submit">Search</button>
 					</div>
 				</form>
-				&nbsp;
-				<%
-					if (loginUser != null && loginUser.getUserId().equals("admin")) {
-				%>
-				<button onclick="location.href='<%=contextPath%>/enrollForm.mn'"
-					type="button" class="btn btn-outline-dark" style="margin: 0 auto">메뉴
-					생성</button>
-				<%
-					}
-				%>
 			</div>
 		</nav>
 	</div>
@@ -165,7 +155,7 @@ if (type == null) type = "";
 					<div class="card h-100">
 						<!-- Product image-->
 						<img class="card-img-top" src="<%=contextPath%>/<%=m.getImg()%>"
-							alt="..." style="width: 268px; height: 160px" />
+							alt="..." style="width: 100%; height: 160px; object-fit: cover" />
 						<!-- Product details-->
 						<div class="card-body p-4">
 							<div class="text-center">

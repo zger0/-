@@ -140,7 +140,7 @@ else lo = 0;
 						%>
 						<img class="card-img-top"
 							src="<%=contextPath%>/<%=i.getFilePath() + i.getChangeName()%>"
-							alt="..." />
+							alt="..." style="width: 100%; height: 160px; object-fit: cover" />
 						<!-- Product details-->
 						<%
 							}

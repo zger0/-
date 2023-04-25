@@ -140,12 +140,7 @@ int maxPage = pi.getMaxPage();
 					  <input class="form-control" type="search" name="query" placeholder="Search" aria-label="Search">
 					  <button class="btn btn-outline-success" type="submit">Search</button>
 					</div>
-				  </form> &nbsp;
-				<% if(loginUser != null && loginUser.getUserId().equals("admin")) { %>
-				<button onclick="location.href='<%=contextPath%>/enrollForm.mn'"
-						type="button" class="btn btn-outline-dark" style="margin: 0 auto"
-						>메뉴 생성</button>
-						<% } %>
+				  </form>
 			</div>
 		</nav>
 	</div>
@@ -169,7 +164,7 @@ int maxPage = pi.getMaxPage();
 						%>
 						<img class="card-img-top"
 							src="<%=contextPath%>/<%=i.getFilePath() + i.getChangeName()%>"
-							alt="..." style="width: 268px; height: 160px" />
+							alt="..." style="width: 100%; height: 160px; object-fit: cover" />
 						<%
 							}
 						%>

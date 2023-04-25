@@ -237,7 +237,7 @@ int maxPage = pi.getMaxPage();
 						%>
 						<img class="card-img-top"
 							src="<%=contextPath%>/<%=i.getFilePath() + i.getChangeName()%>"
-							alt="..." style="width: 268px; height: 160px" />
+							alt="..." style="width: 100%; height: 160px; object-fit: cover" />
 						<%
 							}
 						%>
