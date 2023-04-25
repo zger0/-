@@ -28,7 +28,7 @@
     }
 
     .outer {
-        
+        margin: 5%;
         margin-top: 30px;
     }
 
@@ -105,7 +105,6 @@
 <body>
     
     <%@ include file="../common/menubar.jsp" %>
-
     <div class="outer">
         <div class="title">
             <h1>자유게시판</h1>
@@ -121,7 +120,6 @@
                 <a id="insertList" class="btn btn-secondary" href="<%= contextPath %>/penrollform.bo">글작성</a>
                 <% } %>
             </div>
-
             <script>
                 var category = document.getElementById("category");
             

@@ -57,7 +57,7 @@
       <link href="resources/css/blog-post1.css" rel="stylesheet" />
 
       <div class="blog-post1-container">
-        <div class="blog-post1-blog-post1" style="width: 1200px; margin: 0 auto;">
+        <div class="blog-post1-blog-post1" style="width: 1200px; margin: 0 auto; padding-bottom: 0;">
           <div class="blog-post1-blog-header">
             <div class="blog-post1-content">
               <div class="blog-post1-breadcrumbs">

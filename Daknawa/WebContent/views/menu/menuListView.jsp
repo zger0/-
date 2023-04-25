@@ -196,14 +196,14 @@ int maxPage = pi.getMaxPage();
   
 			<div class="category-filters5-section-title">
 			  <span class="category-filters5-text HeadingH2">
-				<span><h1>메뉴검색</h1></span>
+				<span><h1 style="margin-top: 30px;">메뉴 정보</h1></span>
 			  </span>
 			</div>
   
-			<div class="category-filters5-content" style="width: 1200px; margin-right: 0px;">
+			<div class="category-filters5-content" style="width: 595px; margin-right: 0px; display: absolute; left : 47px">
 			  <div class="category-filters5-row1">
   
-				<div class="category-filters5-filter-four" style="width:150px; margin-right: 10px; ">
+				<div class="category-filters5-filter-four" style="width:150px; margin-right: 0px; ">
 				  <select name="bname" class="category-filters5-select2">
 				  <option value="" selected>전체</option>
 				  <option value="BBQ">치킨</option>
@@ -214,14 +214,14 @@ int maxPage = pi.getMaxPage();
 				</div>		
   
 					  <div>
-						<input type="text" name="keyword" class="category-filters5-select2" style="width: 200px; height: 23px; margin-right: 10px;" placeholder="검색어를 입력하세요.">
+						<input type="text" name="keyword" class="category-filters5-select2" style="width: 200px; height: 23px; margin-right: 0px;" placeholder="검색어를 입력하세요.">
 				</div>
 				<div>
-				<button class="button" style="width: 70px; padding: 15px 5px;" type="submit">검색</button>
+				<button class="button" style="width: 70px; padding: 15px 5px; margin: 0px; margin-left : 25px;" type="submit">검색</button>
 				</div>
   
 					</div>
-			</div>
+					</div>
 				  </div>
 		   </div>
 	  </form> 
@@ -278,15 +278,15 @@ int maxPage = pi.getMaxPage();
 	</div> -->
 	
 	<!-- Section-->
-	<section class="py-5">
+	<section class="py-5" style="padding-top: 15px !important;">
 		<div class="container px-4 px-lg-5 mt-5">
 			<div
 				class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 				<%
 					for (Menu m : list) {
 				%>
-				<div class="col mb-5">
-					<div class="card h-100">
+				<div class="col mb-5" >
+					<div class="card h-100" style="border-radius: 0px; border: rgba(32, 31, 31, 0.171) 0.5px solid;" >
 						<!-- Product image-->
 						<%
 							for (Attachment i : ilist) {
@@ -316,7 +316,7 @@ int maxPage = pi.getMaxPage();
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto"
+								<a class="btn btn-outline-dark mt-auto" style="border-radius: 2px; border: rgba(32, 31, 31, 0.796) 0.5px solid;"
 									href="<%=contextPath%>/list.mn?
 				mno=<%=m.getMenuNo()%>">자세히
 									보기</a>

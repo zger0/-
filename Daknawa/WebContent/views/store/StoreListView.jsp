@@ -425,7 +425,7 @@
 				        </select>
               </div>
 
-              <div class="category-filters5-filter-four" style="width:150px; margin-right: 10px; ">
+              <div class="category-filters5-filter-four" style="width:150px; margin : 0px;">
                 <select name="bname" class="category-filters5-select2">
                 <option value="" selected>브랜드조회</option>
                 <option value="BBQ">BBQ</option>
@@ -451,10 +451,10 @@
               </div>		
 
 			        <div>
-				      <input type="text" name="keyword" class="category-filters5-select2" style="width: 200px; height: 23px; margin-right: 10px;" placeholder="검색어를 입력하세요.">
+				      <input type="text" name="keyword" class="category-filters5-select2" style="width: 200px; height: 23px; " placeholder="검색어를 입력하세요.">
               </div>
               <div>
-              <button class="button" style="width: 70px; padding: 15px 5px;" type="submit">검색</button>
+              <button class="button" style="width: 70px; padding: 15px 5px; margin: 0px 0px 0px 48.5px !important; border-radius: 2px;" type="submit">검색</button>
               </div>
 
 			      </div>
