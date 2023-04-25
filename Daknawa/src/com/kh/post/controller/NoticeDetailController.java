@@ -33,14 +33,15 @@ public class NoticeDetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int postNo = Integer.parseInt(request.getParameter("pno"));
-		
+
+
 		PostService nService = new PostService();
 		
 		int result = nService.increaseCount(postNo);
 		
 		if(result > 0) {
 			
-			Post p = nService.selectNoticePost(postNo);
+			Post p = nService.selectPost(postNo);
 			
 			Attachment at = nService.selectAttachment(postNo);
 			

@@ -137,7 +137,7 @@
                             pageUrl = "plist.bo?currentPage=1";
                             break;
                         case 'review':
-                            pageUrl = "review.bo?currentPage=1#1";
+                            pageUrl = "review.bo?currentPage=1";
                             break;
                         default:
                             pageUrl = "";
@@ -164,21 +164,21 @@
                     </thead>
                     <tbody>
                     <% if(list.isEmpty()) { %>
-                    <tr>
-                    <td colspan="5">
-                    조회된 리스트가 없습니다.
-                    </td>
-                    </tr>
+                        <tr>
+                        <td colspan="5">
+                        조회된 리스트가 없습니다.
+                        </td>
+                        </tr>
                     <% } else { %>
-                    <% for(Post p : list) { %>
-                    <tr class="post-1">
-                    <td><%= p.getPostNo() %></td>
-                    <td><%= p.getPostTitle() %></td>
-                    <td><%= p.getMemberNickname() %></td>
-                    <td><%= p.getPostView() %></td>
-                    <td><%= p.getPostDate() %></td>
-                    </tr>
-                    <% } %>
+                        <% for(Post p : list) { %>
+                        <tr class="post-1">
+                        <td><%= p.getPostNo() %></td>
+                        <td><%= p.getPostTitle() %></td>
+                        <td><%= p.getMemberNickname() %></td>
+                        <td><%= p.getPostView() %></td>
+                        <td><%= p.getPostDate() %></td>
+                        </tr>
+                        <% } %>
                     <% } %>
                     </tbody>
                 </table>
@@ -188,8 +188,8 @@
                             $("#list-area>tbody>tr").click(function() {
                 
                                 let pno = $(this).children().eq(0).text();
-                
-                                location.href = "<%= contextPath %>/pDetail.bo?pno=" + pno;
+                                onclick="location.href='<%= contextPath %>/rdetail.bo?pno=<%= list.get(0).getPostNo() %>'"
+                                location.href = "<%= contextPath %>/rdetail.bo?pno=<%= list.get(0).getPostNo() %>";
                             });                 
                         });   
                     </script>

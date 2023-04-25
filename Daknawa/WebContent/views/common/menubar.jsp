@@ -236,7 +236,7 @@ div {
 									data-bs-toggle="dropdown" aria-expanded="false">게시판</button>
 								<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 									<li><a class="dropdown-item" href="<%= contextPath %>/plist.bo?currentPage=1">자유 게시판</a></li>
-									<li><a class="dropdown-item" href="<%= contextPath %>/review.bo?currentPage=1">사진 게시판1</a></li>
+									<li><a class="dropdown-item" href="<%= contextPath %>/review.bo?currentPage=1">사진 게시판</a></li>
 								</ul>
 							</div>
 						</span>

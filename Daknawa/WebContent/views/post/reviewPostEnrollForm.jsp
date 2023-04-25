@@ -152,13 +152,8 @@
               <span class="blog-post1-text TextRegularNormal">
                 <span>사진 게시판 글작성 하기</span>
               </span>
-              <img
-              src="resources/css/public/playground_assets/iconi110-bfo.svg"
-              alt="IconI110"
-              class="blog-post1-icon"
-              />
               <span class="blog-post1-text02 TextRegularSemiBold">
-                    <span>사진게시판(하드코딩)</span>
+                    <span></span>
                   </span>
                 </div>
                 <span class="blog-post1-text04 HeadingH2"> </span>
@@ -180,15 +175,11 @@
                   <div class="blog-post1-avatar">
                     <div class="blog-post1-content02">
                       <span class="blog-post1-text06 TextSmallSemiBold">
-                        <span>sd </span>
+                        <span>글 작성자 : <%= loginUser.getUserNickName() %></span>
                       </span>
                       <div class="blog-post1-time">
                         <span class="blog-post1-text08 TextSmallNormal">
-                          <span>작성일</span>
-                        </span>
-                        <span class="blog-post1-text10 TextMediumNormal">•</span>
-                        <span class="blog-post1-text11 TextSmallNormal">
-                          <span>5 min read</span>
+                          <span></span>
                         </span>
                       </div>
                     </div>

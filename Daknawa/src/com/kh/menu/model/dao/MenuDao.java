@@ -107,8 +107,8 @@ public class MenuDao {
 
 			while (rset.next()) {
 				list.add(new Menu(rset.getInt("MENU_NO"), rset.getString("MENU_NAME"), rset.getInt("MENU_PRICE"),
-						rset.getString("MENU_CATEGORY"), rset.getInt("BRAND_NO"), rset.getString("MENU_DESC"),
-						rset.getInt("MENU_VIEW")));
+		                   rset.getString("MENU_CATEGORY"), rset.getInt("BRAND_NO"), rset.getString("MENU_DESC"),
+		                   rset.getInt("MENU_VIEW"), rset.getString("BRAND_NAME")));
 			}
 
 		} catch (SQLException e) {
@@ -249,7 +249,8 @@ public class MenuDao {
 			// 4. ResultSet 객체에서 값을 꺼내서 변수에 저장
 			while (rset.next()) {
 				list.add(new Menu(rset.getInt("MENU_NO"), rset.getString("MENU_NAME"), rset.getInt("MENU_PRICE"),
-						rset.getString("MENU_CATEGORY"), rset.getInt("BRAND_NO"), rset.getString("MENU_DESC")));
+						rset.getString("MENU_CATEGORY"), rset.getInt("BRAND_NO"), rset.getString("MENU_DESC")
+						, rset.getString("BRAND_NAME")));
 			}
 
 		} catch (SQLException e) {
@@ -333,7 +334,8 @@ public class MenuDao {
 			// 4. ResultSet 객체에서 값을 꺼내서 변수에 저장
 			while (rset.next()) {
 				list.add(new Menu(rset.getInt("MENU_NO"), rset.getString("MENU_NAME"), rset.getInt("MENU_PRICE"),
-						rset.getString("MENU_CATEGORY"), rset.getInt("BRAND_NO"), rset.getString("MENU_DESC")));
+						rset.getString("MENU_CATEGORY"), rset.getInt("BRAND_NO"), rset.getString("MENU_DESC")
+						, rset.getString("BRAND_NAME")));
 			}
 
 		} catch (SQLException e) {
@@ -381,54 +383,6 @@ public class MenuDao {
 		return list;
 	}
 
-	public ArrayList<Menu> selectPageDetailList(Connection conn, PageInfo pi) {
-
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		ArrayList<Menu> list = new ArrayList<Menu>();
-
-		// 실행할 쿼리문
-		String sql = prop.getProperty("selectPageDetailList");
-
-		try { // 2. PreparedStatement 객체 생성
-
-			pstmt = conn.prepareStatement(sql);
-
-			// 3_1 미완성된 쿼리문을 완성시키기 => 완성된 쿼리문이기 때문에 패스
-
-			/*
-			 * boardLimit가 10이라는 가정하에 currentPage = 1 => 시작값 1, 끝값 10 currentPage = 2 => 시작값
-			 * 11, 끝값 20 currentPage = 3 => 시작값 21, 끝값 30 currentPage = 4 => 시작값 31, 끝값 40
-			 * ...
-			 * 
-			 * 시작값 = (currentPage - 1) * boardLimit + 1 끝값 = 시작값 + boardLimit - 1
-			 */
-
-			int startRow = (pi.getCurrentPage() - 1) * pi.getPostLimit() + 1;
-			int endRow = startRow + pi.getPostLimit() - 1;
-
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, endRow);
-
-			// 3_2 실행할 쿼리문을 실행하고 결과를 받아옴
-			rset = pstmt.executeQuery();
-
-			// 4. ResultSet 객체에서 값을 꺼내서 변수에 저장
-			while (rset.next()) {
-				list.add(new Menu(rset.getInt("MENU_NO"), rset.getString("MENU_NAME"), rset.getInt("MENU_PRICE"),
-						rset.getString("MENU_CATEGORY"), rset.getInt("STORE_NO"), rset.getString("MENU_DESC")));
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			// 5. 자원 반납
-			close(rset);
-			close(pstmt);
-		}
-
-		return list;
-	}
 
 	public int insertMenu(Connection conn, Menu m) {
 		PreparedStatement pstmt = null;
@@ -687,7 +641,7 @@ public class MenuDao {
 			while (rset.next()) {
 				list.add(new Menu(rset.getInt("MENU_NO"), rset.getString("MENU_NAME"), rset.getInt("MENU_PRICE"),
 						rset.getString("MENU_CATEGORY"), rset.getInt("BRAND_NO"), rset.getString("MENU_DESC"),
-						rset.getString("FILE_PATH")));
+						rset.getString("FILE_PATH"), rset.getString("BRAND_NAME")));
 			}	
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -724,7 +678,7 @@ public class MenuDao {
 			while (rset.next()) {
 				list.add(new Menu(rset.getInt("MENU_NO"), rset.getString("MENU_NAME"), rset.getInt("MENU_PRICE"),
 						rset.getString("MENU_CATEGORY"), rset.getInt("BRAND_NO"), rset.getString("MENU_DESC"),
-						rset.getString("FILE_PATH")));
+						rset.getString("FILE_PATH"), rset.getString("BRAND_NAME")));
 			}	
 		} catch (SQLException e) {
 			e.printStackTrace();

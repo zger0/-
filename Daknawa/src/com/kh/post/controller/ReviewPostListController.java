@@ -1,4 +1,4 @@
-package com.kh.post.controller;
+ package com.kh.post.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -68,7 +68,9 @@ public class ReviewPostListController extends HttpServlet {
 
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit
 								 , boardLimit, maxPage, startPage, endPage);
+		
 		ArrayList<Post> list = new PostService().selectReviewList(pi);
+		
 		ArrayList<Attachment> flist = new ArrayList<Attachment>();
 		System.out.println("페이징된 리스트" + list);
 		

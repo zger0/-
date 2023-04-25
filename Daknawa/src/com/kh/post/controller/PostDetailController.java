@@ -33,6 +33,12 @@ public class PostDetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int postNo = Integer.parseInt(request.getParameter("pno"));
+
+		int category = 2;
+
+		System.out.println("postNo : " + postNo);
+
+
 		
 		PostService pService = new PostService();
 		
@@ -40,7 +46,8 @@ public class PostDetailController extends HttpServlet {
 		
 		if(result > 0) {
 			
-			Post p = pService.selectPost2(postNo);
+			Post p = pService.selectPost(postNo, category);
+			System.out.println(p);
 			
 			Attachment at = pService.selectAttachment(postNo);
 			
