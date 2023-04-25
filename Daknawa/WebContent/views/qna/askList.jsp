@@ -247,22 +247,22 @@
                                                              조회된 리스트가 없습니다.
                         </td>
                     </tr>
-                    <% } else { %>
-                    	<% for(Qna q : list) { %>
-                    	
-	                        <tr>
-	                            <td><%= q.getAskNo() %></td>
-	                            <td><%= q.getAskType() %></td>
-	                            <td><%= q.getAskTitle() %></td>
-	                            <td><%= q.getAskContent() %></td>
-	                            <td><%= q.getMemberNo() %></td>
-	                            <td><%= q.getAskDate() %></td>
-	                            <td><button><a href="<%= contextPath %>/updateForm.ask?ano=<%= q.getAskNo() %>" class="updateAsk">수정하기</a></button></td>
-	                            <td><button><a href="<%= contextPath %>/delete.ask?ano=<%= q.getAskNo() %>" class="deleteAsk">삭제하기</a></button></td>
-	                         </tr>
-							
-                   <% } %>
-                        
+                <% } else { %>
+                <% for(Qna q : list) { %>
+                	
+                   <tr>
+                       <td><%= q.getAskNo() %></td>
+                       <td><%= q.getAskType() %></td>
+                       <td><%= q.getAskTitle() %></td>
+                       <td><%= q.getAskContent() %></td>
+                       <td><%= q.getMemberNo() %></td>
+                       <td><%= q.getAskDate() %></td>
+                       <td><button><a href="<%= contextPath %>/updateForm.ask?ano=<%= q.getAskNo() %>" class="updateAsk">수정하기</a></button></td>
+                       <td><button><a href="<%= contextPath %>/delete.ask?ano=<%= q.getAskNo() %>" class="deleteAsk">삭제하기</a></button></td>
+                    </tr>
+			
+               <% } %>
+               <% } %>    
             </tbody>
         </table>
         <br><br>
@@ -289,6 +289,8 @@
 		  <% if(currentPage != maxPage) { %>
 		  <button onclick="location.href = '<%= contextPath %>/list.ask?currentPage=<%= currentPage + 1 %>';">&gt;</button>
 		  <% } %>
+	
+		  
         </div>
     </div>
     
