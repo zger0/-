@@ -207,7 +207,7 @@ int maxPage = pi.getMaxPage();
 						</li>
 					</ul>
 				</div>
-				<form class="d-flex" method="POST" action="search.mn">
+				<form class="d-flex" method="GET" action="search.mn">
 					<div class="input-group">
 						<input type="hidden" name="type">
 						<input class="form-control" type="search" name="query"
@@ -215,15 +215,6 @@ int maxPage = pi.getMaxPage();
 						<button class="btn btn-outline-success" type="submit">Search</button>
 					</div>
 				</form>
-				&nbsp;<%
-					if (loginUser != null && loginUser.getUserId().equals("admin")) {
-				%>
-				<button onclick="location.href='<%=contextPath%>/enrollForm.mn'"
-					type="button" class="btn btn-outline-dark" style="margin: 0 auto">메뉴
-					생성</button>
-				<%
-					}
-				%>
 			</div>
 		</nav>
 	</div>
@@ -246,7 +237,7 @@ int maxPage = pi.getMaxPage();
 						%>
 						<img class="card-img-top"
 							src="<%=contextPath%>/<%=i.getFilePath() + i.getChangeName()%>"
-							alt="..." style="width: 268px; height: 160px" />
+							alt="..." style="width: 100%; height: 160px; object-fit: cover" />
 						<%
 							}
 						%>
@@ -257,6 +248,7 @@ int maxPage = pi.getMaxPage();
 						<div class="card-body p-4">
 							<div class="text-center">
 								<!-- Product name-->
+							<h6 class="fw-bolder"><%=m.getBrandName()%></h6>
 								<h5 class="fw-bolder"><%=m.getMenuName()%></h5>
 								<!-- Product price-->
 								<%=m.getMenuPrice()%>원
