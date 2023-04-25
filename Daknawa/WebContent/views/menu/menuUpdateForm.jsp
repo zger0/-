@@ -16,6 +16,7 @@
 <body>
 
 	<%@ include file="../common/menubar.jsp" %>
+
     <div class="form-example-area">
         <div class="container" style="width: 500px;">
             <div class="row">
@@ -124,5 +125,6 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>

@@ -518,23 +518,7 @@
         <button onclick="location.href='<%= contextPath%>/review.bo?currentPage=<%=currentPage + 1%>';">&gt;</button>
         <%} %>
         
-      </div> 
-      <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-          <li class="page-item disabled">
-            <a class="page-link">Previous</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-          </li>
-        </ul>
-      </nav>
-
       <button class="btn">
-        <a href="reviewWrite.bo">글쓰기</a>
       </button>
       <button
           onclick="location.href='<%= contextPath%>/renrollFrom.bo'"

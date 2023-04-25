@@ -41,7 +41,7 @@ public class PostUpdateController extends HttpServlet {
 		
 		if(ServletFileUpload.isMultipartContent(request)) {
 			
-			int maxSize = 10 * 1024;
+			int maxSize = 10 * 1024 * 1024 * 1024;
 			
 			String savePath = request.getSession().getServletContext().getRealPath("/resources/post_upfiles/");
 			
