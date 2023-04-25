@@ -97,6 +97,83 @@ public class PostDao {
 		}
 		return list;
 	}
+	
+	public ArrayList<Post> selectPostList(Connection conn, PageInfo pi ,int Category) {
+		
+        ArrayList<Post> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectReviewList");
+		
+		int startRow = (pi.getCurrentPage() - 1) * pi.getPostLimit() + 1;
+		int endRow = startRow + pi.getPostLimit() - 1;
+		
+		// System.out.println(startRow);
+		// System.out.println(endRow);
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, Category);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				Post po = new Post();
+
+                po.setPostNo(rset.getInt("POST_NO"));
+                po.setPostTitle(rset.getString("POST_TITLE"));
+                po.setPostContent(rset.getString("POST_CONTENT"));
+                po.setMemberNickname(rset.getString("MEMBER_NICKNAME"));
+                po.setPostView(rset.getInt("POST_VIEW"));
+                po.setPostDate(rset.getDate("POST_DATE"));
+				
+				list.add(po);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return list;
+	}
+	
+	public Post selectPost(Connection conn, int postNo, int category) {
+		
+		Post p = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectPost");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, postNo);
+			pstmt.setInt(2, category);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				p = new Post();
+				
+				p.setPostNo(rset.getInt("POST_NO"));
+				p.setPostTitle(rset.getString("POST_TITLE"));
+				p.setPostContent(rset.getString("POST_CONTENT"));
+				p.setMemberNickname(rset.getString("MEMBER_NICKNAME"));
+				p.setPostView(rset.getInt("POST_VIEW"));
+				p.setPostDate(rset.getDate("POST_DATE"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return p;
+	}
 
     public int increaseCount(Connection conn, int postNum) {
         
@@ -122,7 +199,7 @@ public class PostDao {
 		Post p = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String sql = prop.getProperty("selectPost2");
+		String sql = prop.getProperty("selectPost");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);

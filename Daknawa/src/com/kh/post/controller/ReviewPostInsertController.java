@@ -2,6 +2,7 @@ package com.kh.post.controller;
 
 import java.io.File;
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +13,7 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import com.kh.common.MyFileRenamePolicy;
 import com.kh.common.model.vo.Attachment;
+import com.kh.member.model.vo.Member;
 import com.kh.post.model.service.PostService;
 import com.kh.post.model.vo.Post;
 import com.oreilly.servlet.MultipartRequest;
@@ -46,7 +48,7 @@ public class ReviewPostInsertController extends HttpServlet {
 			
 			MultipartRequest multiRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 			
-			int userNo = 1;
+			int userNo = ((Member)request.getSession().getAttribute("loginUser")).getUserNo();
 			// String category = multiRequest.getParameter("category");
 			String PostTitle = multiRequest.getParameter("title");
 			String PostContent = multiRequest.getParameter("content");
@@ -55,6 +57,7 @@ public class ReviewPostInsertController extends HttpServlet {
 			p.setMemberNo(userNo);
 			p.setPostTitle(PostTitle);
 			p.setPostContent(PostContent);
+			p.setPostCatNo(3);
 			
 			Attachment at = null;
 			

@@ -3,7 +3,7 @@
 <%@ page import="com.kh.post.model.vo.Post, com.kh.common.model.vo.Attachment"%>
 <%
     Post p = (Post)request.getAttribute("p");
-    Attachment at = (Attachment)request.getAttribute("at"); 
+    Attachment at = (Attachment)request.getAttribute("at");	
 %>
 <!DOCTYPE html>
 <html lang="english">
@@ -119,7 +119,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
       data-tag="font"
     />
-   
+    <link rel="stylesheet" href="./style.css" />
     <!-- CSS only -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
@@ -130,7 +130,7 @@
   </head>
   <body>
   
-    <%@ include file="../common/menubar.jsp"%>
+  	<%@ include file="../common/menubar.jsp"%>
     <div>
       <link href="resources/css/blog-post1-enroll.css" rel="stylesheet" />
 
@@ -150,19 +150,15 @@
           <div class="blog-post1-content">
             <div class="blog-post1-breadcrumbs">
               <span class="blog-post1-text TextRegularNormal">
-                <span>공지사항 글작성 하기</span>
+                <span>공지사항</span>
               </span>
-              <img
-              src="resources/css/public/playground_assets/iconi110-bfo.svg"
-              alt="IconI110"
-              class="blog-post1-icon"
-              />
+              
               <span class="blog-post1-text02 TextRegularSemiBold">
-                    <span>공지사항</span>
+                    <span></span>
                   </span>
                 </div>
                 <span class="blog-post1-text04 HeadingH2"> </span>
-                <!-- 게시글 제목 -->
+                <!-- 게이글 제목 -->
                 <input
                 type="text"
                 name="title"
@@ -179,9 +175,10 @@
                 <div class="blog-post1-content01">
                   <div class="blog-post1-avatar">
                     <div class="blog-post1-content02">
-                     
+                      <span class="blog-post1-text06 TextSmallSemiBold">
+                        <span>글 작성자 : <%= loginUser.getUserNickName() %></span>
+                      </span>
                       <div class="blog-post1-time">
-
                       </div>
                     </div>
                   </div>
@@ -192,7 +189,7 @@
               <div class="blog-post1-content03">
                 <div class="blog-post1-content04">
                   <div class="blog-post1-rich-text">
-                    <input type="file" name="upfile">
+                    <input type="file" name="upfile" style="" />
                     
                     <div class="blog-post1-content06">
                       <span class="blog-post1-text15 TextRegularNormal">
@@ -205,7 +202,6 @@
                         ></textarea>
                     </span>
                   </div>
-
                   <button
                     class="btn btn-outline-dark"
                     style="margin: 0 auto"
@@ -222,4 +218,3 @@
     </div>
   </body>
 </html>
-

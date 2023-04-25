@@ -38,7 +38,7 @@ public class NoticeEnrollFormController extends HttpServlet {
 		
 		//System.out.println(list);
 		
-		request.getRequestDispatcher("views/post/nef.jsp").forward(request, response);
+		request.getRequestDispatcher("views/post/noticeEnrollForm.jsp").forward(request, response);
 		
 	}
 

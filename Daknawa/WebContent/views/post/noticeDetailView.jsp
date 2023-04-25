@@ -3,7 +3,7 @@
 <%@ page import="com.kh.post.model.vo.Post, com.kh.common.model.vo.Attachment"%>
 <%
     Post p = (Post)request.getAttribute("p");
-    Attachment at = (Attachment)request.getAttribute("at"); 
+    Attachment at = (Attachment)request.getAttribute("at");	
 %>
 
 <!DOCTYPE html>
@@ -61,49 +61,29 @@
             <div class="blog-post1-content">
               <div class="blog-post1-breadcrumbs">
                 <span class="blog-post1-text TextRegularNormal">
-                  <span>Blog</span>
+                  <span>공지사항</span>
                 </span>
                 
-                <img
-                  src="resources/css/public/playground_assets/iconi110-bfo.svg"
-                  alt="IconI110"
-                  class="blog-post1-icon"
-                />
                 <span class="blog-post1-text02 TextRegularSemiBold">
-                  <span>공지사항</span>
+                  <span></span>
                 </span>
               </div>
               <span class="blog-post1-text04 HeadingH2">
-                <% if (p != null) { %>
-            <span style="font-size : 45px"><%= p.getPostTitle() %> </span>
-          <% } else { %>
-            <span style="font-size : 45px">제목 없음</span>
-          <% } %>
+                <span style="font-size : 45px"><%= p.getPostTitle() %> </span>
               </span>
             </div>
             <div class="blog-post1-content01">
               <div class="blog-post1-avatar">
-                <img
-                  src="resources/css/public/playground_assets/placeholderimagei110-s27s-200h.png"
-                  alt="PlaceholderImageI110"
-                  class="blog-post1-placeholder-image"
-                />
+               
                 <div class="blog-post1-content02">
                   <span class="blog-post1-text06 TextSmallSemiBold">
-                    
-
-            <% if (p != null) { %>
-              <span><%= p.getMemberNickname() %></span>
-            <% } else { %>
-              <span>익명</span>
-            <% } %>                
-                  
+                    <span>닉네임 : <%= p.getMemberNickname() %></span>
                   </span>
                   <div class="blog-post1-time">
                     <span class="blog-post1-text08 TextSmallNormal">
-                      <span><%= p.getPostDate() %></span>
+                      <span>작성일 : <%= p.getPostDate() %></span>
                     </span>
-                    <span class="blog-post1-text10 TextMediumNormal">•</span>
+                    <span class="blog-post1-text10 TextMediumNormal"></span>
                     <span class="blog-post1-text11 TextSmallNormal">
                       <span></span>
                     </span>
@@ -114,8 +94,9 @@
             </div>
           </div>
           <% if(at == null){ %>
-           
-          <%} else{%> 
+            <!-- <img src="resources/img/1.png" width="800" height="500"
+                        style="margin-bottom: 30px;"> -->
+          <%} else {%>	
             <img src="<%= contextPath %>/<%= at.getFilePath() + at.getChangeName() %>"
                           width="800" height="500">
           <%} %>
@@ -138,15 +119,12 @@
               class="blog-post1-divider1"
             />
             <div class="blog-post1-avatar1">
-              
-                <a href="nlist.no?currentPage=1" class="btn btn-outline-dark">목록</a>
-                
-                <% if(loginUser != null && loginUser.getUserNickName().equals(p.getMemberNickname())) { %>
-                <button
+              <% if(loginUser != null && loginUser.getUserNickName().equals(p.getMemberNickname())) {%>
+              <button
                     class="btn btn-outline-dark"
                     style="margin: 0 auto"
                     type="submit"
-                    onclick="location.href='<%= contextPath %>/nDelete.no?pno=<%=p.getPostNo() %> '"
+                    onclick="location.href='<%= contextPath %>/delete.po?pno=<%=p.getPostNo() %> '"
                   >
                     글삭제
               </button>
@@ -154,13 +132,13 @@
                   class="btn btn-outline-dark"
                   style="margin: 0 auto"
                   type="submit"
-                  onclick="location.href='<%= contextPath %>/nupdateForm.no?pno=<%=p.getPostNo() %> '"
+                  onclick="location.href='<%= contextPath %>/updateForm.po?pno=<%=p.getPostNo() %> '"
                 >
                 글수정
                </button>
-               <% } %>
               </div>
             </div>
+            <% } %>
           </div>
         </div>
         <div id="reply-area">
@@ -190,84 +168,139 @@
               </tbody>                
           </table>
 
+          
           <script>
-           $(document).ready(function(){ 
-                  // 댓글 조회
-                  selectReplyList();
+            	
+            
+            $(function() {
+                selectReplyList();
 
-                  // 만약 댓글 조회를 실시간으로 하고 싶다면
-                  // 5초 간격마다 seelctReplyList() 함수를 호출하면 됨
-                  window.setInterval(selectReplyList, 5000);
-              });
+                // 실시간 댓글 조회, 5초 간격으로 조회
+                setInterval(selectReplyList, 500000);
+            });
 
-              // 댓글 작성 요청용 함수
-              function insertReply(){
-                  // 댓글 작성용 AJAX
-                  $.ajax({
-                      url : "reinsert.po",
-                      type : "post",
-                      data : {
-                          pno : <%=p.getPostNo()%>, 
-                          content : $("#replyContent").val()
-                      },
-                      success : function(result){
-                          // 댓글 작성 성공 시 댓글 목록 다시 조회
-                          // console.log(result);
-                          if(result > 0){
-                              selectReplyList();
+            function insertReply() {
 
-                              // 댓글 작성 후 댓글 내용 초기화
-                              $("#replyContent").val("");
-                          }else{
-                              alert("댓글 등록 실패!");
-                          }
-                      },
-                      error : function(){
-                          alert("댓글 등록 실패!");
-                      }
-                  });
-              }
-              // 댓글 조회용 함수
-              function selectReplyList(){
-                  // 댓글 조회용 AJAX
-                  $.ajax({
-                      url : "relist.po",
-                      type : "get",
-                      data : {pno : <%=p.getPostNo()%> },
-                      success : function(list){
-                          // 댓글 목록을 댓글영역에 뿌려주기
-                          // console.log(list);
-                          let result = "";
+                $.ajax({
+                    url : "reinsert.po",
+                    type : "post",
+                    data : {
+                        content : $("#replyContent").val(),
+                        pno : <%= p.getPostNo() %>
+                    },
+                    success : function(result) {
+
+                         console.log(result); //성공했다면 1, 실패했다면 0
+
+                        if(result > 0) { // 댓글 작성 성공
+
+                            // 갱식된 댓글 리스트 조회
+                            selectReplyList();
+
+                            // 댓글 작성용 textarea 조회
+                            $("#replyContent").val("");
+                        }
+                    },
+                    error : function() {
+                        console.log("댓글 작성 실패!");
+                    }
+                });
+            }
+
+            // 댓글 조회 요청용 함수
+            function selectReplyList() {
+                $.ajax({
+                    url : "relist.po",
+                    type : "get",
+                    data : {pno : <%= p.getPostNo() %> },
+                    success : function(list) {
+
+                        let result = "";
 
                         for(let i in list) {
 
-                                result += "<tr>"
-                                result += "<td>" + list[i].memberNo + '<i class="fa-regular"></i>' + "</td>";
-                                result += "<td id='reply'>" + list[i].replyContent + "</td>";
-                                result += "<td>" + list[i].createDate + "</td>"; 
-                                
-                                
-                                <% String loginUserNickname = (loginUser != null) ? loginUser.getUserNickName() : ""; %>
-                                if ("<%= loginUserNickname %>" === list[i].memberNo) {
-                                    result += "<td><span style='cursor : pointer;' onClick=Reply('" + list[i].replyContent + "','" + list[i].replyNo + "'); >수정</span></td>";
-                                    result += "<td><span style='cursor : pointer;' onClick=deleteReply(" + list[i].replyNo + ");>삭제</span></td>";
-                                } 
-                                result += "</tr>"
-                                
-                                $("#reply-area tbody").html(result);    
-                            }
-                        },
-                        error : function() {
-                            alert("댓글 조회를 실패하셨습니다");
+                            result += "<tr>"
+                            result += "<td>" + list[i].memberNo + '<i class"fa-regular"></i>' + "</td>";
+                            result += "<td id='reply'>" + list[i].replyContent + "</td>";
+                            result += "<td>" + list[i].createDate + "</td>"; 
+
+                            <% String loginUserNickname = (loginUser != null) ? loginUser.getUserNickName() : ""; %>
+                            if ("<%= loginUserNickname %>" === list[i].memberNo) {
+                                result += "<td><span style='cursor : pointer;' onClick=Reply('" + list[i].replyContent + "','" + list[i].replyNo + "'); >수정</span></td>";
+                                result += "<td><span style='cursor : pointer;' onClick=deleteReply(" + list[i].replyNo + ");>삭제</span></td>";
+                            } 
+                            
+                            $("#reply-area tbody").html(result);    
                         }
-                    });
-              }
-          </script>
+                    },
+                    error : function() {
+                        alert("댓글 조회를 실패하셨습니다");
+                    }
+                });
+            }
+            
+            function Reply(content, rno) {
+              console.log(content);
+              console.log(rno);
+              $("#reply").html("<textarea id='replyContent1' cols='50' rows='1' style=' width: 350px; resize: none; border: 1px solid black;'>"+ content +"</textarea><button style='width : 50px' onclick='updateReply("+ rno + ");'>완료</button>");	
+            };
+            
+            // 댓슬 수정용 함수
+            function updateReply(rno) {
+              // 댓글 수정용 AJAX
+              $.ajax({
+                url : "reupdate.po",
+                type : "post",
+                data : {
+                  rno : rno,
+                  content : $("#replyContent1").val()
+                },
+                success : function(result) {
+                  // 댓글 수정 성공 시 댓글 목록 다시 조회
+                  // console.log(result);
+                  if(result > 0) {
+                    selectReplyList();
+                    
+                    // 댓글 수정 후 댓글 내용 초기화
+                    $("#replyContent").val("");
+                  } else {
+                    alert("댓글 수정 실패!");
+                  }
+                },
+                error : function() {
+                  alert("댓글 수정 실패!")
+                }        
+              });
+            }
+            
+            
+            // 댓글 삭제용 함수
+            function deleteReply(rno) {
+              // 댓글 삭제용 AJAX
+              $.ajax({
+                url : "redelete.po",
+                type : "post",
+                data : {rno : rno},
+                success : function(result) {
+                  // 댓글 삭제 성공시 댓글 목록 다시 조회
+                  // console.log(result);
+                  if(result > 0) {
+                    alert("댓글 삭제 성공!");
+                     selectReplyList();
+                  } else {
+                    alert("댓글 삭제 실패!");
+                  }
+                },
+                error : function() {
+                  alert("댓글 삭제 실패!");
+                }
+              });
+            }
+        </script>
+
           <br><br>
       </div>
       
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
   </body>
 </html>
-
-

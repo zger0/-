@@ -115,8 +115,7 @@
                     <option value="free">자유게시판</option>
                     <option value="review">리뷰게시판</option>
                 </select>
-
-                <% if(loginUser != null) { %>
+                <% if(loginUser != null && loginUser.getUserNickName().equals("관리자")) { %>
                 <a id="insertList" class="btn btn-secondary" href="<%= contextPath %>/nEnrollForm.no">글작성</a>
                 <% } %>
             </div>

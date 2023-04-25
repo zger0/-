@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.common.model.vo.Reply;
+import com.kh.member.model.vo.Member;
 import com.kh.post.model.service.PostService;
 
 /**
@@ -33,8 +34,10 @@ public class AjaxReplyInsertContoller extends HttpServlet {
 		
 		String replyContent = request.getParameter("content");
 		int PostNo = Integer.parseInt(request.getParameter("pno"));
-		int userNo = 1; // 임시로 1번 회원으로 지정
+		int userNo = ((Member)request.getSession().getAttribute("loginUser")).getUserNo();
 		
+		System.out.println(PostNo);
+		System.out.println(replyContent);
 		Reply r = new Reply();
 		r.setReplyContent(replyContent);
 		r.setPostNo(PostNo);

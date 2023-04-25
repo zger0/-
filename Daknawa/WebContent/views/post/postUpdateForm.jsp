@@ -151,15 +151,11 @@
           <div class="blog-post1-content">
             <div class="blog-post1-breadcrumbs">
               <span class="blog-post1-text TextRegularNormal">
-                <span>자유 게시판 수정 하기</span>
+                <span>수정 하기</span>
               </span>
-              <img
-              src="resources/css/public/playground_assets/iconi110-bfo.svg"
-              alt="IconI110"
-              class="blog-post1-icon"
-              />
+              
               <span class="blog-post1-text02 TextRegularSemiBold">
-                    <span>자유 게시판</span>
+                    <span></span>
                   </span>
                 </div>
                 <span class="blog-post1-text04 HeadingH2"> </span>

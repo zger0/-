@@ -34,6 +34,8 @@ public class ReviewPostDetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		int postNo = Integer.parseInt(request.getParameter("pno"));
+		// int category = Integer.parseInt(request.getParameter("category"));
+		
 
 		PostService pService = new PostService();
 
@@ -49,8 +51,8 @@ public class ReviewPostDetailController extends HttpServlet {
 
 			Attachment at = pService.selectAttachment(postNo);
 
-			// System.out.println("게시글 상세 조회 결과 : " + p);
-			// System.out.println("게시글 파일 조회 : " + at);
+			 System.out.println("게시글 상세 조회 결과 : " + p);
+			 System.out.println("게시글 파일 조회 : " + at);
 
 			request.setAttribute("p", p);
 			request.setAttribute("at", at);
