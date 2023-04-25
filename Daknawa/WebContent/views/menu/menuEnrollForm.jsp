@@ -9,7 +9,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>닭나와</title>
+<link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
 </head>
 <body>
 
@@ -56,9 +57,18 @@
                                 <div class="form-group">
                                     <label>브랜드</label>
                                     <div class="bootstrap-select fm-cmp-mg">
-                                        <select class="selectpicker" name="askType" style="margin-top: 5px; margin-bottom: 5px;">
-                                            <option value="1">BBQ</option>
-                                        </select>
+                                        <select class="selectpicker" name="brand"
+											style="margin-top: 5px; margin-bottom: 5px;">
+											<option value="1">BBQ</option>
+											<option value="2">BHC</option>
+											<option value="3">교촌치킨</option>
+											<option value="4">처갓집양념치킨</option>
+											<option value="5">페리카나</option>
+											<option value="6">네네치킨</option>
+											<option value="7">굽네치킨</option>
+											<option value="8">멕시카나치킨</option>
+											<option value="9">호식이두마리치킨</option>
+										</select>
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +84,7 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 15px;">
                                     <div class="form-group">
                                         <div class="nk-int-st">
-                                            <textarea class="form-control" rows="5" name="product-description"></textarea>
+                                            <textarea class="form-control" rows="5" name="desc"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -89,7 +99,8 @@
                             </div>
                             <div class="form-example-int mg-t-15" style="text-align: center; margin-top: 25px;">
                                 <button class="btn btn-success notika-btn-success" style="margin: 0 2px;" type="submit">입력</button>
-                                <button class="btn btn-success notika-btn-success" style="margin: 0 2px;">취소</button>
+                                <button class="btn btn-success notika-btn-success"
+									style="margin: 0 2px;" onclick="window.history.back()">취소</button>
                             </div>
                         </form>
                     </div>
@@ -97,5 +108,8 @@
             </div>
         </div>
     </div>
+    
+    <%@ include file="../common/footer.jsp"%>
+    
 </body>
 </html>

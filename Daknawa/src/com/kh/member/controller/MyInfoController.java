@@ -30,21 +30,29 @@ public class MyInfoController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		SubNav sn = new SubNav();
-		
-		sn.setTitle1("MY PAGE");
-		sn.setTitle1Addr("myInfo.me");
-		sn.setTitle2("내 정보 관리");
-		sn.setTitle2Addr("myInfo.me");
-		sn.setTitle3("정보 조회 및 수정");
-		sn.setActive1("active");
-		sn.setActive2("1");
-		sn.setActive3("1");
-		sn.setActive4("1");
-		
-		request.setAttribute("sn", sn);
-		
-		request.getRequestDispatcher("views/member/memberMyPage.jsp").forward(request, response);
+		if(request.getSession().getAttribute("loginUser") != null) { // 정상진입
+			
+			SubNav sn = new SubNav();
+			
+			sn.setTitle1("MY PAGE");
+			sn.setTitle1Addr("myInfo.me");
+			sn.setTitle2("내 정보 관리");
+			sn.setTitle2Addr("myInfo.me");
+			sn.setTitle3("정보 조회 및 수정");
+			sn.setActive1("active");
+			sn.setActive2("1");
+			sn.setActive3("1");
+			
+			request.setAttribute("sn", sn);
+			
+			request.getRequestDispatcher("views/member/memberMyPage.jsp").forward(request, response);	
+			
+		} else { // 로그인하지 않은 상태에서 주소입력으로 마이페이지 진입
+				
+			request.getSession().setAttribute("alertMsg", "로그인 후 이용 가능한 서비스입니다.");
+			
+			response.sendRedirect(request.getContextPath() + "/loginPage.me");
+		}
 	
 	}
 

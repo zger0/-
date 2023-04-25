@@ -9,7 +9,8 @@
 <!DOCTYPE html>
 <html lang="english">
   <head>
-    <title>exported project</title>
+    <title>닭나와</title>
+    <link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
@@ -138,7 +139,7 @@
       <div class="blog-post1-container">
         <form
           id="enroll-form"
-          action="<%= contextPath %>/update.po"
+          action="<%= contextPath %>/rupdate.po"
           method="post"
           enctype="multipart/form-data"
         >
@@ -151,7 +152,7 @@
           <div class="blog-post1-content">
             <div class="blog-post1-breadcrumbs">
               <span class="blog-post1-text TextRegularNormal">
-                <span>사진 게시판 수정 하기</span>
+                <span>게시글 수정 하기</span>
               </span>
               <img
               src="resources/css/public/playground_assets/iconi110-bfo.svg"
@@ -159,7 +160,7 @@
               class="blog-post1-icon"
               />
               <span class="blog-post1-text02 TextRegularSemiBold">
-                    <span>사진 게시판(하드코딩)</span>
+                    <span></span>
                   </span>
                 </div>
                 <span class="blog-post1-text04 HeadingH2"> </span>
@@ -174,7 +175,7 @@
                     height: 70px;
                     font-size: 30px;
                     "
-                  placeholder=" <%= p.getPostTitle() %>"
+                  value=" <%= p.getPostTitle() %>"
                   />
                 </div>
                 <div class="blog-post1-content01">
@@ -224,8 +225,7 @@
                         rows="40"
                         required
                         style="border: 1px solid black; width: 800px; font-size: 20px;"
-                        placeholder=" <%= p.getPostContent() %>"
-                        ></textarea>
+                        ><%= p.getPostContent() %></textarea>
                     </span>
                   </div>
                   <button
@@ -242,5 +242,8 @@
         </form>
       </div>
     </div>
+    
+    <%@ include file="../common/footer.jsp"%>
+    
   </body>
 </html>

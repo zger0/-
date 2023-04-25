@@ -12,7 +12,8 @@
 <!DOCTYPE html>
 <html lang="english">
 <head>
-<title>exported project</title>
+<title>닭나와</title>
+<link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta charset="utf-8" />
 <meta property="twitter:card" content="summary_large_image" />
@@ -26,7 +27,11 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <!-- Latest compiled JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<style> 
+    html, body, div, select, input { cursor: url('resources/css/public/playground_assets/cursor.cur') 0 10, auto; !important }
 
+	html:active, body:active, select:active, input:active { cursor: url('resources/css/public/playground_assets/cursor2.cur') 2 40, auto; !important }
+</style>
 
 <!-- CSS only -->
 <link
@@ -236,7 +241,7 @@ div {
 									data-bs-toggle="dropdown" aria-expanded="false">게시판</button>
 								<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 									<li><a class="dropdown-item" href="<%= contextPath %>/plist.bo?currentPage=1">자유 게시판</a></li>
-									<li><a class="dropdown-item" href="<%= contextPath %>/review.bo?currentPage=1">사진 게시판1</a></li>
+									<li><a class="dropdown-item" href="<%= contextPath %>/review.bo?currentPage=1">사진 게시판</a></li>
 								</ul>
 							</div>
 						</span>
@@ -262,9 +267,13 @@ div {
 								type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
 								aria-expanded="false">더보기</button>
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-								<li><a class="dropdown-item" href="<%= contextPath %>/myPage.me">마이 페이지</a></li>
-								<li><a class="dropdown-item" href="#">문의 하기</a></li>
-
+								<% if(loginUser != null && loginUser.getUserNickName().equals("관리자")) { %>
+									<li><a class="dropdown-item" href="<%= contextPath %>/myPage.me">관리자 페이지</a></li>
+								<% } else { %>
+									<li><a class="dropdown-item" href="<%= contextPath %>/myPage.me">마이 페이지</a></li>
+								<% } %>
+								<li><a class="dropdown-item" href="<%= contextPath %>/faq.qna">FAQ</a></li>
+								<li><a class="dropdown-item" onclick="window.open('<%=contextPath%>/views/menu/menuChat.jsp', 'chatWindow', 'width=500, height=500')">채팅방</a></li>
 							</ul>
 						</div>
 					</div>

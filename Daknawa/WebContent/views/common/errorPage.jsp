@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>닭나와</title>
+<link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
 </head>
 <body>
 
@@ -16,5 +17,6 @@
 	<br><br>
 	<h1 align="center" style="color : red;"><%= errorMsg %></h1>
 	
+	<%@ include file="../common/footer.jsp"%>
 </body>
 </html>

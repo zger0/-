@@ -15,7 +15,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Post List</title>
+<title>닭나와</title>
+<link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -115,8 +116,7 @@
                     <option value="free">자유게시판</option>
                     <option value="review">리뷰게시판</option>
                 </select>
-
-                <% if(loginUser != null) { %>
+                <% if(loginUser != null && loginUser.getUserNickName().equals("관리자")) { %>
                 <a id="insertList" class="btn btn-secondary" href="<%= contextPath %>/nEnrollForm.no">글작성</a>
                 <% } %>
             </div>
@@ -218,6 +218,9 @@
                     </div>
                      
                 </div>
+                
+                <%@ include file="../common/footer.jsp"%>
+                
         </body>
     </html>
                     

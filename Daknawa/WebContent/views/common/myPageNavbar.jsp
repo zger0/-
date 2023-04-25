@@ -8,7 +8,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>닭나와</title>
+<link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
 <style>
         /* MY PAGE 타이틀 부분 */
         #container .title {
@@ -60,7 +61,7 @@
       /* 메뉴바 부분 */
       #mnb {
         width: 100%;
-        min-width: 1000px;
+        min-width: 750px;
         border-bottom: 1px solid #888686;
         background-color: #fff;
         margin-bottom: 60px;
@@ -68,13 +69,13 @@
 
       #mnb .mnb_header {
         width: 100%;
-        min-width: 1000px;
+        min-width: 750px;
         background-color: #fff;
         border-top: 1px solid #9d9d9d;
       }
 
       #mnb .mnb_header>ul {
-        width: 1000px;
+        width: 750px;
         margin: 0 auto;
         padding: 0;
         display: block;
@@ -115,7 +116,7 @@
             padding : 0px; /* padding 값 조정으로 메뉴 가운데 배치 가능 */
            /* height : 100%; */
 
-            width: 25%;
+            width: 33%;
             height : 36px;
             margin: 0 auto;
             padding: 0;
@@ -220,22 +221,13 @@
 	                    </ul>
 	                </li>
 	                <li class="<%= sn.getActive2() %>">
-	                    <a href="">내 활동 관리</a>
+	                    <a href="postlist.mp">내 활동 관리</a>
 	                    <ul>
 	                        <li><a href="postlist.mp">게시글 관리</a></li>
-	                        <li><a href="replylist.mp">댓글 관리</a></li>
-	                        <li><a href="liktlist.mp">좋아요 관리</a></li>                   
+	                        <li><a href="replylist.mp">댓글 관리</a></li>                  
 	                    </ul>
 	                </li>
 	                <li class="<%= sn.getActive3() %>">
-	                    <a href="">내 신고 관리</a>
-	                    <ul>
-	                        <li><a href="">내 신고내역</a></li>
-	                        <li><a href="">B</a></li>
-	                        <li><a href="">C</a></li>
-	                    </ul>
-	                </li>
-	                <li class="<%= sn.getActive4() %>">
 	                    <a href="list.ask?currentPage=1">문의내역</a>
 	                    <ul>
 	                        <li><a href="list.ask?currentPage=1">1:1 문의내역 관리</a></li>

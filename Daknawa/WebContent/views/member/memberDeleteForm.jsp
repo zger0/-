@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원탈퇴</title>
+<title>닭나와</title>
+<link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
 <style>
     .h1 {
     	text-align : center;
@@ -59,7 +60,7 @@
 	
 	<form id="delete-member" action="<%= contextPath %>/delete.me" method="post">
 
-        <br><br><br><br>
+        
         
         <h1 class="h1">회원 탈퇴</h1>
         
@@ -81,6 +82,8 @@
         </div>
 
     </form>
+    
+    <%@ include file="../common/footer.jsp"%>
     
 </body>
 </html>

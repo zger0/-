@@ -38,7 +38,7 @@ public class MenuDeleteController extends HttpServlet {
 
 		if(result > 0) {
 			request.getSession().setAttribute("alertMsg", "게시글이 삭제되었습니다.");
-			response.sendRedirect(request.getContextPath() + "/menu.mn");
+			response.sendRedirect(request.getContextPath() + "/menu.ad");
 		} else {
 			request.setAttribute("errorMsg", "게시글 삭제에 실패했습니다.");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);

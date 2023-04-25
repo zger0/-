@@ -41,8 +41,7 @@
 			FROM POST P
 			JOIN MEMBER USING (MEMBER_NO)
 			WHERE POST_NO = ?
-		AND P.STATUS = 'Y'
-		AND POST_CAT_NO = 2
+		   	  AND P.STATUS = 'Y'
     </entry>
     
     <entry key="selectPost2">
@@ -237,4 +236,20 @@
  			 , POST_CONTENT = ?
 		 WHERE POST_NO = ?
 	</entry>
+	
+	<entry key="selectPostList">
+        SELECT *
+			FROM (
+				SELECT ROWNUM RNUM, A.*
+					FROM (SELECT POST_NO, POST_TITLE, POST_CONTENT, MEMBER_NICKNAME, POST_VIEW, POST_DATE
+					FROM POST P
+					JOIN POST_CATEGORY USING (POST_CAT_NO)
+					JOIN MEMBER USING (MEMBER_NO)
+				WHERE POST_CAT_NO = ?
+					AND P.STATUS = 'Y'
+				ORDER BY POST_NO DESC) A
+				) 
+        WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
 </properties>

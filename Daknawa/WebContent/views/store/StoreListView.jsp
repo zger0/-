@@ -21,7 +21,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
-    <title>Insert title here</title>
+    <title>닭나와</title>
+    <link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <style data-tag="reset-style-sheet">
       html {
@@ -285,6 +286,17 @@
     font-weight:600
   }
 }
+.button {
+        background-color : black;
+        border-radius : 5px;
+        color : white;
+        margin : 20px 0px 5px 0px;
+    }
+
+    .button:hover {
+        background-color : gray;
+        cursor : pointer;
+    }
 
     </style>
     
@@ -329,23 +341,23 @@
         // 주소-좌표 변환 객체를 생성합니다
         var geocoder = new kakao.maps.services.Geocoder();
 
-          // 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
-var mapTypeControl = new kakao.maps.MapTypeControl();
+        // 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+        var mapTypeControl = new kakao.maps.MapTypeControl();
 
-// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
-// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
-map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+        // 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+        // kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+        map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
 
-// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
-var zoomControl = new kakao.maps.ZoomControl();
-map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+        // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+        var zoomControl = new kakao.maps.ZoomControl();
+        map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
         var coords = [];
         <% for(Store s : list) {   %>
         console.log(1);
         // 주소로 좌표를 검색합니다
         geocoder.addressSearch('<%= s.getStoreAddress() %>', function(result, status) {
-        console.log('<%= s.getStoreAddress() %>');
+        /// console.log('<%= s.getStoreAddress() %>');
                 // 정상적으로 검색이 완료됐으면 
         if (status === kakao.maps.services.Status.OK) {
 
@@ -379,82 +391,82 @@ map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
     </div>
     
     
-    <div>
+  <div>
       <link href="resources/css/category-filters5.css" rel="stylesheet"/>
       
 	  <form id="keywordList-form" action="<%= contextPath %>/list.st?currentPage=1" method="get" >
-	  <input type="hidden" name="currentPage" maxlength="12" value="1">
+	    <input type="hidden" name="currentPage" maxlength="12" value="1">
 	  
       <div class="category-filters5-container">
         <div class="category-filters5-category-filters5">
+
           <div class="category-filters5-section-title">
             <span class="category-filters5-text HeadingH2">
-              <span><h1>매장검색</h2></span>
+              <span><h1>매장검색</h1></span>
             </span>
           </div>
-          <div class="category-filters5-content">
+
+          <div class="category-filters5-content" style="width: 1200px; margin-right: 0px;">
             <div class="category-filters5-row1">
-              <div class="category-filters5-filter-two">
+
+              <div class="category-filters5-filter-two" style="width:150px;">
                 <select name="" class="category-filters5-select2">
-					<option value="" selected>시/도</option>
-	 				<option value="서울특별시">서울특별시</option>
-				</select>
+					      <option value="" selected>시/도</option>
+	 				      <option value="서울특별시">서울특별시</option>
+				        </select>
               </div>
-              <div class="category-filters5-filter-three">
+
+              <div class="category-filters5-filter-three" style="width:150px;">
                 <select name="" class="category-filters5-select2">
-					<option value="" selected>구/군</option>
-	 				<option value="영등포구">영등포구</option>
-				</select>
+					      <option value="" selected>구/군</option>
+	 				      <option value="영등포구">영등포구</option>
+				        </select>
               </div>
-              <div class="category-filters5-filter-four">
+
+              <div class="category-filters5-filter-four" style="width:150px; margin : 0px;">
                 <select name="bname" class="category-filters5-select2">
-					<option value="" selected>브랜드조회</option>
-	 				<option value="BBQ">BBQ</option>
-	 				<option value="BHC">BHC</option>
-	 				<option value="교촌치킨">교촌치킨</option>
-	 				<option value="처갓집양념치킨">처갓집양념치킨</option>
-	 				<option value="페리카나">페리카나</option>
-	 				<option value="네네치킨">네네치킨</option>
-	 				<option value="굽네치킨">굽네치킨</option>
-	 				<option value="멕시카나치킨">멕시카나치킨</option>
-	 				<option value="푸호식이두마리치킨">호식이두마리치킨</option>
-	 				<option value="또래오래">또래오래</option>
-	 				<option value="지코바치킨">지코바치킨</option>
-	 				<option value="푸라닭">푸라닭</option>
-	 				<option value="60계치킨">60계치킨</option>
-	 				<option value="바른치킨">바른치킨</option>
-	 				<option value="노랑통닭">노랑통닭</option>
-	 				<option value="맘스터치">맘스터치</option>
-	 				<option value="훌랄라 참숯바베큐치킨">훌랄라 참숯바베큐치킨</option>
-	 				<option value="치킨마루">치킨마루</option>
-	 				<option value="또봉이통닭">또봉이통닭</option>
-	 								
-	 				
-				</select>
-			</div>
-				<input type="text" name="keyword" class="category-filters5-select2" placeholder="검색어를 입력하세요.">
-				
-			</div>
+                <option value="" selected>브랜드조회</option>
+                <option value="BBQ">BBQ</option>
+                <option value="BHC">BHC</option>
+                <option value="교촌치킨">교촌치킨</option>
+                <option value="처갓집양념치킨">처갓집양념치킨</option>
+                <option value="페리카나">페리카나</option>
+                <option value="네네치킨">네네치킨</option>
+                <option value="굽네치킨">굽네치킨</option>
+                <option value="멕시카나치킨">멕시카나치킨</option>
+                <option value="푸호식이두마리치킨">호식이두마리치킨</option>
+                <option value="또래오래">또래오래</option>
+                <option value="지코바치킨">지코바치킨</option>
+                <option value="푸라닭">푸라닭</option>
+                <option value="60계치킨">60계치킨</option>
+                <option value="바른치킨">바른치킨</option>
+                <option value="노랑통닭">노랑통닭</option>
+                <option value="맘스터치">맘스터치</option>
+                <option value="훌랄라 참숯바베큐치킨">훌랄라 참숯바베큐치킨</option>
+                <option value="치킨마루">치킨마루</option>
+                <option value="또봉이통닭">또봉이통닭</option>
+                </select>
+              </div>		
+
+			        <div>
+				      <input type="text" name="keyword" class="category-filters5-select2" style="width: 200px; height: 23px; " placeholder="검색어를 입력하세요.">
+              </div>
+              <div>
+              <button class="button" style="width: 70px; padding: 15px 5px; margin: 0px 0px 0px 48.5px !important; border-radius: 2px;" type="submit">검색</button>
+              </div>
+
+			      </div>
           </div>
-          <br>
-          <table style="margin : auto;">
-          		<tr>
-          			<td>
-          				<button class="btn btn-outline-success" type="submit">검색</button>
-          			</td>
-          		</tr>
-          </table>
-	
 				</div>
-     		</div>
-     	 </form> 
-   	</div>
-    	
+     	</div>
+    </form> 
+  </div>
+
     <div>
       <link href="resources/css/career17.css" rel="stylesheet" />
 
       <div class="career17-container">
-        <div class="career17-career17">
+        <div class="career17-career17" style="padding-top: 0px;" >
           <div class="career17-section-title">
             <span class="career17-text TextRegularSemiBold"></span>
           </div>
@@ -465,7 +477,7 @@ map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
             <div class="career17-card">
               <div class="career17-job">
                 <span class="career17-text03 HeadingH5">
-                  <span id="<%= s.getStoreName() %>"><%= s.getStoreName() %></span>
+                  <span id="<%= s.getStoreName() %>"><b><%= s.getStoreName() %></b></span>
                 </span>
                 
                 
@@ -485,25 +497,33 @@ map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
               </div>
               
               <div class="career17-info">
-   
-                 <div class="career17-content3">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
- 				 <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-				 </svg>
-                  <span class="career17-text09 TextMediumNormal">
-                    <span style="margin-left:5px;"><%= s.getStorePhone() %></span>
-                  </span>
-                </div>
-             
-                <div class="career17-content3">
-                  <img
-                    src="resources/css/public/playground_assets/iconclocki146-fjhq.svg"
-                    alt="IconClockI146"
-                    class="career17-icon-clock"/>
-                  <span class="career17-text09 TextMediumNormal">
-                    <span><%= s.getStoreTime() %></span>
-                  </span>
-                </div>
+                <table>
+                  <tr>
+                    <td>
+                      <div class="career17-content3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                        </svg>
+                        <span class="career17-text09 TextMediumNormal" style="margin-left: 10px;">
+                        <span style="margin-left:5px;"><%= s.getStorePhone() %></span>
+                        </span>
+                      </div>
+                    </td>
+              
+                    <td>
+                      <div class="career17-content3" style="margin-left: 10px;">
+                          <img
+                            src="resources/css/public/playground_assets/iconclocki146-fjhq.svg"
+                            alt="IconClockI146"
+                            class="career17-icon-clock"
+                          />
+                          <span class="career17-text09 TextMediumNormal">
+                          <span><%= s.getStoreTime() %></span>
+                          </span>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
               </div>
             </div>
           </a>
@@ -595,8 +615,6 @@ map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
         </div>
       </div>
 </footer>-->
-		
-		
 		
   	</body>
 </html>

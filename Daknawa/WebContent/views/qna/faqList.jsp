@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-
+<title>닭나와</title>
+<link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
 <style>
 .template_faq {
     background: #edf3fe none repeat scroll 0 0;
@@ -95,7 +95,6 @@
 <body>
 
 	<%@ include file="../common/menubar.jsp" %>
-	<%@ include file="../common/myPageNavbar.jsp" %>
 	
  <div class="container">
 			<div class="row">
@@ -216,7 +215,5 @@
  <%@ include file="../common/footer.jsp"%>
 
 	
-	
-
 </body>
 </html>

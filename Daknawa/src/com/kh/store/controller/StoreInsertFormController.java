@@ -26,10 +26,8 @@ public class StoreInsertFormController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		System.out.println(1);
-			
-		request.getRequestDispatcher("views/admin/asdf.jsp").forward(request, response);
+	
+		request.getRequestDispatcher("views/store/StoreInsertForm.jsp").forward(request, response);
 	
 	}
 

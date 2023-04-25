@@ -122,20 +122,6 @@ public class MenuService {
         return list;
     }
 
-
-            public ArrayList<Menu> selectPageDetailList(PageInfo pi) {
-        // 1. 드라이버 등록
-        Connection conn = getConnection();
-
-        // 2. dao 메소드 호출
-        ArrayList<Menu> list = new MenuDao().selectPageDetailList(conn, pi);
-
-        // 3. 트랜잭션 처리
-        close(conn);
-
-        return list;
-    }
-
         public ArrayList<Attachment> selectImgPageChList(PageInfo pi, String type) {
         
         Connection conn = getConnection();

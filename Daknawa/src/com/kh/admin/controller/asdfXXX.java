@@ -1,7 +1,6 @@
 package com.kh.admin.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,21 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.admin.model.service.AdminService;
 import com.kh.common.model.vo.SubNav;
-import com.kh.post.model.vo.Post;
 
 /**
- * Servlet implementation class AdminTable
+ * Servlet implementation class asdf
  */
-@WebServlet("/table.ad")
-public class AdminTable extends HttpServlet {
+@WebServlet("/asdf")
+public class asdfXXX extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminTable() {
+    public asdfXXX() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -47,13 +44,7 @@ public class AdminTable extends HttpServlet {
 		
 		request.setAttribute("sn", sn);
 
-		ArrayList<Post> list = new AdminService().selectAdminPostList();
-
-		System.out.println(list);
-
-		request.setAttribute("list", list);
-		
-		request.getRequestDispatcher("views/admin/adminTable.jsp").forward(request, response);
+		request.getRequestDispatcher("views/admin/asdf.jsp").forward(request, response);
 	}
 
 	/**

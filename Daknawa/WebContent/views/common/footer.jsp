@@ -4,6 +4,7 @@
     <html lang="english">
       <head>
         <title>exported project</title>
+        <link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charset="utf-8" />
         <meta property="twitter:card" content="summary_large_image" />
@@ -45,7 +46,7 @@
         <link rel="stylesheet" href="./style.css" />
       </head>
       <body>
-        <div style="height : 0px;">
+        <div style="height : 0px; margin-top: 80px;">
           <link href="resources/css/footer7.css" rel="stylesheet" />
           <img
             src="resources/css/public/playground_assets/logo.png"
@@ -63,7 +64,7 @@
                     src="resources/css/public/playground_assets/bbq.png"
                     alt="logoI146"
                     class="footer7-logo1"
-                    style="height : 60px; width : 75px; "
+                    style="height : 65px; width : 75px; "
                   	/>
                     </span>
                   </span>
@@ -74,7 +75,7 @@
                     src="resources/css/public/playground_assets/bhc.png"
                     alt="logoI146"
                     class="footer7-logo1"
-                    style="height : 60px; width : 75px; "
+                    style="height : 65px; width : 75px; "
                   />
                     </span>
                   </span>
@@ -85,7 +86,7 @@
                     src="resources/css/public/playground_assets/goobne.png"
                     alt="logoI146"
                     class="footer7-logo1"
-                    style="height : 60px; width : 72px; "
+                    style="height : 65px; width : 72px; "
                   />
                     </span>
                   </span>
@@ -96,7 +97,7 @@
                     src="resources/css/public/playground_assets/hosigi.png"
                     alt="logoI146"
                     class="footer7-logo1"
-                    style="height : 60px; width : 75px;"
+                    style="height : 65px; width : 75px;"
                   />
                     </span>
                   </span>
@@ -107,7 +108,7 @@
                     src="resources/css/public/playground_assets/dore.png"
                     alt="logoI146"
                     class="footer7-logo1"
-                    style="height : 60px; width : 75px; "
+                    style="height : 65px; width : 75px; "
                   />
                     </span>
                   </span>
@@ -122,10 +123,9 @@
                 <div class="footer7-row">
                   <span class="footer7-text10 TextSmallNormal"></span>
                     <span>
-                      상호명 : (주)Daknawa | 대표명 : 이동수 | 사업자등록번호 : 394-96-294852 | 문의 : localhost8889/Daknawa <br>
+                      상호명 : (주)Daknawa | 대표명 : 정태혁 | 사업자등록번호 : 394-96-294852 | 문의 : localhost8889/Daknawa <br>
                       통신판매업신고번호 :  제 2023-서울영등포-04256호 | 주소 :  서울 영등포구 선유동 2로 57 이레빌딩 19F, 20F <br>
                       ⓒ 2023 (주)Daknawa, Inc. All rights reserved.
-                    
                   </span>
                   <div class="footer7-footer-links">
                     <span class="footer7-text14 TextSmallLink">

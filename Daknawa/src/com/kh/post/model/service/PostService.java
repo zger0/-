@@ -43,6 +43,17 @@ public class PostService {
         
         return list;
 	}
+	
+	public ArrayList<Post> selectPostList(PageInfo pi, int category) {
+		
+        Connection conn = getConnection();
+        
+        ArrayList<Post> list = new PostDao().selectPostList(conn, pi, category);
+        
+        close(conn);
+        
+        return list;
+	}
 
 	public int increaseCount(int postNum) {
 		

@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>비밀번호 찾기</title>
+<title>닭나와</title>
+<link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
 <style>
     .h1 {
         text-align : center;
@@ -76,6 +77,8 @@
         </div>
 
     </form>
+    
+    <%@ include file="../common/footer.jsp"%>
 
 </body>
 </html>

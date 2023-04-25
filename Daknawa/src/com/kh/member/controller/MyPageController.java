@@ -32,15 +32,13 @@ public class MyPageController extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		
-		
-		
 		if(session.getAttribute("loginUser") == null) { // 로그인 하기 전 마이페이지 클릭
 			
 			session.setAttribute("alertMsg", "로그인 후 이용 가능한 서비스입니다.");
 			
 			response.sendRedirect(request.getContextPath() + "/loginPage.me");
 		} else { // 로그인 후 마이페이지 클릭
-				
+			
 				request.getRequestDispatcher("views/member/checkPwdForm.jsp").forward(request, response);
 
 		}

@@ -8,7 +8,8 @@
 <!DOCTYPE html>
 <html lang="english">
   <head>
-    <title>exported project</title>
+    <title>닭나와</title>
+    <link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
@@ -180,16 +181,10 @@
                   <div class="blog-post1-avatar">
                     <div class="blog-post1-content02">
                       <span class="blog-post1-text06 TextSmallSemiBold">
-                        <span>글 작성중 </span>
+                        <span>글 작성자 : <%= loginUser.getUserNickName() %></span>
                       </span>
                       <div class="blog-post1-time">
-                        <span class="blog-post1-text08 TextSmallNormal">
-                          <span>작성일</span>
-                        </span>
-                        <span class="blog-post1-text10 TextMediumNormal">•</span>
-                        <span class="blog-post1-text11 TextSmallNormal">
-                          <span>5분의 효과</span>
-                        </span>
+                        
                       </div>
                     </div>
                   </div>
@@ -228,6 +223,9 @@
         </form>
       </div>
     </div>
+    
+    <%@ include file="../common/footer.jsp"%>
+    
   </body>
 </html>
 

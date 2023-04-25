@@ -22,8 +22,8 @@ if (type == null) type = "";
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>CMS</title>
-
+<title>닭나와</title>
+<link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
 <!-- swiper.js 라이브러리추가 -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.min.css" />
@@ -32,8 +32,6 @@ if (type == null) type = "";
 
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.4.0/swiper-bundle.min.css" />
-<!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Bootstrap icons-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
@@ -132,23 +130,13 @@ if (type == null) type = "";
 							</ul></li>
 					</ul>
 				</div>
-				<form class="d-flex" method="POST" action="search.mn">
+				<form class="d-flex" method="GET" action="search.mn">
 					<div class="input-group">
 						<input class="form-control" type="search" name="query"
 							placeholder="Search" aria-label="Search">
 						<button class="btn btn-outline-success" type="submit">Search</button>
 					</div>
 				</form>
-				&nbsp;
-				<%
-					if (loginUser != null && loginUser.getUserId().equals("admin")) {
-				%>
-				<button onclick="location.href='<%=contextPath%>/enrollForm.mn'"
-					type="button" class="btn btn-outline-dark" style="margin: 0 auto">메뉴
-					생성</button>
-				<%
-					}
-				%>
 			</div>
 		</nav>
 	</div>
@@ -165,11 +153,12 @@ if (type == null) type = "";
 					<div class="card h-100">
 						<!-- Product image-->
 						<img class="card-img-top" src="<%=contextPath%>/<%=m.getImg()%>"
-							alt="..." style="width: 268px; height: 160px" />
+							alt="..." style="width: 100%; height: 160px; object-fit: cover" />
 						<!-- Product details-->
 						<div class="card-body p-4">
 							<div class="text-center">
 								<!-- Product name-->
+								<h6 class="fw-bolder"><%=m.getBrandName()%></h6>
 								<h5 class="fw-bolder"><%=m.getMenuName()%></h5>
 								<!-- Product price-->
 								<%=m.getMenuPrice()%>원
@@ -250,5 +239,8 @@ if (type == null) type = "";
 	<!-- Bootstrap core JS-->
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
+	
+	<%@ include file="../common/footer.jsp"%>
+	
 </body>
 </html>

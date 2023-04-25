@@ -38,8 +38,7 @@ public class FaqListController extends HttpServlet {
 		sn.setTitle3("FAQ");
 		sn.setActive1("1");
 		sn.setActive2("1");
-		sn.setActive3("1");
-		sn.setActive4("active");
+		sn.setActive3("active");
 		
 		request.setAttribute("sn", sn);
 		

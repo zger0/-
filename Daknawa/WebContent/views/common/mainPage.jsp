@@ -8,7 +8,8 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
-    <title>메인페이지1</title>
+    <title>닭나와</title>
+    <link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
     <link rel="stylesheet" href="resources/css/assets/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="resources/css/assets/css/swiper-icons.css" />
     <link rel="stylesheet" href="resources/css/assets/css/styles.css" />
@@ -339,5 +340,6 @@
     <script src="resources/css/assets/js/Navbar---Apple-navbar---apple.js"></script>
     <script src="resources/css/assets/js/Swiper-Card-Blog-swiper-bundle.min.js"></script>
     <script src="resources/css/assets/js/Swiper-Card-Blog-swiper.js"></script>
+    
   </body>
 </html>

@@ -1,6 +1,7 @@
 package com.kh.admin.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,19 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.admin.model.service.AdminService;
 import com.kh.common.model.vo.SubNav;
+import com.kh.post.model.vo.Post;
 
 /**
- * Servlet implementation class asdf
+ * Servlet implementation class AdminTable
  */
-@WebServlet("/asdf")
-public class asdf extends HttpServlet {
+@WebServlet("/table.ad")
+public class AdminTableXXX extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public asdf() {
+    public AdminTableXXX() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,17 +37,23 @@ public class asdf extends HttpServlet {
 		
 		sn.setTitle1("ADMIN PAGE");
 		sn.setTitle1Addr("admin.me");
-		sn.setTitle2("매장 관리");
-		sn.setTitle2Addr("adlist.st");
-		sn.setTitle3("전체 매장 조회");
+		sn.setTitle2("메뉴 관리");
+		sn.setTitle2Addr("menu.ad");
+		sn.setTitle3("게시글 관리??");
 		sn.setActive1("1");
-		sn.setActive2("active");
-		sn.setActive3("1");
+		sn.setActive2("1");
+		sn.setActive3("active");
 		sn.setActive4("1");
 		
 		request.setAttribute("sn", sn);
 
-		request.getRequestDispatcher("views/admin/asdf.jsp").forward(request, response);
+		ArrayList<Post> list = new AdminService().selectAdminPostList();
+
+		System.out.println(list);
+
+		request.setAttribute("list", list);
+		
+		request.getRequestDispatcher("views/admin/adminTable.jsp").forward(request, response);
 	}
 
 	/**

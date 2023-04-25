@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.member.model.vo.Member;
+
 /**
  * Servlet implementation class QuestionFormController
  */
@@ -27,8 +29,21 @@ public class QuestionFormController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		Member loginUser = (Member)request.getSession().getAttribute("loginUser");
+		
+		if(loginUser != null) {
+			
+			request.getRequestDispatcher("/views/qna/questionForm1.jsp").forward(request, response);
+		} else {
+			
+			request.getSession().setAttribute("alertMsg", "로그인 후 이용 가능한 서비스입니다.");
+			
+			response.sendRedirect(request.getContextPath() + "/loginPage.me");
+		}
+		
+		
 		// 1:1 문의하기 페이지를 포워딩
-		request.getRequestDispatcher("/views/qna/questionForm1.jsp").forward(request, response);
+		// request.getRequestDispatcher("/views/qna/questionForm1.jsp").forward(request, response);
 	}
 
 	/**

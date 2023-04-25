@@ -15,7 +15,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Post List</title>
+<title>닭나와</title>
+<link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -28,7 +29,7 @@
 
     .outer {
         margin: 5%;
-        margin-top: 3%;
+        margin-top: 30px;
     }
 
     .title {
@@ -104,7 +105,6 @@
 <body>
     
     <%@ include file="../common/menubar.jsp" %>
-
     <div class="outer">
         <div class="title">
             <h1>자유게시판</h1>
@@ -120,7 +120,6 @@
                 <a id="insertList" class="btn btn-secondary" href="<%= contextPath %>/penrollform.bo">글작성</a>
                 <% } %>
             </div>
-
             <script>
                 var category = document.getElementById("category");
             
@@ -137,7 +136,7 @@
                             pageUrl = "plist.bo?currentPage=1";
                             break;
                         case 'review':
-                            pageUrl = "review.bo?currentPage=1#1";
+                            pageUrl = "review.bo?currentPage=1";
                             break;
                         default:
                             pageUrl = "";
@@ -164,21 +163,21 @@
                     </thead>
                     <tbody>
                     <% if(list.isEmpty()) { %>
-                    <tr>
-                    <td colspan="5">
-                    조회된 리스트가 없습니다.
-                    </td>
-                    </tr>
+                        <tr>
+                        <td colspan="5">
+                        조회된 리스트가 없습니다.
+                        </td>
+                        </tr>
                     <% } else { %>
-                    <% for(Post p : list) { %>
-                    <tr class="post-1">
-                    <td><%= p.getPostNo() %></td>
-                    <td><%= p.getPostTitle() %></td>
-                    <td><%= p.getMemberNickname() %></td>
-                    <td><%= p.getPostView() %></td>
-                    <td><%= p.getPostDate() %></td>
-                    </tr>
-                    <% } %>
+                        <% for(Post p : list) { %>
+                        <tr class="post-1">
+                        <td><%= p.getPostNo() %></td>
+                        <td><%= p.getPostTitle() %></td>
+                        <td><%= p.getMemberNickname() %></td>
+                        <td><%= p.getPostView() %></td>
+                        <td><%= p.getPostDate() %></td>
+                        </tr>
+                        <% } %>
                     <% } %>
                     </tbody>
                 </table>
@@ -188,8 +187,8 @@
                             $("#list-area>tbody>tr").click(function() {
                 
                                 let pno = $(this).children().eq(0).text();
-                
-                                location.href = "<%= contextPath %>/pDetail.bo?pno=" + pno;
+                                onclick="location.href='<%= contextPath %>/rdetail.bo?pno=<%= list.get(0).getPostNo() %>'"
+                                location.href = "<%= contextPath %>/rdetail.bo?pno=<%= list.get(0).getPostNo() %>";
                             });                 
                         });   
                     </script>

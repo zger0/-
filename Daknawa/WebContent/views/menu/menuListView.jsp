@@ -84,14 +84,28 @@ int maxPage = pi.getMaxPage();
 .modal-footer label {
 	font-size: 14px;
 }
+
+.button {
+        background-color : black;
+        border-radius : 5px;
+        color : white;
+        margin : 20px 0px 5px 0px;
+    }
+
+    .button:hover {
+        background-color : gray;
+        cursor : pointer;
+    }
+
+
 </style>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>CMS</title>
-
+<title>닭나와</title>
+<link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
 <!-- swiper.js 라이브러리추가 -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.min.css" />
@@ -100,8 +114,6 @@ int maxPage = pi.getMaxPage();
 
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.4.0/swiper-bundle.min.css" />
-<!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Bootstrap icons-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
@@ -147,7 +159,7 @@ int maxPage = pi.getMaxPage();
 			<div class="swiper-button-prev"></div>
 			<div class="swiper-button-next"></div>
 			<!-- If we need scrollbar -->
-			<div class="swiper-scrollbar"></div>
+			<div class="swiper-scrollbar" style="display: none"></div>
 		</div>
 	</div>
 
@@ -172,7 +184,56 @@ int maxPage = pi.getMaxPage();
 		});
 	</script>
 	<br />
-	<div style="display: flex; justify-content: center"
+
+	<div>
+		<link href="resources/css/category-filters5.css" rel="stylesheet"/>
+		
+		<form id="keywordList-form" action="<%= contextPath %>/list.st?currentPage=1" method="get" >
+		  <input type="hidden" name="currentPage" maxlength="12" value="1">
+		
+		<div class="category-filters5-container">
+		  <div class="category-filters5-category-filters5">
+  
+			<div class="category-filters5-section-title">
+			  <span class="category-filters5-text HeadingH2">
+				<span><h1 style="margin-top: 30px;">메뉴 정보</h1></span>
+			  </span>
+			</div>
+  
+			<div class="category-filters5-content" style="width: 595px; margin-right: 0px; display: absolute; left : 47px">
+			  <div class="category-filters5-row1">
+  
+				<div class="category-filters5-filter-four" style="width:150px; margin-right: 0px; ">
+				  <select name="bname" class="category-filters5-select2">
+				  <option value="" selected>전체</option>
+				  <option value="BBQ">치킨</option>
+				  <option value="BHC">사이드</option>
+				  <option value="교촌치킨">교촌치킨</option>
+				  <option value="처갓집양념치킨">처갓집양념치킨</option>
+				  </select>
+				</div>		
+  
+					  <div>
+						<input type="text" name="keyword" class="category-filters5-select2" style="width: 200px; height: 23px; margin-right: 0px;" placeholder="검색어를 입력하세요.">
+				</div>
+				<div>
+				<button class="button" style="width: 70px; padding: 15px 5px; margin: 0px; margin-left : 25px;" type="submit">검색</button>
+				</div>
+  
+					</div>
+					</div>
+				  </div>
+		   </div>
+	  </form> 
+	</div>
+
+
+
+
+
+
+
+	<!-- <div style="display: flex; justify-content: center"
 		class="navbar navbar-expand-lg navbar-light bg-light">
 		<nav class="navbar">
 			<div class="container-fluid">
@@ -202,12 +263,9 @@ int maxPage = pi.getMaxPage();
 								<li><a class="dropdown-item"
 									href="<%=contextPath%>/list.ch?type=기타">기타</a></li>
 							</ul></li>
-						<li class="nav-item"><a class="nav-link" href="#"
-							onclick="window.open('<%=contextPath%>/views/menu/menuChat.jsp', 'chatWindow', 'width=500, height=500')">채팅방</a>
-						</li>
 					</ul>
 				</div>
-				<form class="d-flex" method="POST" action="search.mn">
+				<form class="d-flex" method="GET" action="search.mn">
 					<div class="input-group">
 						<input type="hidden" name="type">
 						<input class="form-control" type="search" name="query"
@@ -215,28 +273,20 @@ int maxPage = pi.getMaxPage();
 						<button class="btn btn-outline-success" type="submit">Search</button>
 					</div>
 				</form>
-				&nbsp;<%
-					if (loginUser != null && loginUser.getUserId().equals("admin")) {
-				%>
-				<button onclick="location.href='<%=contextPath%>/enrollForm.mn'"
-					type="button" class="btn btn-outline-dark" style="margin: 0 auto">메뉴
-					생성</button>
-				<%
-					}
-				%>
 			</div>
 		</nav>
-	</div>
+	</div> -->
+	
 	<!-- Section-->
-	<section class="py-5">
+	<section class="py-5" style="padding-top: 15px !important;">
 		<div class="container px-4 px-lg-5 mt-5">
 			<div
 				class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 				<%
 					for (Menu m : list) {
 				%>
-				<div class="col mb-5">
-					<div class="card h-100">
+				<div class="col mb-5" >
+					<div class="card h-100" style="border-radius: 0px; border: rgba(32, 31, 31, 0.171) 0.5px solid;" >
 						<!-- Product image-->
 						<%
 							for (Attachment i : ilist) {
@@ -246,7 +296,7 @@ int maxPage = pi.getMaxPage();
 						%>
 						<img class="card-img-top"
 							src="<%=contextPath%>/<%=i.getFilePath() + i.getChangeName()%>"
-							alt="..." style="width: 268px; height: 160px" />
+							alt="..." style="width: 100%; height: 160px; object-fit: cover" />
 						<%
 							}
 						%>
@@ -257,6 +307,7 @@ int maxPage = pi.getMaxPage();
 						<div class="card-body p-4">
 							<div class="text-center">
 								<!-- Product name-->
+							<h6 class="fw-bolder"><%=m.getBrandName()%></h6>
 								<h5 class="fw-bolder"><%=m.getMenuName()%></h5>
 								<!-- Product price-->
 								<%=m.getMenuPrice()%>원
@@ -265,7 +316,7 @@ int maxPage = pi.getMaxPage();
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto"
+								<a class="btn btn-outline-dark mt-auto" style="border-radius: 2px; border: rgba(32, 31, 31, 0.796) 0.5px solid;"
 									href="<%=contextPath%>/list.mn?
 				mno=<%=m.getMenuNo()%>">자세히
 									보기</a>
@@ -375,5 +426,6 @@ int maxPage = pi.getMaxPage();
 		  });
 		});
 	</script>
+	
 </body>
 </html>

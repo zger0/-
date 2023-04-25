@@ -8,7 +8,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>닭나와</title>
+<link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
 <style>
         /* MY PAGE 타이틀 부분 */
         #container .title {
@@ -228,16 +229,13 @@
 	                <li class="<%= sn.getActive3() %>">
 	                    <a href="menu.ad">메뉴 관리</a>
 	                    <ul>
-	                        <li><a href="table.ad">전체 신고내역 조회</a></li>
-	                        <li><a href="">???</a></li>
-	                        <li><a href="">???</a></li>                   
+	                        <li><a href="menu.ad">전체 메뉴 조회</a></li>                  
 	                    </ul>
 	                </li>
 	                <li class="<%= sn.getActive4() %>">
 	                    <a href="qna.ad">문의내역 관리</a>
 	                    <ul>
 	                        <li><a href="qna.ad">1:1 문의내역 관리</a></li>
-	                        <li><a href="faq.qna">FAQ 관리</a></li>
 	                    </ul>
 	                </li>
 		        </ul>

@@ -61,7 +61,7 @@ public class StoreUpdateController extends HttpServlet {
 			
 			request.getSession().setAttribute("alertMsg", "매장정보가 성공적으로 수정되었습니다.");
 			
-			response.sendRedirect(request.getContextPath() + "/adlist.st?currentPage=1");
+			response.sendRedirect(request.getContextPath() + "/store.ad");
 			
 		} else { // 실패 => 에러페이지 포워딩
 			
