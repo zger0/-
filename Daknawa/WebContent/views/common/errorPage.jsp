@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>닭나와</title>
 </head>
 <body>
 
@@ -16,5 +16,6 @@
 	<br><br>
 	<h1 align="center" style="color : red;"><%= errorMsg %></h1>
 	
+	<%@ include file="../common/footer.jsp"%>
 </body>
 </html>

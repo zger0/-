@@ -36,15 +36,14 @@ public class MyPagePostTable extends HttpServlet {
 		
 		SubNav sn = new SubNav();
 		
-		sn.setTitle1("ADMIN PAGE");
-		sn.setTitle1Addr("admin.me");
-		sn.setTitle2("매장 관리");
-		sn.setTitle2Addr("adlist.st");
-		sn.setTitle3("전체 매장 조회");
+		sn.setTitle1("MY PAGE");
+		sn.setTitle1Addr("myInfo.me");
+		sn.setTitle2("내 활동 관리");
+		sn.setTitle2Addr("postlist.mp");
+		sn.setTitle3("게시글 관리");
 		sn.setActive1("1");
 		sn.setActive2("active");
 		sn.setActive3("1");
-		sn.setActive4("1");
 		
 		
 		request.setAttribute("sn", sn);

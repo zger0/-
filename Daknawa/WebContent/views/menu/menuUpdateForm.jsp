@@ -11,7 +11,7 @@ int mno = Integer.parseInt(request.getParameter("mno"));
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>닭나와</title>
 </head>
 <body>
 
@@ -132,25 +132,25 @@ int mno = Integer.parseInt(request.getParameter("mno"));
                                             => 파일번호 : ATTACHMENT UPDATE 를 위해서 넘길 것
                                             => 수정명 : 파일도 수정된 경우 기존의 파일은 삭제하기 위해 넘길 것
                                         -->
-							<input type="hidden" name="originFileNo"
-								value="<%=at.getFileNo()%>"> <input type="hidden"
-								name="originFileName" value="<%=at.getChangeName()%>">
-
-							<%
-								}
-							%>
-							<div class="form-example-int mg-t-15"
-								style="text-align: center; margin-top: 25px;">
-								<button class="btn btn-success notika-btn-success"
-									style="margin: 0 2px;" type="submit">입력</button>
-								<button class="btn btn-success notika-btn-success"
-									style="margin: 0 2px;" onclick="window.history.back()">취소</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                            <input type="hidden" name="originFileNo"
+                                value="<%=at.getFileNo()%>"> <input type="hidden"
+                                name="originFileName" value="<%=at.getChangeName()%>">
+            
+                            <%
+                                }
+                            %>
+                            <div class="form-example-int mg-t-15" style="text-align: center; margin-top: 25px;">
+                                <button class="btn btn-success notika-btn-success" style="margin: 0 2px;" type="submit">입력</button>
+                                <button class="btn btn-success notika-btn-success" style="margin: 0 2px;">취소</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <%@ include file="../common/footer.jsp"%>
+    
 </body>
 </html>

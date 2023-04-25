@@ -263,8 +263,8 @@ div {
 								aria-expanded="false">더보기</button>
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 								<li><a class="dropdown-item" href="<%= contextPath %>/myPage.me">마이 페이지</a></li>
-								<li><a class="dropdown-item" href="#">문의 하기</a></li>
-
+								<li><a class="dropdown-item" href="<%= contextPath %>/questionForm.qna">문의 하기</a></li>
+								<li><a class="dropdown-item" onclick="window.open('<%=contextPath%>/views/menu/menuChat.jsp', 'chatWindow', 'width=500, height=500')">채팅방</a></li>
 							</ul>
 						</div>
 					</div>

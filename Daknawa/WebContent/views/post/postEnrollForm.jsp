@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="english">
   <head>
-    <title>exported project</title>
+    <title>닭나와</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
@@ -222,6 +222,9 @@
         </form>
       </div>
     </div>
+    
+    <%@ include file="../common/footer.jsp"%>
+    
   </body>
 </html>
 

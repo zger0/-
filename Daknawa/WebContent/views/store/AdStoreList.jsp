@@ -15,7 +15,7 @@
 	<html>
 	<head>
 	<meta charset="UTF-8">
-	<title>매장관리페이지</title>
+	<title>닭나와</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 	<style>
 	.outer {
@@ -147,6 +147,8 @@
 	
 	</div>
 	<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+
+	<%@ include file="../common/footer.jsp"%>
 
 </body>
 </html>

@@ -90,11 +90,10 @@ public class AskListController extends HttpServlet {
 		sn.setTitle1Addr("myInfo.me");
 		sn.setTitle2("문의내역");
 		sn.setTitle2Addr("list.ask?currentPage=1");
-		sn.setTitle3("1:1문의내역관리");
+		sn.setTitle3("1:1 문의내역 관리");
 		sn.setActive1("1");
 		sn.setActive2("1");
-		sn.setActive3("1");
-		sn.setActive4("active");
+		sn.setActive3("active");
 		
 		request.setAttribute("sn", sn);
 		

@@ -11,7 +11,7 @@
 
 <html lang="english">
   <head>
-    <title>exported project</title>
+    <title>닭나와</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
@@ -302,5 +302,8 @@
       </div>
       
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    
+    <%@ include file="../common/footer.jsp"%>
+    
   </body>
 </html>

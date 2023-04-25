@@ -40,7 +40,6 @@ public class MyInfoController extends HttpServlet {
 		sn.setActive1("active");
 		sn.setActive2("1");
 		sn.setActive3("1");
-		sn.setActive4("1");
 		
 		request.setAttribute("sn", sn);
 		

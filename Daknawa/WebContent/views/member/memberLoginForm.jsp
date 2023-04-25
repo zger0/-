@@ -29,7 +29,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인</title>
+<title>닭나와</title>
 <style>
     .h1 {
     	text-align : center;
@@ -155,7 +155,7 @@
 
     </form>
 	
-	
+	<%@ include file="../common/footer.jsp"%>
 
 </body>
 </html>
