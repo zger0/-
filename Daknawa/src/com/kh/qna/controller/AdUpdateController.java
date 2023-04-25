@@ -29,20 +29,29 @@ public class AdUpdateController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		request.setCharacterEncoding("UTF-8");
-		
+
 		int askNo = Integer.parseInt(request.getParameter("ano"));
-		String answer = request.getParameter("answerContent");
+		String answerContent = request.getParameter("answerContent");
 		
-		Qna q = new QnaService().updateAnswer(askNo, answer);
+		Qna q = new Qna();
+		q.setAskNo(askNo);
+		q.setAnswerContent(answerContent);
 		
-		request.setAttribute("q", q);
+		int result = new QnaService().updateAnswer(q);
 		
-		request.getRequestDispatcher("views/admin/answerUpdateForm.jsp").forward(request, response);
+		System.out.println(result);
+		if(result > 0) {
+			request.getSession().setAttribute("alertMsg", "성공적으로 답변이 등록됐습니다..");
+			response.sendRedirect(request.getContextPath() + "/qna.ad");
+		} else {
+			
+			request.setAttribute("errorMsg", "답변 등록 실패");
+			
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+		}
 	}
-
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

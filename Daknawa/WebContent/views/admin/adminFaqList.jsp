@@ -203,7 +203,6 @@
 <body>
 
 	<%@ include file="../common/menubar.jsp" %>
-	<%@ include file="../common/myPageNavbar.jsp" %>
 	
     <div class="div1" style="width: 700px; margin:auto;">
         <h1><b>고객센터</b></h1> <br>
@@ -212,7 +211,7 @@
 
 
     </div>
-    <div class="accordion" id="accordionPanelsStayOpenExample" style="width: 940px; margin:auto; padding : 5% 0% 10% 7%;"> 
+    <div class="accordion" id="accordionPanelsStayOpenExample" style="width: 940px; margin:auto; padding: 10%;"> 
         <div class="accordion-item">
           <h2 class="accordion-header" id="panelsStayOpen-headingOne">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
@@ -270,7 +269,6 @@
     <button class="ask1" onclick="location.href='<%= contextPath %>/questionForm.qna';">1:1 문의하기 ></button>
     </div>
 
- <%@ include file="../common/footer.jsp"%>
 	
 	
 

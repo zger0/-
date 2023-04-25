@@ -34,19 +34,10 @@ public class AskDetailController extends HttpServlet {
 		int askNo = Integer.parseInt(request.getParameter("ano"));
 
 		Qna q = new QnaService().selectAsk(askNo);
-		
-		// System.out.println(n);
-		
+				
 		request.setAttribute("q", q);
 		
-		request.getRequestDispatcher("views/qna/askList.jsp").forward(request, response);
-		
-		
-		
-		
-		
-		
-		
+		request.getRequestDispatcher("views/qna/askDetailView.jsp").forward(request, response);
 		
 	}
 

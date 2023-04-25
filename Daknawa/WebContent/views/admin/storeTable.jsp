@@ -190,6 +190,7 @@
 	<!-- tawk chat JS
 		============================================ -->
     <!-- <script src="resources/admin/js/tawk-chat.js"></script> -->
+      <%@ include file="../common/footer.jsp"%>
 </body>
 
 </html>

@@ -170,39 +170,7 @@
 
 	<%@ include file="../common/menubar.jsp" %>
 	
-	    <section id="container">
-      <div class="title">
-        <h2 class="sub_title">
-          <span>고객센터</span>
-        </h2>
-        <ol id="mini_title">
-          <li><a href="">Home</a>
-          </li>
-          <li>></li>
-          <li><a href="">고객센터</a>
-          </li>
-          <li>></li>
-          <li>1:1 문의</li>
-        </ol>
-  </div>
-
-  <div id="mnb" class="menubar">
-    <div class="mnb_header">
-      <ul>
-        <li>
-          <a href="">FAQ</a>
-        </li>
-        <li>
-          <a href="">광고문의</a>
-        </li>
-        <li>
-          <a href="">1:1 문의</a>
-        </li>
-      </ul>
-    </div>
-
-  </div>
-
+	<section id="container">
     <form action="<%= contextPath %>/update.ask" method="POST">   
 
       <div class="customer">
@@ -243,13 +211,13 @@
       
      <div>
       <label>문의제목</label>
-      <input type="text" id="subject" name="askTitle" value="<%= q.getAskTitle() %>" style="background-color: #f2f2f2;  border:none;" placeholder="제목을 입력하세요." required>
+      <input type="text" id="askTitle" name="askTitle" value="<%= q.getAskTitle() %>" style="background-color: #f2f2f2;  border:none;" placeholder="제목을 입력하세요." required>
     </div>
       <br><hr><br>
 
       <div style="display: flex;">
       <label for="message" style="display: inline-block; height: 200px;">문의 내용</label>
-      <textarea id="message" name="askContent" cols="50" rows="15" style="display: inline-block; resize:none; background-color: #f2f2f2; width: 800px; border:none;" placeholder="문의 내용을 상세하게 적어주세요."required><%= q.getAskContent() %></textarea>
+      <textarea id="askContent" name="askContent" cols="50" rows="15" style="display: inline-block; resize:none; background-color: #f2f2f2; width: 800px; border:none;" placeholder="문의 내용을 상세하게 적어주세요."required><%= q.getAskContent() %></textarea>
       </div>
       <br><hr><br>
       

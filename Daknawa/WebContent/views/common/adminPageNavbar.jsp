@@ -236,9 +236,8 @@
 	                <li class="<%= sn.getActive4() %>">
 	                    <a href="qna.ad">문의내역 관리</a>
 	                    <ul>
-	                        <li><a href="list.ask">1:1 문의내역 관리</a></li>
-	                        <li><a href="faq.qna">FAQ</a></li>
-	                        <li><a href="qna.ad">1:1문의내역 모두 보기</a></li>                
+	                        <li><a href="qna.ad">1:1 문의내역 관리</a></li>
+	                        <li><a href="faq.qna">FAQ 관리</a></li>
 	                    </ul>
 	                </li>
 		        </ul>
@@ -255,11 +254,6 @@
 		    console.log($(this).text());
 		  });
 		});
-	
-		
-	
-		
-	
 	</script>
 	
 	<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>

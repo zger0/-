@@ -288,9 +288,9 @@
 		
 		return true;
 	}
-    
+ 
     </script>
-    
+   
     <!-- 주소 api -->
     
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -312,7 +312,6 @@
 	        }).open();
 	    }
 	</script>
-    
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     
 

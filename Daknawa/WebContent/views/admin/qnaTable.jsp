@@ -97,10 +97,15 @@
                                         <td><%= q.getAskContent() %></td>
                                         <td><%= q.getAskType() %></td>
                                         <td><%= q.getAskDate() %></td>
-                                        <td><a href="<%= contextPath %>/askAnswer.ask?ano=<%= q.getAskNo() %>">답변달기</a></td>
-                                        <td><a href="<%= contextPath %>/delete.st?sno=<%= q.getAskNo() %>">삭제</a></td>
+                                        <td><a href="<%= contextPath %>/adUpdateForm.ask?ano=<%= q.getAskNo() %>">답변달기</a></td>
+                                        <td><a href="<%= contextPath %>/adDelete.ask?ano=<%= q.getAskNo() %>">삭제</a></td>
                                     </tr>
                                     <% } %>
+                                    
+                                    <tr>
+                                    	<td> </td>
+                                    
+                                    </tr>
                                 </tbody>
                                
                                 <tfoot>
@@ -187,6 +192,7 @@
 	<!-- tawk chat JS
 		============================================ -->
     <!-- <script src="resources/admin/js/tawk-chat.js"></script> -->
+     <%@ include file="../common/footer.jsp"%>
 </body>
-
+ 
 </html>

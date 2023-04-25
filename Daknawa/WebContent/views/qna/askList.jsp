@@ -247,38 +247,22 @@
                                                              조회된 리스트가 없습니다.
                         </td>
                     </tr>
-                    <% } else { %>
-                    	<% for(Qna q : list) { %>
-                    	
-	                        <tr>
-	                            <td><%= q.getAskNo() %></td>
-	                            <td><%= q.getAskType() %></td>
-	                            <td><%= q.getAskTitle() %></td>
-	                            <td><%= q.getAskContent() %></td>
-	                            <td><%= q.getMemberNo() %></td>
-	                            <td><%= q.getAskDate() %></td>
-	                            <td><button><a href="<%= contextPath %>/updateForm.ask?ano=<%= q.getAskNo() %>" class="updateAsk">수정하기</a></button></td>
-	                            <td><button><a href="<%= contextPath %>/delete.ask?ano=<%= q.getAskNo() %>" class="deleteAsk">삭제하기</a></button></td>
-	                         </tr>
-							<!--  
-		                    <% if(q.getAnswerContent() == null && q.getAnswerDate() == null) { %>
-		                    	<tr class="answer"> 클릭 시 보여지게, 다시클릭 시 사라지게
-		                    		<td colspan="6" align="center">답변 대기중입니다.</td>
-		                    	</tr>
-		                    <% } else { %>
-		                        <tr class="answer">
-		                        	<td colspan="5">
-		                        		<%= q.getAnswerContent() %>
-		                        	</td> 여기에 답변 출력
-		                        	<td>
-		                        		<%= q.getAnswerDate() %>
-		                        	</td> 여기에 답변일출력
-		                        </tr> 
-		                     <% } %> 
-	                     
-                      <% } %> -->
-                   <% } %>
-                        
+                <% } else { %>
+                <% for(Qna q : list) { %>
+                	
+                   <tr>
+                       <td><%= q.getAskNo() %></td>
+                       <td><%= q.getAskType() %></td>
+                       <td><%= q.getAskTitle() %></td>
+                       <td><%= q.getAskContent() %></td>
+                       <td><%= q.getMemberNo() %></td>
+                       <td><%= q.getAskDate() %></td>
+                       <td><button><a href="<%= contextPath %>/updateForm.ask?ano=<%= q.getAskNo() %>" class="updateAsk">수정하기</a></button></td>
+                       <td><button><a href="<%= contextPath %>/delete.ask?ano=<%= q.getAskNo() %>" class="deleteAsk">삭제하기</a></button></td>
+                    </tr>
+			
+               <% } %>
+               <% } %>    
             </tbody>
         </table>
         <br><br>
@@ -305,78 +289,16 @@
 		  <% if(currentPage != maxPage) { %>
 		  <button onclick="location.href = '<%= contextPath %>/list.ask?currentPage=<%= currentPage + 1 %>';">&gt;</button>
 		  <% } %>
+	
+		  
         </div>
     </div>
     
-    <!-- 관리자쪽 1:1문의 답변 ajax -->
-    <!-- <script>
-      $(document).ready(function() {
-          // 1:1문의 클릭 시 이벤트 처리
-          $('tbody tr').on('click', function(event) {
-            event.preventDefault();
-            
-            // 선택한 문의의 ID 값을 가져옴
-            var memberId = $(this).data('member-id');
-            
-            // 해당 문의의 세부 정보 조회
-            $.ajax({
-              url: '',
-              method: 'POST',
-              data: { memberId: memberId },
-              dataType: 'json',
-              async : true,
-              success: function(result) {
-            	  
-                // 세부 정보를 HTML로 구성하여 출력
-                var inquiryDetails = '<h2>' + '관리자 답변' + '</h2>';
-                inquiryDetails += '<p>' + '답변 내용' + '</p>';
-                inquiryDetails += '<form id="answer-form" method="POST">';
-                inquiryDetails += '<input type="hidden" name="memberId" value="' + memberId + '">';
-                inquiryDetails += '<textarea name="answerContent" placeholder="답변을 입력하세요"></textarea>';
-                inquiryDetails += '<button type="submit">답변 제출</button>';
-                inquiryDetails += '</form>';
-                
-                // 세부 정보를 모달 창에 출력
-                $('.modal-content').html(inquiryDetails);
-                $('.modal').css('display', 'block');
-                
-                // 답변 제출 폼 제출 시 이벤트 처리
-                $('#answer-form').on('submit', function(event) {
-                  event.preventDefault();
-                  
-                  // 답변 제출 처리
-                  $.ajax({
-                    url: 'adAnswer.ask',
-                    method: 'POST',
-                    data: $(this).serialize(),
-                    dataType: 'json',
-                    async : true,
-                    success: function(result) {
-                      // 답변 제출 결과 처리
-                      if (answer.success) {
-                        alert('답변이 제출되었습니다.');
-                        $('.modal').css('display', 'none');
-                      } else {
-                        alert('답변 제출에 실패했습니다.');
-                      }
-                    },
-                    error: function() {
-                      alert('서버와의 통신에 실패했습니다.');
-                    }
-                  });
-                });
-              },
-              error: function() {
-                alert('서버와의 통신에 실패했습니다.');
-              }
-            });
-          });
-        });
-      </script> -->
+    
     
     
   </section>
-  
+   <%@ include file="../common/footer.jsp"%>
                          
 
 </body>
