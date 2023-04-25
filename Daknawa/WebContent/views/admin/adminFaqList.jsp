@@ -1,21 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.kh.common.model.vo.PageInfo, java.util.ArrayList, com.kh.qna.model.vo.Qna" %>
-<%
-	// 필요한 데이터 뽑기
-	PageInfo pi = (PageInfo)request.getAttribute("pi");
-	ArrayList<Qna> list = (ArrayList<Qna>)request.getAttribute("list");
-	
-	int currentPage = pi.getCurrentPage();
-	int startPage = pi.getStartPage();
-	int maxPage = pi.getMaxPage();
-	int endPage = pi.getEndPage();
-%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <style>
         /* MY PAGE 타이틀 부분 */
         #container .title {
@@ -189,117 +179,98 @@
         background-color: #000;
         color: #ffffff;
       }
-      
-         /* 문의글 리스트 부분 */
-    .list-area {
-      width: 1000px;
-      height: 200px;
-      border: 1px solid gray;
-      margin: auto;
-      text-align:center;
-    }
-    .list-area>tbody>tr:hover {
-      background-color: rgb(239, 239, 239);
-      cursor: pointer;
-    }
-    
-    /* 답변 부분 */
-    .list-area .answer {
-    	display : none;
-    }
-      
+
+	div {
+	    text-align: center;
+	    margin-bottom: 4%;
+	}
+	.accordion-item {
+	    width: 700px;
+	}
+	
+	.ask1 {
+	    width: 150px;
+	    height: 50px;
+	    text-align: center;
+	    background-color: white;
+	    border: 2px solid;
+}
 </style>
+
 	<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 
 </head>
 <body>
 
 	<%@ include file="../common/menubar.jsp" %>
-	<%@ include file="../common/myPageNavbar.jsp" %>
 	
-	
-	 <section id="container">
-    <% if(loginUser != null) { %>
-    <div align="right" style="width : 850px">
-	    <a href="<%= contextPath %>/questionForm.qna" class="ask1">1:1 문의하기 </a>
-		<br><br>
-    </div>
-    <% } %>
-    <div class="outer">
+    <div class="div1" style="width: 700px; margin:auto;">
+        <h1><b>고객센터</b></h1> <br>
+        <h3><b>FAQ</b></h3> <br>
+        <h5>자주 찾는 질문</h5> <br>
 
-        
-        <table align="center" class="list-area">
-            <thead>
-                <tr>
-                    <th width="70">글번호</th>
-                    <th width="70">문의유형</th>
-                    <th width="200">제목</th>
-                    <th width="300">문의내용</th>
-                    <th width="100">작성자</th>
-                    <th width="100">작성일</th>
-                </tr>
-            </thead>
-            <tbody>
-            
-            	<% if(list.isEmpty()) {%>
-                    <tr>
-                        <td colspan="6">
-                                                             조회된 리스트가 없습니다.
-                        </td>
-                    </tr>
-                <% } else { %>
-                <% for(Qna q : list) { %>
-                	
-                   <tr>
-                       <td><%= q.getAskNo() %></td>
-                       <td><%= q.getAskType() %></td>
-                       <td><%= q.getAskTitle() %></td>
-                       <td><%= q.getAskContent() %></td>
-                       <td><%= q.getMemberNo() %></td>
-                       <td><%= q.getAskDate() %></td>
-                       <td><button><a href="<%= contextPath %>/updateForm.ask?ano=<%= q.getAskNo() %>" class="updateAsk">수정하기</a></button></td>
-                       <td><button><a href="<%= contextPath %>/delete.ask?ano=<%= q.getAskNo() %>" class="deleteAsk">삭제하기</a></button></td>
-                    </tr>
-			
-               <% } %>
-               <% } %>    
-            </tbody>
-        </table>
-        <br><br>
-        
-         <!-- 페이징바 -->
-        <div align="center" class="paging">
-          
-          <% if(currentPage != 1) { %>
-          <button onclick="location.href = '<%= contextPath %>/list.ask?currentPage=<%= currentPage - 1 %>';">&lt;</button>
-          <% } %>
-          
-          
-          <% for(int p = startPage; p <= endPage; p++) { %>
-          		<% if (p != currentPage) { %>
-				<button onclick="location.href = '<%= contextPath %>/list.ask?currentPage=<%= p %>';">
-				<%= p %>
-				</button>
-				<% } else { %>
-				<!-- 현재 내가 보고있는 페이지일 경우에는 클릭이 안되게 -->
-				<button disable><%= p %></button>
-				<% } %>
-		  <% } %>
-		  
-		  <% if(currentPage != maxPage) { %>
-		  <button onclick="location.href = '<%= contextPath %>/list.ask?currentPage=<%= currentPage + 1 %>';">&gt;</button>
-		  <% } %>
-	
-		  
-        </div>
+
     </div>
-    
-    
-    
-    
-  </section>
-   <%@ include file="../common/footer.jsp"%>
-                         
+    <div class="accordion" id="accordionPanelsStayOpenExample" style="width: 940px; margin:auto; padding: 10%;"> 
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+              회원 등급 안내
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+            <div class="accordion-body">
+              <strong>회원등급 안내 사항은 고객센터 FAQ 를 참고 해주세요.</strong>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+              이벤트 안내
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+            <div class="accordion-body">
+              <strong>이벤트 안내 사항은 고객센터 FAQ 를 참고 해주세요.</strong> 
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+              사이트 이용 안내
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+            <div class="accordion-body">
+              <strong>사이트 이용 안내 사항은 고객센터 FAQ 를 참고 해주세요.</strong> 
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+                기타 안내
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+              <div class="accordion-body">
+                <strong>기타 안내 사항은 고객센터 FAQ 를 참고 해주세요.</strong>
+             </div>
+            </div>
+          </div>
+      </div>
+
+
+    <div class="div3" style="width: 700px; margin:auto;">
+    <h2><b>문의가 해결되지 않으신가요?</b></h2> <br><br>
+    <h5>자세한 문의는 1:1 문의 게시판을 이용하세요.</h5> <br><br>
+    <button class="ask1" onclick="location.href='<%= contextPath %>/questionForm.qna';">1:1 문의하기 ></button>
+    </div>
+
+	
+	
 
 </body>
 </html>

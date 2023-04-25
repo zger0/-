@@ -19,9 +19,9 @@ System.out.println("q 들오나" + q);
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-example-wrap" >
-                        <form id="update-form" action="<%= contextPath %>/insert.qna" method="post" >
+                        <form id="update-form" action="<%= contextPath %>/~~~~~" method="post" >
                             <div class="cmp-tb-hd" style="margin-bottom: 25px; margin-top: 40px; text-align: center;">
-                                <h2>1:1 문의 수정</h2>
+                                <h2>1:1문의 답변 </h2>
                             </div>
                             <input type="hidden" name="memberNo" value="<%= loginUser.getUserNo() %>"> <!-- 회원번호 -->
                             <div class="form-example-int">
@@ -48,7 +48,7 @@ System.out.println("q 들오나" + q);
                             </div>
                             <div class="form-example-int mg-t-15">
                                 <div class="form-group">
-                                    <label>문의제목</label>
+                                    <label>문의 제목</label>
                                     <div class="nk-int-st">
                                         <input type="text" class="form-control input-sm" value="<%= q.getAskTitle() %>" name="askTitle">
                                     </div>
@@ -57,7 +57,7 @@ System.out.println("q 들오나" + q);
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="floating-numner form-rlt-mg">
-                                        <p>답변 달기</p>
+                                        <p>문의 내용</p>
                                     </div>
                                 </div>
                             </div>
@@ -71,11 +71,6 @@ System.out.println("q 들오나" + q);
                                 </div>
                             </div>
                            
-                            <div class="form-example-int mg-t-15">
-                                <div class="fm-checkbox">
-                                    <label><input type="checkbox" class="i-checks"> <i></i> 개인정보 수집 및 이용에 대한 동의(필수)</label>
-                                </div>
-                            </div>
                             <div class="form-example-int mg-t-15" style="text-align: center; margin-top: 25px;">
                                 <button class="btn btn-success notika-btn-success" style="margin: 0 2px;" type="submit">입력</button>
                                 <button class="btn btn-success notika-btn-success" style="margin: 0 2px;">취소</button>
