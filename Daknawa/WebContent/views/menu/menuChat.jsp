@@ -14,6 +14,7 @@ String alertMsg = (String) session.getAttribute("alertMsg"); // alert 메세지
 <head>
 <meta charset="UTF-8">
 <title>닭나와 채팅방</title>
+<link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
 <style>
 
 * {
