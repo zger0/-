@@ -151,7 +151,7 @@
               
             </div>
           </div>
-          <div class="blog6-content01">
+          <!-- <div class="blog6-content01">
             <div class="blog6-card" style="width: 1312px; margin: 0 auto;">
               <img
                 src="resources/css/public/playground_assets/placeholderimagei308-xjo-500h.png"
@@ -193,7 +193,7 @@
                 </button>
               </div>
             </div>
-            <br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br> -->
             <!-- 카테고리 -->
             <!-- <div class="blog6-content04">
               <div class="blog6-categories">
