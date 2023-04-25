@@ -15,7 +15,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>닭나와</title>
 <style>
         /* MY PAGE 타이틀 부분 */
         #container .title {

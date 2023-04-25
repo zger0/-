@@ -12,7 +12,7 @@ int mno = Integer.parseInt(request.getParameter("mno"));
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>상품 수정 페이지</title>
+<title>닭나와</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
 <style>
@@ -134,6 +134,9 @@ body {
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		
+	<%@ include file="../common/footer.jsp"%>
+		
 </body>
 </html>
 

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>비밀번호 찾기</title>
+<title>닭나와</title>
 <style>
     .h1 {
         text-align : center;
@@ -76,6 +76,8 @@
         </div>
 
     </form>
+    
+    <%@ include file="../common/footer.jsp"%>
 
 </body>
 </html>

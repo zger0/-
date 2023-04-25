@@ -21,7 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
-    <title>Insert title here</title>
+    <title>닭나와</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <style data-tag="reset-style-sheet">
       html {
@@ -595,8 +595,6 @@ map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
         </div>
       </div>
 </footer>-->
-		
-		
 		
   	</body>
 </html>

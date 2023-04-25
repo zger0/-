@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>닭나와</title>
 </head>
 <body>
 
@@ -124,5 +124,8 @@
             </div>
         </div>
     </div>
+    
+    <%@ include file="../common/footer.jsp"%>
+    
 </body>
 </html>

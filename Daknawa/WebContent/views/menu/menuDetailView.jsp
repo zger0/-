@@ -24,7 +24,7 @@ else lo = 0;
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>CMS</title>
+<title>닭나와</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Bootstrap icons-->
@@ -189,5 +189,8 @@ else lo = 0;
 	</footer>
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
+	
+	<%@ include file="../common/footer.jsp"%>
+	
 </body>
 </html>

@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>닭나와</title>
 <style>
   hr {
     height: 1px;
@@ -253,6 +253,8 @@
       </div>
     </form>
    </section>
+
+	<%@ include file="../common/footer.jsp"%>
 
 </body>
 </html>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>이메일 인증</title>
+<title>닭나와</title>
 <style>
     .h1, .h4 { text-align : center; }
 
@@ -75,6 +75,8 @@
         </div>
 
     </form>
+    
+    <%@ include file="../common/footer.jsp"%>
 
 </body>
 </html>

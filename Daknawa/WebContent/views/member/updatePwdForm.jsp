@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>비밀번호 변경</title>
+<title>닭나와</title>
 <style>
     .h1 {
         text-align : center;
@@ -132,6 +132,8 @@
 			return true;
 	    }
     </script>
+    
+    <%@ include file="../common/footer.jsp"%>
 
 </body>
 </html>

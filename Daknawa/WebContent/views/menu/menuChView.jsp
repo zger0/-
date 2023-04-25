@@ -25,7 +25,7 @@ int maxPage = pi.getMaxPage();
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>CMS</title>
+<title>닭나와</title>
 
 <!-- swiper.js 라이브러리추가 -->
 <link rel="stylesheet"

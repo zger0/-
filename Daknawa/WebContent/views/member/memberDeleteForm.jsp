@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원탈퇴</title>
+<title>닭나와</title>
 <style>
     .h1 {
     	text-align : center;
@@ -81,6 +81,8 @@
         </div>
 
     </form>
+    
+    <%@ include file="../common/footer.jsp"%>
     
 </body>
 </html>
