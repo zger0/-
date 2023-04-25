@@ -59,7 +59,7 @@
 	
 	<form id="delete-member" action="<%= contextPath %>/delete.me" method="post">
 
-        <br><br><br><br>
+        
         
         <h1 class="h1">회원 탈퇴</h1>
         
