@@ -27,7 +27,11 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <!-- Latest compiled JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<style> 
+    html, body, div, select, input { cursor: url('resources/css/public/playground_assets/cursor.cur') 0 10, auto; !important }
 
+	html:active, body:active, select:active, input:active { cursor: url('resources/css/public/playground_assets/cursor2.cur') 2 40, auto; !important }
+</style>
 
 <!-- CSS only -->
 <link
