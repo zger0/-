@@ -39,7 +39,7 @@ public class StoreDeleteController extends HttpServlet {
 				
 				request.getSession().setAttribute("alertMsg", "성공적으로 매장정보가 삭제되었습니다.");
 				
-				response.sendRedirect(request.getContextPath() + "/adlist.st?currentPage=1");
+				response.sendRedirect(request.getContextPath() + "/store.ad");
 				
 			} else { // 실패 => 에러페이지로 포워딩
 				

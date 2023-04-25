@@ -98,7 +98,7 @@ public class MenuUpdateController extends HttpServlet {
 
 			if(result > 0) {
 				request.getSession().setAttribute("alertMsg", "메뉴 수정에 성공하였습니다.");
-				response.sendRedirect(request.getContextPath() + "/list.mn?mno=" + mno);
+				response.sendRedirect(request.getContextPath() + "/menu.ad");
 			} else {
 				request.setAttribute("errorMsg", "메뉴 수정에 실패하였습니다.");
 				request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
