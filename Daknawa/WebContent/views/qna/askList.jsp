@@ -220,10 +220,12 @@
 	
 	 <section id="container">
     <% if(loginUser != null) { %>
-    <div align="right" style="width : 850px">
-	    <a href="<%= contextPath %>/questionForm.qna" class="ask1">1:1 문의하기 </a>
-		<br><br>
+    <h3 style="align : left; margin : 0 auto; width : 1000px;">1:1 문의내역</h3>
+    
+    <div align="center" style="width : 850px; margin : auto;">
+	    <a href="<%= contextPath %>/questionForm.qna" class="ask1 btn btn-secondary">1:1 문의하기 </a>
     </div>
+    <br><br>
     <% } %>
     <div class="outer">
 

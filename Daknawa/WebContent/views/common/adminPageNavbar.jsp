@@ -228,8 +228,7 @@
 	                <li class="<%= sn.getActive3() %>">
 	                    <a href="menu.ad">메뉴 관리</a>
 	                    <ul>
-	                        <li><a href="menu.ad">전체 메뉴 조회</a></li>
-	                        <li><a href="table.ad">게시글 관리?? 미완성</a></li>                   
+	                        <li><a href="menu.ad">전체 메뉴 조회</a></li>                  
 	                    </ul>
 	                </li>
 	                <li class="<%= sn.getActive4() %>">

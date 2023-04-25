@@ -203,9 +203,12 @@
 <body>
 
 	<%@ include file="../common/menubar.jsp" %>
-	<%@ include file="../common/myPageNavbar.jsp" %>
 	
-    <div class="div1" style="width: 700px; margin:auto;">
+	<% if(loginUser != null) { %>
+		<%@ include file="../common/myPageNavbar.jsp" %>
+	<% } %>
+	
+    <div class="div1" style="width: 700px; margin:auto; margin-top : 20px;">
         <h1><b>고객센터</b></h1> <br>
         <h3><b>FAQ</b></h3> <br>
         <h5>자주 찾는 질문</h5> <br>

@@ -14,13 +14,13 @@ import com.kh.common.model.vo.SubNav;
  * Servlet implementation class asdf
  */
 @WebServlet("/asdf")
-public class asdf extends HttpServlet {
+public class asdfXXX extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public asdf() {
+    public asdfXXX() {
         super();
         // TODO Auto-generated constructor stub
     }

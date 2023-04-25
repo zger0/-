@@ -27,8 +27,18 @@ public class MemberLoginPageController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.getRequestDispatcher("views/member/memberLoginForm.jsp").forward(request, response);
-		
+		if(request.getSession().getAttribute("loginUser") == null) { // 로그인 하기 전 로그인 클릭
+			
+			request.getRequestDispatcher("views/member/memberLoginForm.jsp").forward(request, response);		
+			
+			// response.sendRedirect(request.getContextPath() + "/loginPage.me");
+		} else { // 로그인 상태에서 주소입력으로 로그인페이지 진입
+				
+			request.getSession().setAttribute("alertMsg", "이미 로그인 되어있습니다.");
+			
+			response.sendRedirect(request.getContextPath());
+		}
+
 	}
 
 	/**
