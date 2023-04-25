@@ -41,12 +41,13 @@ public class AdUpdateController extends HttpServlet {
 		
 		int result = new QnaService().updateAnswer(q);
 		
+		System.out.println(result);
 		if(result > 0) {
-			request.getSession().setAttribute("alertMsg", "성공적으로 1:1문의가 수정되었습니다.");
-			response.sendRedirect(request.getContextPath() + "/adAnswerList.ask");
+			request.getSession().setAttribute("alertMsg", "성공적으로 답변이 등록됐습니다..");
+			response.sendRedirect(request.getContextPath() + "/qna.ad");
 		} else {
 			
-			request.setAttribute("errorMsg", "답변 수정 실패");
+			request.setAttribute("errorMsg", "답변 등록 실패");
 			
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}

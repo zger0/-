@@ -29,14 +29,16 @@ public class AdDeleteController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int askNo = Integer.parseInt(request.getParameter("askNo"));
+		int askNo = Integer.parseInt(request.getParameter("ano"));
+		
+		System.out.println(askNo);
 		
 		int result = new QnaService().deleteAnswer(askNo);
 		
 		if(result > 0) {
 			request.getSession().setAttribute("alertMsg", "성공적으로 해당 답변이 삭제되었습니다.");
 			
-			response.sendRedirect(request.getContextPath() + "/adAnswerList.ask");
+			response.sendRedirect(request.getContextPath() + "/qna.ad");
 			
 		} else {
 			

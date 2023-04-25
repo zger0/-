@@ -36,7 +36,7 @@ public class AdUpdateFormController extends HttpServlet {
 		
 		request.setAttribute("q", q);
 		
-		request.getRequestDispatcher("views/qna/UpdateForm.jsp").forward(request, response);
+		request.getRequestDispatcher("views/qna/askAnswerUpdateForm.jsp").forward(request, response);
 	}
 		
 		

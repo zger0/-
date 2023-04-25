@@ -154,8 +154,9 @@ public class QnaDao {
 			
 			pstmt.setInt(1, askNo);
 			
+			System.out.println(askNo);
 			rset = pstmt.executeQuery();
-			
+			System.out.println(rset);
 			if(rset.next()) {
 				
 				q = new Qna();

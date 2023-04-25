@@ -1,14 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.kh.common.model.vo.SubNav" %>
-<%
-	SubNav sn = (SubNav)request.getAttribute("sn");
-%>
-
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <style>
         /* MY PAGE 타이틀 부분 */
         #container .title {
@@ -182,83 +179,98 @@
         background-color: #000;
         color: #ffffff;
       }
+
+	div {
+	    text-align: center;
+	    margin-bottom: 4%;
+	}
+	.accordion-item {
+	    width: 700px;
+	}
+	
+	.ask1 {
+	    width: 150px;
+	    height: 50px;
+	    text-align: center;
+	    background-color: white;
+	    border: 2px solid;
+}
 </style>
+
 	<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 
 </head>
 <body>
+
+	<%@ include file="../common/menubar.jsp" %>
 	
-	<section id="container">
-        <div class="title">
-          <h2 class="sub_title">
-            <span><%= sn.getTitle1() %></span>
-            </h2>
-            <ol id="mini_title">
-            <li><a href="/Daknawa">Home</a>
-            </li>
-            <li>></li>
-            <li><a id="title1" href="<%= sn.getTitle1Addr() %>"><%= sn.getTitle1() %></a>
-            </li>
-            <li>></li>
-            <li><a href="<%= sn.getTitle2Addr() %>"><%= sn.getTitle2() %></a>
-            </li>
-            <li>></li>
-            <li><%= sn.getTitle3() %></li>
-            </ol>
+    <div class="div1" style="width: 700px; margin:auto;">
+        <h1><b>고객센터</b></h1> <br>
+        <h3><b>FAQ</b></h3> <br>
+        <h5>자주 찾는 질문</h5> <br>
+
+
+    </div>
+    <div class="accordion" id="accordionPanelsStayOpenExample" style="width: 940px; margin:auto; padding: 10%;"> 
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+              회원 등급 안내
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+            <div class="accordion-body">
+              <strong>회원등급 안내 사항은 고객센터 FAQ 를 참고 해주세요.</strong>
+            </div>
+          </div>
         </div>
-        
-        <!-- ---------------------------------------- -->
-        
-        <div id="mnb" class="menubar">
-		    <div class="mnb_header">
-		        <ul id="mnb_sub">
-	            	<li class="<%= sn.getActive1() %>">
-	                    <a href="list.me">회원 관리</a>
-	                    <ul>
-	                        <li style="display: block !important;"><a href="list.me">회원정보 조회</a></li>
-	                        <li style="display: block !important;"><a href="list.me">블랙리스트 목록</a></li>                   
-	                    </ul>
-	                </li>
-	                <li class="<%= sn.getActive2() %>">
-	                    <a href="store.ad">매장 관리</a>
-	                    <ul>
-	                        <li><a href="store.ad">전체 매장 조회</a></li>
-	                        <li><a href="adlist.st?currentPage=1">???</a></li>
-	                        <li><a href="adlist.st?currentPage=1">???</a></li>                   
-	                    </ul>
-	                </li>
-	                <li class="<%= sn.getActive3() %>">
-	                    <a href="menu.ad">메뉴 관리</a>
-	                    <ul>
-	                        <li><a href="table.ad">전체 신고내역 조회</a></li>
-	                        <li><a href="">???</a></li>
-	                        <li><a href="">???</a></li>                   
-	                    </ul>
-	                </li>
-	                <li class="<%= sn.getActive4() %>">
-	                    <a href="qna.ad">문의내역 관리</a>
-	                    <ul>
-	                        <li><a href="qna.ad">1:1 문의내역 관리</a></li>
-	                        <li><a href="faq.qna">FAQ 관리</a></li>
-	                    </ul>
-	                </li>
-		        </ul>
-		    </div>
-		    <br>
-    	</div>
-    	
-    </section>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+              이벤트 안내
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+            <div class="accordion-body">
+              <strong>이벤트 안내 사항은 고객센터 FAQ 를 참고 해주세요.</strong> 
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+              사이트 이용 안내
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+            <div class="accordion-body">
+              <strong>사이트 이용 안내 사항은 고객센터 FAQ 를 참고 해주세요.</strong> 
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+                기타 안내
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+              <div class="accordion-body">
+                <strong>기타 안내 사항은 고객센터 FAQ 를 참고 해주세요.</strong>
+             </div>
+            </div>
+          </div>
+      </div>
+
+
+    <div class="div3" style="width: 700px; margin:auto;">
+    <h2><b>문의가 해결되지 않으신가요?</b></h2> <br><br>
+    <h5>자세한 문의는 1:1 문의 게시판을 이용하세요.</h5> <br><br>
+    <button class="ask1" onclick="location.href='<%= contextPath %>/questionForm.qna';">1:1 문의하기 ></button>
+    </div>
+
 	
-	<script>
 	
-		$(document).ready(function(){
-		  $("a").click(function(){
-		    console.log($(this).text());
-		  });
-		});
-	</script>
-	
-	<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-	
+
 </body>
 </html>
