@@ -50,7 +50,8 @@ else lo = 0;
 						alt="..." />
 				</div>
 				<div class="col-md-6">
-					<h1 class="display-5 fw-bolder" style="display: inline-block;"><%=list.get(0).getMenuName()%></h1>
+				<h2 class="display-7 fw-bolder"><%=list.get(0).getBrandName()%></h2>
+					<h1 class="display-7 fw-bolder" style="display: inline-block;"><%=list.get(0).getMenuName()%></h1>
 					<%
 						if (loginUser != null) {
 							
@@ -113,14 +114,6 @@ else lo = 0;
 					<p class="lead"><%=list.get(0).getMenuDesc()%></p>
 					<br>
 					<div class="d-flex">
-							<% if(loginUser != null && loginUser.getUserId().equals("admin")) { %>
-						<button class="btn btn-outline-dark flex-shrink-0" type="button"
-							onclick="location.href='<%=contextPath%>/updateForm.mn?mno=<%=mno%> '">
-							메뉴수정</button>
-						<button class="btn btn-outline-dark flex-shrink-0" type="button"
-							onclick="location.href='<%=contextPath%>/delete.mn?mno=<%=mno%> '">
-							메뉴삭제</button>
-							<% } %>
 					</div> <br>조회수 <%=list.get(0).getView()%> 좋아요 <span class="like-count"><%=lo%></span>
 				</div>
 			</div>
@@ -147,7 +140,7 @@ else lo = 0;
 						%>
 						<img class="card-img-top"
 							src="<%=contextPath%>/<%=i.getFilePath() + i.getChangeName()%>"
-							alt="..." />
+							alt="..." style="width: 100%; height: 160px; object-fit: cover" />
 						<!-- Product details-->
 						<%
 							}
