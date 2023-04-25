@@ -67,7 +67,6 @@
 											<option value="7">굽네치킨</option>
 											<option value="8">멕시카나치킨</option>
 											<option value="9">호식이두마리치킨</option>
-												
 										</select>
                                     </div>
                                 </div>
