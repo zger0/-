@@ -271,8 +271,6 @@
 		    <% if(loginUser != null) { %>
 		    
 				<form id="infoUpdate-form" action="update.me" method="post">
-		
-			        <br><br><br>
 			        
 			        <h1 class="h1">내 정보</h1>
 			
@@ -580,6 +578,6 @@
 	</script>
     
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-
+  <%@ include file="../common/footer.jsp"%>
 </body>
 </html>

@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Data Table | Notika - Notika Admin Template</title>
+    <title>메뉴 관리</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -100,8 +100,8 @@
                                         <td><%= m.getMenuName() %></td>
                                         <td><%= m.getBrandName() %></td>
                                         <td><%= m.getMenuPrice() %></td>
-                                        <td><a href="updateForm.st?sno=<%= m.getMenuNo() %>">수정</a></td>
-                                        <td><a href="delete.st?sno=<%= m.getMenuNo() %>">삭제</a></td>
+                                        <td><a href="updateForm.mn?mno=<%= m.getMenuNo() %>">수정</a></td>
+                                        <td><a href="delete.mn?mno=<%= m.getMenuNo() %>">삭제</a></td>
                                     </tr>
                                     <% } %>
                                 </tbody>
@@ -190,6 +190,7 @@
 	<!-- tawk chat JS
 		============================================ -->
     <!-- <script src="resources/admin/js/tawk-chat.js"></script> -->
+     <%@ include file="../common/footer.jsp"%>
 </body>
-
+ 
 </html>

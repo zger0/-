@@ -66,7 +66,7 @@ public class NoticeListController extends HttpServlet {
 		
 		
 		// System.out.println(pi);
-		System.out.println(list);
+		// System.out.println(list);
 		
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);

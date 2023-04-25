@@ -150,10 +150,26 @@
          ORDER BY MEMBER_NO DESC
 	</entry>
 	
+	<!-- 블랙리스트회원 조회용 쿼리문 -->
+	<entry key="selectBlackMemberList">
+		SELECT *
+          FROM MEMBER
+         WHERE STATUS = 'Y'
+           AND BLACKLIST= 'Y'
+         ORDER BY MEMBER_NO DESC
+	</entry>
+	
 	<!-- 블랙리스트 추가 -->
 	<entry key="updateBlacklist">
 		UPDATE MEMBER
 		   SET BLACKLIST = 'Y'
+		 WHERE MEMBER_NO = ?
+	</entry>
+	
+	<!-- 블랙리스트 해제 -->
+	<entry key="updateUnBlacklist">
+		UPDATE MEMBER
+		   SET BLACKLIST = 'N'
 		 WHERE MEMBER_NO = ?
 	</entry>
 	

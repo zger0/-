@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.kh.qna.model.vo.Qna"%>
+    pageEncoding="UTF-8" import="com.kh.menu.model.vo.Menu"%>
 <%
-    Qna q = (Qna)request.getAttribute("q");
+    Menu m = (Menu)request.getAttribute("m");
 %>
 <!DOCTYPE html>
 <html>
@@ -21,7 +21,6 @@
                             <div class="cmp-tb-hd" style="margin-bottom: 25px; margin-top: 40px; text-align: center;">
                                 <h2>1:1 문의</h2>
                             </div>
-                            <input type="hidden" name="memberNo" value="<%= loginUser.getUserNo() %>"> <!-- 회원번호 -->
                             <div class="form-example-int">
                                 <div class="form-group">
                                     <label>아이디</label>
@@ -68,7 +67,6 @@
                                     </div>
                                 </div>
                             </div>
-                           
                             <div class="form-example-int mg-t-15">
                                 <div class="fm-checkbox">
                                     <label><input type="checkbox" class="i-checks"> <i></i> 개인정보 수집 및 이용에 대한 동의(필수)</label>
@@ -84,6 +82,5 @@
             </div>
         </div>
     </div>
-     <%@ include file="../common/footer.jsp"%>
 </body>
 </html>

@@ -89,8 +89,8 @@
       }
       .menubar { height : 38px; }
 
-      #mnb.menubar .mnb_header ul li {
-        /* width: 25%; ------------------------- */ 
+      #mnb.menubar {
+        margin-bottom : 100px;
       }
       #mnb .mnb_header ul li {
         text-align: center;
@@ -232,15 +232,14 @@
 	                    <ul>
 	                        <li><a href="">내 신고내역</a></li>
 	                        <li><a href="">B</a></li>
-	                        <li><a href="">C</a></li>                   
+	                        <li><a href="">C</a></li>
 	                    </ul>
 	                </li>
 	                <li class="<%= sn.getActive4() %>">
 	                    <a href="list.ask?currentPage=1">문의내역</a>
 	                    <ul>
 	                        <li><a href="list.ask?currentPage=1">1:1 문의내역 관리</a></li>
-	                        <li><a href="faq.qna">FAQ</a></li>
-	                        <li><a href="">C</a></li>                
+	                        <li><a href="faq.qna">FAQ</a></li>              
 	                    </ul>
 	                </li>
 		        </ul>

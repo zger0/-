@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import com.kh.member.model.service.MemberService;
 import com.kh.member.model.vo.Member;
 
@@ -33,12 +34,17 @@ public class MemberSelectController extends HttpServlet {
 
 		String memId = request.getParameter("memId");
 		
-		Member m = new MemberService().selectMember(memId);
+		Member sm = new MemberService().selectMember(memId);
 		
-		response.setContentType("text/html; charset=UTF-8");
+		// response.setContentType("text/html; charset=UTF-8");
 		
-		response.getWriter().print(m);	
+		// response.getWriter().print(sm);	
 	
+		// GSON 을 이용해서 응답데이터 넘기기
+		response.setContentType("application/json; charset=UTF-8");
+		
+		new Gson().toJson(sm, response.getWriter());
+		
 	}
 
 	/**
