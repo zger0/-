@@ -45,7 +45,7 @@
         <link rel="stylesheet" href="./style.css" />
       </head>
       <body>
-        <div style="height : 0px;">
+        <div style="height : 0px; margin-top: 80px;">
           <link href="resources/css/footer7.css" rel="stylesheet" />
           <img
             src="resources/css/public/playground_assets/logo.png"
