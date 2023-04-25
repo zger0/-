@@ -285,6 +285,19 @@
     font-weight:600
   }
 }
+.button {
+        background-color : black;
+        border-radius : 5px;
+        color : white;
+        margin : 20px 0px 5px 0px;
+    }
+
+    .button:hover {
+        background-color : gray;
+        cursor : pointer;
+    }
+
+
 
     </style>
     
@@ -379,7 +392,7 @@
     </div>
     
     
-    <div>
+  <div>
       <link href="resources/css/category-filters5.css" rel="stylesheet"/>
       
 	  <form id="keywordList-form" action="<%= contextPath %>/list.st?currentPage=1" method="get" >
@@ -387,9 +400,10 @@
 	  
       <div class="category-filters5-container">
         <div class="category-filters5-category-filters5">
+
           <div class="category-filters5-section-title">
             <span class="category-filters5-text HeadingH2">
-              <span><h1>매장검색</h2></span>
+              <span><h1>매장검색</h1></span>
             </span>
           </div>
 
@@ -439,14 +453,16 @@
 				      <input type="text" name="keyword" class="category-filters5-select2" style="width: 200px; height: 23px; margin-right: 10px;" placeholder="검색어를 입력하세요.">
               </div>
               <div>
-              <button class="btn btn-outline-success" type="submit">검색</button>
+              <button class="button" style="width: 70px; padding: 15px 5px;" type="submit">검색</button>
               </div>
-			        </div>
-            </div>
-				  </div>
-     		</div>
-   	  </div>
-    </form> 	
+
+			      </div>
+          </div>
+				</div>
+     	</div>
+    </form> 
+  </div>
+
     <div>
       <link href="resources/css/career17.css" rel="stylesheet" />
 
