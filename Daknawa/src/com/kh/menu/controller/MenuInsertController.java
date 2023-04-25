@@ -193,7 +193,7 @@ public class MenuInsertController extends HttpServlet {
 				// 게시글 등록 성공
 				// => 게시글 목록 페이지로 이동
 				request.getSession().setAttribute("alertMsg", "게시글 등록 성공!");
-				response.sendRedirect(request.getContextPath() + "/menu.mn");
+				response.sendRedirect(request.getContextPath() + "/menu.ad");
 			} else {
 				request.setAttribute("errorMsg", "게시글 등록 실패!");
 				request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
