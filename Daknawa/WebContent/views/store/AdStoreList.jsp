@@ -16,6 +16,7 @@
 	<head>
 	<meta charset="UTF-8">
 	<title>닭나와</title>
+	<link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 	<style>
 	.outer {

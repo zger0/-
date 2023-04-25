@@ -10,6 +10,7 @@ System.out.println("q 들오나" + q);
 <head>
 <meta charset="UTF-8">
 <title>닭나와</title>
+<link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
 </head>
 <body>
 

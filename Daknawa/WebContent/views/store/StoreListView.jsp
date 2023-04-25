@@ -22,6 +22,7 @@
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
     <title>닭나와</title>
+    <link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <style data-tag="reset-style-sheet">
       html {

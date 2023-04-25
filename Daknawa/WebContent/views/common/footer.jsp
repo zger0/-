@@ -4,6 +4,7 @@
     <html lang="english">
       <head>
         <title>exported project</title>
+        <link rel="shortcut icon" type="resources/admin/image/x-icon" href="resources/css/public/playground_assets/logo.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charset="utf-8" />
         <meta property="twitter:card" content="summary_large_image" />
