@@ -215,7 +215,16 @@
 <body>
 
 	<%@ include file="../common/menubar.jsp" %>
-	<%@ include file="../common/myPageNavbar.jsp" %>
+	
+	<% if(loginUser.getUserId().equals("admin")) { %>
+		
+		<%@ include file="../common/adminPageNavbar.jsp" %>
+	
+	<% } else { %>
+		
+		<%@ include file="../common/myPageNavbar.jsp" %>		
+		
+	<% } %>
 	
 	
 	 <section id="container">
@@ -255,10 +264,10 @@
 	                            <td><%= q.getAskContent() %></td>
 	                            <td><%= q.getMemberNo() %></td>
 	                            <td><%= q.getAskDate() %></td>
-	                            <td><button><a href="<%= contextPath %>/adAnswerForm.ask?ano=<%= q.getAskNo() %>" class="updateAsk">답변하기</a></button></td>
+	                            <td><button><a href="<%= contextPath %>/adAnswerForm<%= q.getAskNo() %>" class="updateAnswer">답변하기</a></button></td>
 	                         </tr>
 							<!--  
-		                    
+							
                    <% } %>
                         
             </tbody>
@@ -294,7 +303,7 @@
     
   </section>
   
-                         
+        <%@ include file="../common/footer.jsp"%>                   
 
 </body>
 </html>

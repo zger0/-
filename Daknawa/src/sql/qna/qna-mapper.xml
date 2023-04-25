@@ -25,7 +25,7 @@
 		WHERE MEMBER_NO = ?
 	</entry>
 	
-	<entry key="selectList">
+	<entry key="selectListA">
 	SELECT *
 	FROM (
 	    SELECT ROWNUM RNUM, A.*
@@ -48,11 +48,23 @@
 	WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	
+	<entry key="selectList">
+		
+	SELECT *
+      FROM QNA
+     WHERE STATUS = 'Y'
+	
+	</entry>
+	
 	<entry key="selectAsk">
 		SELECT ASK_NO
+			 , ASK_TYPE
 		     , ASK_TITLE
 		     , ASK_CONTENT
 		     , ASK_DATE
+		     , ANSWER_CONTENT
+		     , ANSWER_DATE
+		     , MEMBER_NO
 		  FROM QNA Q
 		  JOIN MEMBER USING (MEMBER_NO)
 		 WHERE ASK_NO = ?
@@ -82,7 +94,7 @@
 		              , NULL)
 	</entry>
 	
-	<entry key="updateAsk">
+	<entry key="updateAnswer">
 	UPDATE QNA
 	   SET ANSWER_CONTENT = ?
 	 WHERE ASK_NO = ?

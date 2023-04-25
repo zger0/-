@@ -214,8 +214,9 @@
                     <% if(currentPage != maxPage){ %>
                     <button onclick="location.href='<%= contextPath%>/nlist.no?currentPage=<%=currentPage + 1%>';">&gt;</button>
                     <%} %>
-                            
+                           
                     </div>
+                     
                 </div>
         </body>
     </html>

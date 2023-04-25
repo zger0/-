@@ -102,5 +102,6 @@
             </div>
         </div>
     </div>
+     <%@ include file="../common/footer.jsp"%>
 </body>
 </html>
