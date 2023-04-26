@@ -96,6 +96,11 @@
 
 	<%@ include file="../common/menubar.jsp" %>
 	
+	<% if(loginUser != null) { %>
+		<%@ include file="../common/myPageNavbar.jsp" %>
+	<% } %>
+	
+	
  <div class="container" style = "margin-top:100px;">
 			<div class="row">
 				<div class="col-md-12">

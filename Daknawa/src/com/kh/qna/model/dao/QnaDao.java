@@ -164,9 +164,9 @@ public class QnaDao {
 				q.setAskType(rset.getInt("ASK_TYPE"));
 				q.setAskTitle(rset.getString("ASK_TITLE"));
 				q.setAskContent(rset.getString("ASK_CONTENT"));
+				q.setAskDate(rset.getDate("ASK_DATE"));
 				q.setAnswerContent(rset.getString("ANSWER_CONTENT"));
 				q.setAnswerDate(rset.getDate("ANSWER_DATE"));
-				q.setAskDate(rset.getDate("ASK_DATE"));
 				q.setMemberNo(rset.getInt("MEMBER_NO"));
 
 			}
