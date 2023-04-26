@@ -35,6 +35,7 @@ public class MenuSearchController extends HttpServlet {
 		
 		String type = request.getParameter("type");
 		String query = request.getParameter("query");
+		String menu = request.getParameter("menu");
 		
 		 int listCount; // 현재 총 게시글의 갯수
 		    int currentPage; // 현재 페이지 (즉, 사용자가 요청하는 페이지)
@@ -87,6 +88,7 @@ public class MenuSearchController extends HttpServlet {
 			request.setAttribute("pi", pi);
 			request.setAttribute("query", query);
 			request.setAttribute("type", type);
+			request.setAttribute("menu", menu);
 			request.getRequestDispatcher("views/menu/menuSearchView.jsp").forward(request, response);
 		} else {
 			//System.out.println(type);

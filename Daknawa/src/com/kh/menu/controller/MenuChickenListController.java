@@ -35,6 +35,7 @@ public class MenuChickenListController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String type = request.getParameter("type");
+		System.out.println(type);
 		
 	    int listCount; // 현재 총 게시글의 갯수
 	    int currentPage; // 현재 페이지 (즉, 사용자가 요청하는 페이지)

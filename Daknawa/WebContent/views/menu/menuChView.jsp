@@ -8,6 +8,7 @@
 ArrayList<Attachment> ilist = (ArrayList<Attachment>) request.getAttribute("ilist");
 PageInfo pi = (PageInfo) request.getAttribute("pi");
 String type = (String) request.getAttribute("type");
+System.out.println(type);
 // 자주 쓰일법한 변수들 셋팅
 int currentPage = pi.getCurrentPage();
 int startPage = pi.getStartPage();
@@ -303,13 +304,6 @@ $(document).ready(function() {
 		</div>
 	</section>
 
-	<!-- Footer-->
-	<footer class="py-5 bg-dark">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
-				Website 2023</p>
-		</div>
-	</footer>
 	<!-- Bootstrap core JS-->
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>

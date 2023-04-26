@@ -12,6 +12,10 @@ int endPage = pi.getEndPage();
 int maxPage = pi.getMaxPage();
 String type = (String)request.getAttribute("type");
 if (type == null) type = "";
+String menu = (String)request.getAttribute("menu");
+if (menu == null) menu = "";
+String query = (String)request.getAttribute("query");
+if (query == null) query = "";
 %>
 
 <!DOCTYPE html>
@@ -263,7 +267,7 @@ if (type == null) type = "";
 				%>
 				<!--  현재 내가 보고 있는 페이지일 경우에는 클릭이 안되게끔 -->
 				<button
-					onclick="location.href = '<%=contextPath%>/search.mn?currentPage=<%=p%>&type=<%=type%>';">
+					onclick="location.href = '<%=contextPath%>/search.mn?currentPage=<%=p%>&type=<%=type%>&menu=<%=menu%>&query=<%=query%>';">
 					<%=p%>
 				</button>
 				<%
@@ -276,7 +280,7 @@ if (type == null) type = "";
 					if (currentPage != maxPage) {
 				%>
 				<button
-					onclick="location.href = ' <%=contextPath%>/search.mn?currentPage=<%=currentPage + 1%>&type=<%=type%>';">
+					onclick="location.href = ' <%=contextPath%>/search.mn?currentPage=<%=currentPage + 1%>&type=<%=type%>&menu=<%=menu%>&query=<%=query%>';">
 					&gt;</button>
 				<%
 					}
@@ -285,13 +289,6 @@ if (type == null) type = "";
 		</div>
 	</section>
 
-	<!-- Footer-->
-	<footer class="py-5 bg-dark">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
-				Website 2023</p>
-		</div>
-	</footer>
 	<!-- Bootstrap core JS-->
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>

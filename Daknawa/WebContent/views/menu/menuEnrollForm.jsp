@@ -97,23 +97,35 @@
                                     </div>
                                 </div>
                             </div>
-                            	<script>
-								$(document).ready(function() {
-								  $('form#enroll-form').submit(function(event) {
-								    var fileInput = $('input[name="upfile"]');
-								    if(fileInput.get(0).files.length === 0) {
-								      event.preventDefault();
-								      alert('이미지를 선택하세요.');
-								    }
-								  });
-								});
-								</script>
                             <div class="form-example-int mg-t-15" style="text-align: center; margin-top: 25px;">
                                 <button class="btn btn-success notika-btn-success" style="margin: 0 2px;" type="submit">입력</button>
-                                <button class="btn btn-success notika-btn-success"
-									style="margin: 0 2px;" onclick="window.history.back()">취소</button>
+                                <button id="cancel-btn" class="btn btn-success notika-btn-success"
+									style="margin: 0 2px;" onclick="location.href='<%=contextPath%>/menu.ad'">취소</button>
                             </div>
+                            <script>
+$(document).ready(function() {
+  $('form#enroll-form').submit(function(event) {
+    var fileInput = $('input[name="upfile"]');
+    if(fileInput.get(0).files.length === 0) {
+      event.preventDefault();
+      alert('이미지를 선택하세요.');
+    }
+  });
+
+  $('#cancel-btn').click(function() {
+    $('input[name="upfile"]').val(''); // 이미지 선택창 초기화
+    event.preventDefault();
+  });
+});
+</script>
+                            
+                            
+                            
                         </form>
+                        
+                        
+                        
+                        
                     </div>
                 </div>
             </div>
